@@ -76,7 +76,7 @@ export const CasesPage = () => {
 
       <section aria-labelledby="projects-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-4 pb-12 md:gap-16 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
         <h2 id="projects-heading" className="sr-only">Casos de estudio</h2>
-        <div role="list" aria-label="Lista de proyectos">
+        <div role="list" aria-label="Lista de proyectos" className="flex flex-col gap-12 md:gap-16">
           {PROJECTS_DATA.map((project) => (
             <ProjectCard 
               key={project.id} 
