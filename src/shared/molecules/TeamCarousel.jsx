@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 const getInitials = (name) => {
   return name
@@ -88,7 +88,7 @@ export const TeamCarousel = ({ team }) => {
             }`}
             aria-label="Anterior miembro"
           >
-            <ChevronLeft className="text-white" size={20} strokeWidth={2} />
+            <HiChevronLeft className="h-5 w-5 text-white" />
           </motion.button>
 
           <div className="flex gap-2">
@@ -118,7 +118,7 @@ export const TeamCarousel = ({ team }) => {
             }`}
             aria-label="Siguiente miembro"
           >
-            <ChevronRight className="text-white" size={20} strokeWidth={2} />
+            <HiChevronRight className="h-5 w-5 text-white" />
           </motion.button>
         </div>
       )}

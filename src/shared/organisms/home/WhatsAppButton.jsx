@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
+import { EXTERNAL_LINKS } from '../../../core/routes'
 
-export const WhatsAppButton = ({ phoneNumber }) => (
+export const WhatsAppButton = () => (
   <motion.a
-    href={`https://wa.me/${phoneNumber}`}
+    href={EXTERNAL_LINKS.whatsapp}
     target="_blank"
     rel="noreferrer"
     className="group fixed bottom-8 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#FFD700] text-base-950 shadow-glow-md"

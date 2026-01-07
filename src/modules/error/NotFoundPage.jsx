@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Home, ArrowLeft, Zap } from 'lucide-react'
+import { HiHome, HiArrowLeft } from 'react-icons/hi'
+import { HiMiniSparkles } from 'react-icons/hi2'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 export const NotFoundPage = () => (
@@ -20,7 +21,7 @@ export const NotFoundPage = () => (
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="inline-flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FFD700]/40 bg-[#FFD700]/10 backdrop-blur-xl"
           >
-            <Zap className="text-[#FFD700]" size={48} strokeWidth={2} />
+            <HiMiniSparkles className="h-12 w-12 text-[#FFD700]" />
           </motion.div>
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -72,19 +73,19 @@ export const NotFoundPage = () => (
             to="/"
             className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FFD700] px-8 py-4 text-sm font-semibold uppercase tracking-[0.3em] text-base-950 shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            <Home size={18} strokeWidth={2} />
+            <HiHome className="h-5 w-5" />
             Volver al Inicio
           </Link>
 
           <Link
-            to="javascript:history.back()"
+            to={-1}
             onClick={(e) => {
               e.preventDefault()
               window.history.back()
             }}
             className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-8 py-4 text-sm font-semibold uppercase tracking-[0.3em] text-white backdrop-blur-xl transition-all duration-300 hover:border-[#FFD700]/40 hover:bg-white/[0.08] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            <ArrowLeft size={18} strokeWidth={2} />
+            <HiArrowLeft className="h-5 w-5" />
             Regresar
           </Link>
         </motion.div>

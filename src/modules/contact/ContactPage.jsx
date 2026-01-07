@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Mail, Phone, ArrowRight, MessageCircle, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2'
+import { HiArrowRight } from 'react-icons/hi'
+import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
 import { FormField } from '../../shared/atoms/forms/FormField'
 import { ContactInfoItem } from '../../shared/atoms/contact/ContactInfoItem'
 import { SocialLink } from '../../shared/atoms/contact/SocialLink'
@@ -131,7 +133,7 @@ export const ContactPage = () => {
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  icon={ArrowRight}
+                  icon={HiArrowRight}
                   required
                   options={[
                     { value: '', label: 'Asignar rango' },
@@ -183,19 +185,19 @@ export const ContactPage = () => {
 
                 <div className="space-y-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                   <ContactInfoItem
-                    icon={MapPin}
+                    icon={HiMapPin}
                     title="HQ Titanium Tower"
                     description="Piso 18 · Distrito Financiero · Ciudad de México"
                   />
                   <div className="h-px bg-slate-200" />
                   <ContactInfoItem
-                    icon={Mail}
+                    icon={HiEnvelope}
                     title="growth@booststudio.com"
                     description="Respuesta t-48h | Equipo Core Growth"
                   />
                   <div className="h-px bg-slate-200" />
                   <ContactInfoItem
-                    icon={Phone}
+                    icon={HiPhone}
                     title="+1 (800) BOOST-UP"
                     description="Horario operativo: 08:00 - 20:00 (EST)"
                   />
@@ -216,10 +218,10 @@ export const ContactPage = () => {
               <div className="space-y-4">
                 <p className="text-xs font-mono uppercase tracking-[0.45em] text-slate-500">Connect</p>
                 <div className="flex gap-4">
-                  <SocialLink icon={MessageCircle} href={EXTERNAL_LINKS.whatsapp} label="WhatsApp" />
-                  <SocialLink icon={Linkedin} href={EXTERNAL_LINKS.linkedin} label="LinkedIn" />
-                  <SocialLink icon={Twitter} href={EXTERNAL_LINKS.twitter} label="Twitter" />
-                  <SocialLink icon={Instagram} href={EXTERNAL_LINKS.instagram} label="Instagram" />
+                  <SocialLink icon={FaWhatsapp} href={EXTERNAL_LINKS.whatsapp} label="WhatsApp" />
+                  <SocialLink icon={FaLinkedinIn} href={EXTERNAL_LINKS.linkedin} label="LinkedIn" />
+                  <SocialLink icon={FaXTwitter} href={EXTERNAL_LINKS.twitter} label="Twitter" />
+                  <SocialLink icon={FaInstagram} href={EXTERNAL_LINKS.instagram} label="Instagram" />
                 </div>
               </div>
             </div>
@@ -236,10 +238,8 @@ export const ContactPage = () => {
               }`}
             >
               {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
-              <ArrowRight
-                className={`transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
-                size={18}
-                strokeWidth={1.8}
+              <HiArrowRight
+                className={`h-5 w-5 transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
               />
             </motion.button>
           </div>

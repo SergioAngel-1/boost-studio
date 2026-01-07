@@ -1,12 +1,14 @@
-import { TrendingUp, Layers, Target, MessageSquare } from 'lucide-react'
+import { HiTrendingUp } from 'react-icons/hi'
+import { HiCube, HiChatBubbleLeftRight } from 'react-icons/hi2'
+import { TbTarget } from 'react-icons/tb'
 
-export const IconGrowth = () => <TrendingUp className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
+export const IconGrowth = () => <HiTrendingUp className="h-8 w-8 text-[#FFD700]" />
 
-export const IconDigitalAssets = () => <Layers className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
+export const IconDigitalAssets = () => <HiCube className="h-8 w-8 text-[#FFD700]" />
 
-export const IconDemand = () => <Target className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
+export const IconDemand = () => <TbTarget className="h-8 w-8 text-[#FFD700]" />
 
-export const IconContent = () => <MessageSquare className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
+export const IconContent = () => <HiChatBubbleLeftRight className="h-8 w-8 text-[#FFD700]" />
 
 export const HOME_SERVICES = [
   {

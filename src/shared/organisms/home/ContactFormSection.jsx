@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Zap } from 'lucide-react'
+import { HiArrowRight } from 'react-icons/hi'
+import { HiMiniSparkles } from 'react-icons/hi2'
 import { AccentButton } from '../../atoms/buttons/AccentButton'
 import { fluidSizing } from '../../utils/fluidSizing'
 import { ROUTES } from '../../../core/routes'
@@ -42,7 +43,7 @@ export const ContactFormSection = () => (
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#FFD700] text-base-950">
-              <Zap size={24} strokeWidth={2.2} />
+              <HiMiniSparkles className="h-6 w-6" />
             </span>
             <div className="flex flex-col">
               <span className="text-xs font-mono uppercase tracking-[0.35em] text-[#FFD700]">Status</span>
@@ -73,7 +74,7 @@ export const ContactFormSection = () => (
         <div className="flex flex-col gap-4 lg:items-end">
           <AccentButton
             href={ROUTES.contact}
-            icon={ArrowRight}
+            icon={HiArrowRight}
             className="bg-[#FFD700] px-10 py-5 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]"
           >
             Iniciar Protocolo
