@@ -35,13 +35,13 @@ const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C
 
 export const GrowthPathSection = () => (
   <section className="relative w-full overflow-hidden">
-    <div style={{ padding: `0 ${fluidSizing.spacing['3xl']}`, marginBottom: fluidSizing.spacing['3xl'] }}>
+    <div className="px-4 pb-8 md:px-8 md:pb-12 lg:px-12">
       <motion.span
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs uppercase tracking-[0.45em] text-slate-300"
+        className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
       >
         The Electric Growth Path
       </motion.span>
@@ -50,7 +50,8 @@ export const GrowthPathSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="font-semibold leading-tight text-white" style={{ fontSize: fluidSizing.heading.h2, marginTop: fluidSizing.spacing.lg, maxWidth: fluidSizing.container['5xl'] }}>
+        className="mt-4 max-w-4xl text-2xl font-semibold leading-tight text-white md:mt-6 md:text-4xl lg:text-5xl"
+      >
         Un mapa energético que revela cómo Boost <span className="text-[#FFD700]">enciende</span> tu crecimiento
       </motion.h2>
       <motion.p
@@ -58,15 +59,14 @@ export const GrowthPathSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="text-sm leading-relaxed text-slate-300/85"
-        style={{ marginTop: fluidSizing.spacing.lg, maxWidth: fluidSizing.container['5xl'] }}
+        className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300/85 md:text-base"
       >
         Visualizamos la progresión real de las capacidades de crecimiento que activamos en tus primeros 90 días. Cada nodo es una ganancia medible alimentada por el núcleo Boost.
       </motion.p>
     </div>
 
     {/* Desktop Version - Full bleed SVG */}
-    <div className="relative hidden w-screen lg:block" style={{ height: '360px', marginLeft: 'calc(-50vw + 50%)' }}>
+    <div className="relative hidden w-full lg:block" style={{ height: '360px' }}>
       <svg viewBox="0 0 1600 360" preserveAspectRatio="none" className="h-full w-full">
         <motion.path
           d={pathD}
@@ -118,9 +118,9 @@ export const GrowthPathSection = () => (
     </div>
 
     {/* Mobile Version */}
-    <div className="relative flex flex-col rounded-[3rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl lg:hidden" style={{ gap: fluidSizing.spacing.xl, padding: fluidSizing.spacing.xl }}>
+    <div className="relative mx-4 flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl md:mx-8 md:gap-8 md:rounded-3xl md:p-8 lg:hidden">
       <motion.div
-        className="absolute left-8 top-12 h-[calc(100%-6rem)] w-[2px] bg-gradient-to-b from-[#FFD700] via-[#FFD700]/25 to-transparent"
+        className="absolute left-5 top-8 h-[calc(100%-4rem)] w-[2px] bg-gradient-to-b from-[#FFD700] via-[#FFD700]/25 to-transparent md:left-8"
         variants={mobileLineVariants}
         initial="hidden"
         whileInView="visible"
@@ -135,16 +135,16 @@ export const GrowthPathSection = () => (
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
           variants={growthNodeVariants}
-          className="relative flex flex-col gap-3 pl-16"
+          className="relative flex flex-col gap-2.5 pl-12 md:gap-3 md:pl-16"
         >
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow">
-            <HiBolt className="h-[18px] w-[18px]" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow md:h-10 md:w-10">
+            <HiBolt className="h-4 w-4 md:h-[18px] md:w-[18px]" />
           </span>
           <div>
-            <p className="text-2xl font-semibold text-[#FFD700]">{value}</p>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-white">{label}</p>
+            <p className="text-xl font-semibold text-[#FFD700] md:text-2xl">{value}</p>
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-white md:text-sm md:tracking-[0.18em]">{label}</p>
           </div>
-          <p className="text-sm leading-relaxed text-slate-300/85">{description}</p>
+          <p className="text-xs leading-relaxed text-slate-300/85 md:text-sm">{description}</p>
         </motion.div>
       ))}
     </div>

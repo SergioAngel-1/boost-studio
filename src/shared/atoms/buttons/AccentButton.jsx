@@ -11,8 +11,7 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon 
   const sharedProps = {
     whileHover: { scale: 1.02 },
     whileTap: { scale: 0.98 },
-    className: `inline-flex items-center gap-3 rounded-full px-6 py-3 font-semibold uppercase tracking-[0.3em] shadow-[0_0_40px_rgba(247,214,76,0.25)] transition-colors duration-300 ${className}`,
-    style: { fontSize: fluidSizing.text.xs }
+    className: `inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] shadow-[0_0_40px_rgba(247,214,76,0.25)] transition-colors duration-300 md:gap-3 md:text-base md:tracking-[0.3em] ${className}`,
   }
 
   if (isInternalLink) {

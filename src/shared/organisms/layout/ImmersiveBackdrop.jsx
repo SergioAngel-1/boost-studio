@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const glows = [
   {
     className:
-      'absolute -top-[26rem] -left-[18rem] h-[54rem] w-[54rem] rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.34)_0%,_rgba(14,14,14,0)_70%)] blur-[150px]',
+      'absolute -top-[26rem] left-0 h-[54rem] w-[54rem] rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.34)_0%,_rgba(14,14,14,0)_70%)] blur-[150px]',
     animate: {
       x: [-10, 8, -6],
       y: [-4, 12, -10],
@@ -15,7 +15,7 @@ const glows = [
   },
   {
     className:
-      'absolute -top-[12rem] right-[-16rem] h-[48rem] w-[48rem] rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.25)_0%,_rgba(10,10,10,0)_65%)] blur-[140px]',
+      'absolute -top-[12rem] right-0 h-[48rem] w-[48rem] rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.25)_0%,_rgba(10,10,10,0)_65%)] blur-[140px]',
     animate: {
       x: [12, -6, 10],
       y: [0, 16, -8],

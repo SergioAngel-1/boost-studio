@@ -43,7 +43,7 @@ const team = [
 
 export const AboutPage = () => (
   <div className="relative overflow-hidden bg-[#020102] text-white">
-    <section className="relative flex min-h-[90vh] items-center justify-center" style={{ padding: `${fluidSizing.section.py} ${fluidSizing.spacing.lg}` }}>
+    <section className="relative flex min-h-[90vh] items-center justify-center px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <AnimatedBackground />
       <HeroSection
         eyebrow="El Manifiesto"
@@ -52,13 +52,13 @@ export const AboutPage = () => (
       />
     </section>
 
-    <section className="mx-auto flex w-full max-w-[1200px] flex-col" style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.section.py} ${fluidSizing.spacing.lg}` }}>
+    <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
         eyebrow="The Boost DNA"
         title="Nuestra filosofía de crecimiento imparable"
         align="center"
       />
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 lg:grid-cols-3">
         {philosophyPillars.map(({ title, description }, index) => (
           <FeatureCard
             key={title}
@@ -72,7 +72,7 @@ export const AboutPage = () => (
 
     <StatsGrid stats={trackRecord} />
 
-    <section className="mx-auto flex w-full max-w-[1200px] flex-col" style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.section.py} ${fluidSizing.spacing.lg}` }}>
+    <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
         eyebrow="The Architects"
         title="Mentes detrás del sistema."
@@ -81,13 +81,13 @@ export const AboutPage = () => (
       <TeamCarousel team={team} />
     </section>
 
-    <section className="mx-auto flex w-full max-w-[900px] flex-col items-center text-center" style={{ gap: fluidSizing.spacing.xl, padding: `0 ${fluidSizing.spacing.lg} ${fluidSizing.section.py}` }}>
+    <section className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="font-semibold leading-tight text-white" style={{ fontSize: fluidSizing.heading.h2 }}
+        className="text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
       >
         Activa tu motor de crecimiento
       </motion.h2>
@@ -99,7 +99,7 @@ export const AboutPage = () => (
       >
         <AccentButton
           href={ROUTES.contact}
-          className="bg-[#FFD700] px-10 py-4 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]"
+          className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
         >
           Hablar con Boost
         </AccentButton>

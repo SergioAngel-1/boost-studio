@@ -19,14 +19,14 @@ const StepNode = ({ stepNumber, title, isActive = false, onClick }) => {
       aria-pressed={isActive}
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.98 }}
-      className={`relative flex items-center rounded-full border px-6 py-3 text-left backdrop-blur-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 ${
+      className={`relative flex items-center rounded-full border px-4 py-2 text-left backdrop-blur-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 sm:px-5 sm:py-2.5 ${
         isActive
           ? 'border-[#FFD700]/70 bg-[#FFD700]/15'
           : 'border-white/12 bg-white/[0.05] hover:border-[#FFD700]/45 hover:bg-[#FFD700]/10'
       }`}
     >
       <span
-        className={`text-[0.65rem] font-semibold uppercase tracking-[0.38em] ${
+        className={`text-[0.55rem] font-semibold uppercase tracking-[0.3em] sm:text-[0.65rem] sm:tracking-[0.38em] ${
           isActive ? 'text-white' : 'text-white/70'
         }`}
       >
@@ -79,13 +79,13 @@ const MobileMethodDetail = ({ stepNumber, title, description }) => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -16 }}
     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-    className="w-full rounded-[2.4rem] border border-white/12 bg-white/[0.06] p-7 text-left text-white backdrop-blur-xl lg:hidden"
+    className="w-full rounded-2xl border border-white/12 bg-white/[0.06] p-5 text-left text-white backdrop-blur-xl md:rounded-3xl md:p-7 lg:hidden"
   >
-    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[#FFD700]">
+    <span className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-[#FFD700] md:text-[0.7rem] md:tracking-[0.32em]">
       {String(stepNumber).padStart(2, '0')}
     </span>
-    <h3 className="mt-3 text-lg font-semibold text-white">{title}</h3>
-    <p className="mt-4 text-sm leading-relaxed text-slate-200/85">{description}</p>
+    <h3 className="mt-3 text-base font-semibold text-white md:text-lg">{title}</h3>
+    <p className="mt-3 text-xs leading-relaxed text-slate-200/85 md:mt-4 md:text-sm">{description}</p>
   </motion.div>
 )
 
@@ -96,16 +96,13 @@ export const MethodSection = () => {
   const selectedStepNumber = (activeStep ?? 0) + 1
 
   return (
-    <div
-      className="relative flex flex-col"
-      style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing['3xl']}` }}
-    >
+    <div className="relative flex flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12">
       <motion.span
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="text-xs uppercase tracking-[0.45em] text-slate-300"
+        className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
       >
         El Método Boost
       </motion.span>
@@ -114,13 +111,12 @@ export const MethodSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="font-semibold leading-tight text-white"
-        style={{ fontSize: fluidSizing.heading.h2, maxWidth: fluidSizing.container['5xl'] }}
+        className="max-w-4xl text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
       >
         Un sistema orquestado para encender la <span className="text-[#FFD700]">expansión</span> de tu producto
       </motion.h2>
 
-      <div className="relative flex flex-col" style={{ gap: fluidSizing.spacing['2xl'] }}>
+      <div className="relative flex flex-col gap-8 md:gap-12">
         <motion.div
           layout
           className={`relative flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center ${
@@ -133,7 +129,7 @@ export const MethodSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ type: 'spring', stiffness: 180, damping: 24, delay: 0.2 }}
-            className="relative flex h-[260px] w-[260px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_50px_rgba(255,215,0,0.18)] sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]"
+            className="relative flex h-[220px] w-[220px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_50px_rgba(255,215,0,0.18)] sm:h-[280px] sm:w-[280px] lg:h-[360px] lg:w-[360px]"
           >
             <div className="absolute inset-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.38),_rgba(2,1,1,0.88))] blur-[54px]" />
             <img
@@ -175,7 +171,7 @@ export const MethodSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
-          className="flex w-full flex-wrap justify-center gap-3 sm:gap-4"
+          className="flex w-full flex-wrap justify-center gap-2.5 sm:gap-3"
         >
           {HOME_METHOD_STEPS.map(({ title }, index) => (
             <StepNode

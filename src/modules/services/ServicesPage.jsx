@@ -83,15 +83,15 @@ export const ServicesPage = () => {
 
 
   return (
-    <section className="relative w-full bg-[#020102] text-white" style={{ paddingTop: fluidSizing.section.py, paddingBottom: fluidSizing.section.py }}>
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col" style={{ gap: fluidSizing.spacing['3xl'], paddingLeft: fluidSizing.spacing.lg, paddingRight: fluidSizing.spacing.lg }}>
-        <header className="space-y-6">
+    <section className="relative w-full bg-[#020102] px-4 py-12 text-white md:px-8 md:py-16 lg:px-12 lg:py-20">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 md:gap-12">
+        <header className="space-y-4 md:space-y-6">
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xs uppercase tracking-[0.45em] text-slate-300"
+            className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
           >
             Strategic Service Roadmap
           </motion.p>
@@ -100,7 +100,8 @@ export const ServicesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl font-semibold leading-tight text-white" style={{ fontSize: fluidSizing.heading.h2 }}>
+            className="max-w-4xl text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
+          >
             La línea estratégica que articula nuestras cuatro células de servicio.
           </motion.h1>
           <motion.p
@@ -108,14 +109,14 @@ export const ServicesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="max-w-3xl text-sm leading-relaxed text-slate-300/85"
+            className="max-w-3xl text-sm leading-relaxed text-slate-300/85 md:text-base"
           >
             Cada módulo se integra mediante un flujo continuo de data, creatividad y revenue que asegura impacto compuesto en cada
             etapa del proyecto.
           </motion.p>
         </header>
 
-        <div ref={containerRef} className="relative flex flex-col" style={{ marginTop: fluidSizing.spacing.lg, gap: fluidSizing.spacing['5xl'] }}>
+        <div ref={containerRef} className="relative mt-6 flex flex-col gap-12 md:mt-8 md:gap-16 lg:gap-20">
           {pathData && bounds.width > 0 && bounds.height > 0 ? (
             <motion.svg
               key={pathData}
@@ -152,7 +153,7 @@ export const ServicesPage = () => {
             </motion.svg>
           ) : null}
 
-          <div className="flex flex-col gap-20">
+          <div className="flex flex-col gap-12 md:gap-16 lg:gap-20">
             {SERVICES_ROADMAP.map((service, index) => {
               const { id, title, description, alignment, Icon } = service
               const isLeft = alignment === 'left'
@@ -168,7 +169,7 @@ export const ServicesPage = () => {
               return (
                 <div
                   key={id}
-                  className="relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-center"
+                  className="relative grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-center lg:gap-10"
                 >
                   {isLeft ? (
                     <motion.article
@@ -180,15 +181,15 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
-                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-white/10 bg-[#050405]/92 p-8 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 lg:order-1 lg:col-start-1 lg:ml-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-4 rounded-2xl border border-white/10 bg-[#050405]/92 p-5 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:gap-5 md:rounded-3xl md:p-6 lg:order-1 lg:col-start-1 lg:ml-auto lg:max-w-xl lg:p-8"
                     >
-                      <div className="flex items-center gap-4">
-                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow">
+                      <div className="flex items-center gap-3 md:gap-4">
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12">
                           <Icon />
                         </span>
                       </div>
-                      <h2 className="text-xl font-semibold text-white">{title}</h2>
-                      <p className="text-sm leading-relaxed text-slate-300/90">{description}</p>
+                      <h2 className="text-lg font-semibold text-white md:text-xl">{title}</h2>
+                      <p className="text-xs leading-relaxed text-slate-300/90 md:text-sm">{description}</p>
                       <span className="pointer-events-none absolute right-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0.9),rgba(255,215,0,0))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
                     </motion.article>
                   ) : (
@@ -197,14 +198,14 @@ export const ServicesPage = () => {
 
                   <div className="order-1 lg:order-2 lg:col-start-2">
                     <div
-                      className="relative mx-auto flex h-24 w-24 items-center justify-center"
+                      className="relative mx-auto flex h-16 w-16 items-center justify-center md:h-20 md:w-20 lg:h-24 lg:w-24"
                       ref={(node) => {
                         circleRefs.current[index] = node
                         return node
                       }}
                     >
                       <span className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.65),_rgba(255,215,0,0))] blur-xl" />
-                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-base font-extrabold uppercase tracking-[0.2em] text-base-950 shadow-glow-md">
+                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-sm font-extrabold uppercase tracking-[0.15em] text-base-950 shadow-glow-md md:text-base md:tracking-[0.2em]">
                         {id}
                       </span>
                     </div>
@@ -220,15 +221,15 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
-                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-white/10 bg-[#050405]/92 p-8 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 lg:order-3 lg:col-start-3 lg:mr-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-4 rounded-2xl border border-white/10 bg-[#050405]/92 p-5 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:gap-5 md:rounded-3xl md:p-6 lg:order-3 lg:col-start-3 lg:mr-auto lg:max-w-xl lg:p-8"
                     >
-                      <div className="flex items-center gap-4">
-                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow">
+                      <div className="flex items-center gap-3 md:gap-4">
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12">
                           <Icon />
                         </span>
                       </div>
-                      <h2 className="text-xl font-semibold text-white">{title}</h2>
-                      <p className="text-sm leading-relaxed text-slate-300/90">{description}</p>
+                      <h2 className="text-lg font-semibold text-white md:text-xl">{title}</h2>
+                      <p className="text-xs leading-relaxed text-slate-300/90 md:text-sm">{description}</p>
                       <span className="pointer-events-none absolute left-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0),rgba(255,215,0,0.9))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
                     </motion.article>
                   ) : (
@@ -238,49 +239,6 @@ export const ServicesPage = () => {
               )
             })}
           </div>
-        </div>
-
-        <div className="relative mt-10 flex flex-col gap-12 rounded-[2.8rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_0_120px_rgba(255,215,0,0.16)] backdrop-blur-xl lg:hidden">
-          <motion.div
-            className="absolute left-10 top-16 h-[calc(100%-6rem)] w-[2px] bg-gradient-to-b from-[#FFD700] via-[#FFD700]/25 to-transparent"
-            initial={{ opacity: 0, scaleY: 0 }}
-            whileInView={{ opacity: 1, scaleY: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          />
-
-          {SERVICES_ROADMAP.map(({ id, title, description, Icon }) => (
-            <motion.article
-              key={id}
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              onClick={() => {
-                const service = SERVICES_ROADMAP.find((s) => s.id === id)
-                openModal(<ServiceModal service={service} />)
-              }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault()
-                  const service = SERVICES_ROADMAP.find((s) => s.id === id)
-                  openModal(<ServiceModal service={service} />)
-                }
-              }}
-              className="relative flex cursor-pointer flex-col gap-4 pl-16 transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-              <span className="absolute left-6 top-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-xs font-bold uppercase tracking-[0.2em] text-base-950 shadow-[0_0_35px_rgba(255,215,0,0.5)]">
-                {id}
-              </span>
-              <div className="flex items-center gap-3 text-[#FFD700]">
-                <Icon />
-                <h2 className="text-lg font-semibold text-white">{title}</h2>
-              </div>
-              <p className="text-sm leading-relaxed text-slate-300/85">{description}</p>
-            </motion.article>
-          ))}
         </div>
       </div>
     </section>

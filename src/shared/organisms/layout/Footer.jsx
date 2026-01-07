@@ -28,37 +28,29 @@ const socialLinks = [
 ]
 
 export const Footer = () => (
-  <footer
-    className="relative flex justify-center bg-transparent text-black"
-    style={{
-      marginTop: fluidSizing.spacing['6xl'],
-      paddingBottom: fluidSizing.spacing['3xl'],
-      paddingLeft: fluidSizing.spacing.lg,
-      paddingRight: fluidSizing.spacing.lg,
-    }}
-  >
+  <footer className="relative mt-16 flex justify-center bg-transparent px-4 pb-12 text-black md:mt-24 md:px-8 md:pb-16 lg:mt-32">
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="z-40 w-[clamp(320px,85vw,50rem)] rounded-[2.5rem] bg-[#FFD700] px-8 py-10 text-center shadow-[0_20px_60px_rgba(255,215,0,0.15)] md:px-12"
+      className="z-40 w-full max-w-3xl rounded-2xl bg-[#FFD700] p-6 text-center shadow-[0_20px_60px_rgba(255,215,0,0.15)] md:rounded-[2.5rem] md:p-10"
     >
-      <div className="flex flex-col items-center gap-8">
-        <div className="flex flex-col items-center gap-3">
-          <img src={boostLogo} alt="Boost Studio" className="h-12 w-auto object-contain" />
-          <span className="text-sm font-extrabold uppercase tracking-[0.32em]">Encendemos el crecimiento</span>
+      <div className="flex flex-col items-center gap-6 md:gap-8">
+        <div className="flex flex-col items-center gap-2 md:gap-3">
+          <img src={boostLogo} alt="Boost Studio" className="h-10 w-auto object-contain md:h-12" />
+          <span className="text-xs font-extrabold uppercase tracking-[0.25em] md:text-sm md:tracking-[0.32em]">Encendemos el crecimiento</span>
         </div>
 
-        <div className="flex items-center gap-4 text-sm uppercase tracking-[0.3em] text-black/70">
+        <div className="flex flex-wrap items-center justify-center gap-2 text-[0.65rem] uppercase tracking-[0.25em] text-black/70 md:gap-3 md:text-sm md:tracking-[0.3em]">
           <span>Consultoría</span>
-          <span className="h-2 w-2 rounded-full bg-black/60" />
+          <span className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
           <span>Producto</span>
-          <span className="h-2 w-2 rounded-full bg-black/60" />
+          <span className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
           <span>Crecimiento</span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           {socialLinks.map((item, index) => {
             const Icon = item.icon
             return (
@@ -69,17 +61,17 @@ export const Footer = () => (
                 rel="noreferrer"
                 whileHover={{ y: -3, rotate: index % 2 === 0 ? 2.5 : -2.5 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                className="group flex h-12 w-12 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)] md:h-12 md:w-12"
                 aria-label={item.label}
               >
-                <Icon className="h-6 w-6 text-black" />
+                <Icon className="h-5 w-5 text-black md:h-6 md:w-6" />
               </motion.a>
             )
           })}
         </div>
       </div>
 
-      <div className="mt-10 flex justify-center text-xs font-bold uppercase tracking-[0.36em] text-black/60">
+      <div className="mt-6 flex justify-center text-[0.6rem] font-bold uppercase tracking-[0.3em] text-black/60 md:mt-10 md:text-xs md:tracking-[0.36em]">
         © 2026 Boost Studio.
       </div>
     </motion.div>

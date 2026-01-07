@@ -100,7 +100,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
             {/* Header fijo */}
             <div className="shrink-0 border-b border-white/10 px-4 py-4">
               <div className="flex items-center justify-between">
-                <span className="text-[0.6rem] font-mono uppercase tracking-[0.3em] text-[#FFD700]">Menú</span>
+                <span className="text-xs font-mono uppercase tracking-[0.35em] text-[#FFD700]">Menú</span>
                 <button
                   type="button"
                   onClick={onClose}

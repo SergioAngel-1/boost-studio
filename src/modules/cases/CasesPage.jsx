@@ -29,15 +29,14 @@ export const CasesPage = () => {
     <div className="relative overflow-hidden bg-[#020102] text-white">
       <section
         ref={heroRef}
-        className="mx-auto flex w-full max-w-[1200px] flex-col md:flex-row md:items-center md:justify-between"
-        style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.section.py} ${fluidSizing.spacing.lg} ${fluidSizing.section.py}` }}
+        className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:justify-between md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20"
       >
-        <div className="flex max-w-2xl flex-col gap-6 text-left">
+        <div className="flex max-w-2xl flex-col gap-4 text-left md:gap-6">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xs uppercase tracking-[0.45em] text-[#FFD700]/80"
+            className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FFD700]/80 md:text-xs md:tracking-[0.45em]"
           >
             The Proof
           </motion.p>
@@ -45,8 +44,7 @@ export const CasesPage = () => {
             initial={{ opacity: 0, y: 32 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="font-semibold leading-tight"
-            style={{ fontSize: fluidSizing.heading.h1 }}
+            className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl"
           >
             La especulación termina donde empieza la data.
           </motion.h1>
@@ -54,7 +52,7 @@ export const CasesPage = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
-            className="text-sm leading-relaxed text-slate-300/85 sm:text-base"
+            className="text-sm leading-relaxed text-slate-300/85 md:text-base"
           >
             No mostramos logos. Mostramos curvas de crecimiento exponencial. Aquí hay 3 despliegues tácticos que rompieron el mercado.
           </motion.p>
@@ -63,15 +61,15 @@ export const CasesPage = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-          className="relative flex min-w-[260px] flex-col items-start gap-4 rounded-[2.8rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition-all duration-300 delay-75 hover:border-[#FFD700]/70"
+          className="relative flex w-full flex-col items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 delay-75 hover:border-[#FFD700]/70 md:min-w-[260px] md:gap-4 md:rounded-3xl md:p-8"
         >
-          <span className="text-xs uppercase tracking-[0.4em] text-slate-400">Revenue Activado</span>
-          <span className="font-semibold text-[#FFD700]" style={{ fontSize: fluidSizing.heading.h2 }}>{displayRevenue}</span>
-          <p className="text-xs uppercase tracking-[0.35em] text-slate-400/80">Generado para partners en los últimos 12 meses</p>
+          <span className="text-[0.6rem] uppercase tracking-[0.35em] text-slate-400 md:text-xs md:tracking-[0.4em]">Revenue Activado</span>
+          <span className="text-3xl font-semibold text-[#FFD700] md:text-4xl lg:text-5xl">{displayRevenue}</span>
+          <p className="text-[0.6rem] uppercase tracking-[0.3em] text-slate-400/80 md:text-xs md:tracking-[0.35em]">Generado para partners en los últimos 12 meses</p>
         </motion.div>
       </section>
 
-      <section className="mx-auto flex w-full max-w-[1200px] flex-col" style={{ gap: fluidSizing.spacing['4xl'], padding: `0 ${fluidSizing.spacing.lg} ${fluidSizing.section.py}` }}>
+      <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-4 pb-12 md:gap-16 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
         {PROJECTS_DATA.map((project) => (
           <ProjectCard 
             key={project.id} 
@@ -80,14 +78,13 @@ export const CasesPage = () => {
         ))}
       </section>
 
-      <section className="mx-auto flex w-full max-w-[900px] flex-col items-center text-center" style={{ gap: fluidSizing.spacing.lg, padding: `0 ${fluidSizing.spacing.lg} ${fluidSizing.section.py}` }}>
+      <section className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
         <motion.h2
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.55 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-semibold leading-tight"
-          style={{ fontSize: fluidSizing.heading.h2 }}
+          className="text-2xl font-semibold leading-tight md:text-4xl lg:text-5xl"
         >
           ¿Quieres ser nuestro próximo caso de estudio?
         </motion.h2>
@@ -99,7 +96,7 @@ export const CasesPage = () => {
         >
           <AccentButton
             href={ROUTES.contact}
-            className="border border-[#FFD700] bg-transparent px-10 py-4 text-[#FFD700] shadow-none hover:bg-[#FFD700]/10"
+            className="border border-[#FFD700] bg-transparent px-6 py-3 text-[#FFD700] shadow-none hover:bg-[#FFD700]/10 md:px-8 md:py-4"
           >
             Auditar mi Crecimiento
           </AccentButton>

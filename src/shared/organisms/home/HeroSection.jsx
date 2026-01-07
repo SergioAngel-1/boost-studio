@@ -6,8 +6,8 @@ import { ROUTES } from '../../../core/routes'
 const heroVisual = '/Images/Boost_home.jpg'
 
 export const HeroSection = () => (
-  <section className="relative flex w-full flex-col text-white" style={{ gap: fluidSizing.spacing['4xl'], padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing['3xl']}` }}>
-    <motion.div className="relative overflow-hidden border border-white/5 bg-white/[0.02] backdrop-blur-2xl" style={{ borderRadius: fluidSizing.radius['3xl'], padding: `${fluidSizing.spacing['4xl']} ${fluidSizing.spacing['2xl']}` }}>
+  <section className="relative flex w-full flex-col text-white px-4 py-12 md:px-8 lg:px-12" style={{ gap: fluidSizing.spacing['4xl'] }}>
+    <motion.div className="relative overflow-hidden border border-white/5 bg-white/[0.02] backdrop-blur-2xl rounded-3xl p-6 md:p-10 lg:p-16" style={{ borderRadius: fluidSizing.radius['3xl'] }}>
       <motion.span
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 0.6, scale: 1 }}
@@ -20,7 +20,7 @@ export const HeroSection = () => (
         className="pointer-events-none absolute -bottom-36 left-20 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.22),_rgba(5,4,5,0)_70%)] blur-[120px]"
       />
 
-      <div className="relative grid items-center lg:grid-cols-2" style={{ gap: fluidSizing.spacing['3xl'] }}>
+      <div className="relative grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -28,34 +28,35 @@ export const HeroSection = () => (
             hidden: {},
             visible: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
           }}
-          className="flex flex-col" style={{ gap: fluidSizing.spacing['2xl'] }}
+          className="flex flex-col gap-6 md:gap-8"
         >
           <motion.span
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
-            className="uppercase tracking-[0.45em] text-slate-300" style={{ fontSize: fluidSizing.text.xs }}
+            className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
           >
             Consultoría High-Ticket
           </motion.span>
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
-            className="font-semibold tracking-tight" style={{ fontSize: fluidSizing.heading.h1, lineHeight: '1.1' }}
+            className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
           >
             De la estrategia a productos digitales que <span className="text-[#FFD700]">no dejan espacio</span> al azar.
           </motion.h1>
           <motion.p
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
-            className="max-w-2xl text-slate-300" style={{ fontSize: fluidSizing.text.base, lineHeight: '1.6' }}
+            className="max-w-2xl leading-relaxed text-slate-300"
+            style={{ fontSize: 'clamp(0.875rem, 0.875rem + 0.125vw, 1rem)', lineHeight: '1.6' }}
           >
             Aceleramos tu crecimiento con un war-room de especialistas senior. Construimos, medimos y escalamos sobre un lienzo digital iluminado por data, no por supuestos.
           </motion.p>
           <motion.div
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
-            className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8"
+            className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6"
           >
             <AccentButton className="bg-[#FFD700] text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]" href={ROUTES.contact}>
               Hablar con Boost
             </AccentButton>
-            <span className="text-slate-400" style={{ fontSize: fluidSizing.text.sm }}>Agenda una sesión estratégica de 30 minutos.</span>
+            <span className="text-xs text-slate-400 md:text-sm">Agenda una sesión estratégica de 30 minutos.</span>
           </motion.div>
         </motion.div>
 
@@ -66,15 +67,15 @@ export const HeroSection = () => (
           transition={{ duration: 1.25, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex w-full items-center justify-center"
         >
-          <div className="relative w-full overflow-hidden border border-white/10 bg-black/40" style={{ borderRadius: fluidSizing.radius['3xl'] }}>
+          <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 md:rounded-3xl">
             <div className="pointer-events-none absolute -top-32 right-1/3 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.35),_transparent_70%)] blur-[100px]" />
             <img src={heroVisual} alt="Visual principal Boost Studio" className="h-full w-full object-contain" loading="eager" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/25" />
-            <div className="absolute inset-x-0 bottom-0 flex flex-col bg-gradient-to-t from-black/80 via-black/40 to-transparent text-left" style={{ gap: fluidSizing.spacing.sm, padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing.xl} ${fluidSizing.spacing.xl}` }}>
-              <span className="text-xs uppercase tracking-[0.45em] text-[#FFD700]">Growth Insights</span>
-              <p className="font-semibold text-white" style={{ fontSize: fluidSizing.heading.h3 }}>+214% <span className="text-[#FFD700]">nuevos ingresos</span></p>
-              <p className="text-sm text-slate-200/80">Cuando cada sprint prioriza métricas accionables, el crecimiento deja de ser un accidente.</p>
-              <div className="mt-2 space-y-3 text-[0.7rem] uppercase tracking-[0.35em] text-slate-200/70">
+            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left md:gap-3 md:p-8">
+              <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[#FFD700] md:text-xs md:tracking-[0.45em]">Growth Insights</span>
+              <p className="text-xl font-semibold text-white md:text-3xl lg:text-4xl">+214% <span className="text-[#FFD700]">nuevos ingresos</span></p>
+              <p className="text-xs leading-relaxed text-slate-200/80 md:text-sm">Cuando cada sprint prioriza métricas accionables, el crecimiento deja de ser un accidente.</p>
+              <div className="mt-2 space-y-2 text-[0.6rem] uppercase tracking-[0.25em] text-slate-200/70 md:space-y-3 md:text-[0.7rem] md:tracking-[0.35em]">
                 <div className="flex items-center justify-between">
                   <span>Acquisition</span>
                   <span>Retention</span>
