@@ -12,10 +12,13 @@ export const FormField = ({
   rows,
   options,
   icon: Icon,
-  className = ''
+  className = '',
+  prefix,
+  onPrefixChange
 }) => {
   const isTextarea = type === 'textarea'
   const isSelect = type === 'select'
+  const hasPrefix = type === 'url' && prefix !== undefined
 
   return (
     <label className={`group flex flex-col gap-3 ${className}`}>
@@ -53,6 +56,26 @@ export const FormField = ({
               <Icon className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-[#FFD700]" size={18} strokeWidth={1.6} />
             ) : null}
           </>
+        ) : hasPrefix ? (
+          <div className="flex items-center gap-2">
+            <select
+              value={prefix}
+              onChange={onPrefixChange}
+              className="w-24 appearance-none border-b border-white/10 bg-transparent pb-3 text-sm text-slate-400 focus:outline-none"
+            >
+              <option value="https://" className="bg-zinc-950">https://</option>
+              <option value="http://" className="bg-zinc-950">http://</option>
+            </select>
+            <input
+              type="text"
+              name={name}
+              value={value}
+              onChange={onChange}
+              placeholder={placeholder}
+              className="peer flex-1 border-b border-white/10 bg-transparent pb-3 text-base text-white placeholder:text-slate-500 focus:outline-none"
+              required={required}
+            />
+          </div>
         ) : (
           <input
             type={type}
@@ -86,4 +109,6 @@ FormField.propTypes = {
   })),
   icon: PropTypes.elementType,
   className: PropTypes.string,
+  prefix: PropTypes.string,
+  onPrefixChange: PropTypes.func,
 }

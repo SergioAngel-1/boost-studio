@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Lead - Boost Studio</title>
+  <style>
+    body {
+      font-family: 'Manrope', Arial, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .header {
+      background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+      padding: 24px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #020101;
+      font-weight: 700;
+    }
+    .content {
+      padding: 32px 24px;
+    }
+    .field {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .field:last-child {
+      border-bottom: none;
+    }
+    .field-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6b7280;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .field-value {
+      font-size: 15px;
+      color: #111827;
+      font-weight: 500;
+    }
+    .priority-high {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    .footer {
+      background: #f9fafb;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔥 Nuevo Lead Recibido</h1>
+    </div>
+    <div class="content">
+      <div class="priority-high">
+        <strong>⚡ Acción requerida:</strong> Contactar en menos de 48h
+      </div>
+
+      <div class="field">
+        <div class="field-label">Nombre Completo</div>
+        <div class="field-value">{{user_name}} {{user_lastname}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Email Corporativo</div>
+        <div class="field-value">{{user_email}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Sitio Web</div>
+        <div class="field-value">{{user_website}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Rango de Presupuesto</div>
+        <div class="field-value">{{user_budget}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Detonante Principal</div>
+        <div class="field-value" style="white-space: pre-wrap;">{{user_message}}</div>
+      </div>
+    </div>
+    <div class="footer">
+      <p style="margin: 0; font-size: 13px; color: #6b7280;">Boost Studio CRM | Lead recibido desde booststudio.com/contacto</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2'
 import { HiArrowRight } from 'react-icons/hi'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
@@ -8,6 +9,8 @@ import { ContactInfoItem } from '../../shared/atoms/contact/ContactInfoItem'
 import { SocialLink } from '../../shared/atoms/contact/SocialLink'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 import { EXTERNAL_LINKS } from '../../core/routes'
+import { emailConfig, validateEmailConfig, getEmailErrorMessage } from '../../config/emailjs'
+import { validateContactForm, sanitizeFormData } from '../../shared/utils/formValidations'
 
 export const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -18,33 +21,104 @@ export const ContactPage = () => {
     budget: '',
     message: '',
   })
+  const [urlProtocol, setUrlProtocol] = useState('https://')
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState(null)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Si es el campo website, limpiar http/https si el usuario lo escribe
+    if (name === 'website') {
+      const cleanValue = value.replace(/^(https?:\/\/)/, '')
+      setFormData(prev => ({ ...prev, [name]: cleanValue }))
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }))
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleProtocolChange = (e) => {
+    setUrlProtocol(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError(null)
 
-    if (!formData.email.includes('@')) {
-      setError('Ingresa un email corporativo válido.')
+    // Sanitizar datos del formulario
+    const sanitizedData = sanitizeFormData(formData)
+
+    // Validar formulario completo
+    const validation = validateContactForm(sanitizedData)
+    
+    if (!validation.isValid) {
+      // Mostrar el primer error encontrado
+      const firstError = Object.values(validation.errors)[0]
+      setError(firstError)
       return
     }
 
-    if (formData.message.trim().length < 10) {
-      setError('Describe tu detonante principal con un poco más de detalle.')
+    // Validar configuración de EmailJS
+    if (!validateEmailConfig()) {
+      setError('Servicio de email no configurado. Contacta al administrador.')
       return
     }
 
     setStatus('loading')
 
-    window.setTimeout(() => {
+    try {
+      const { serviceId, templateIdConfirmation, templateIdNotification, publicKey } = emailConfig
+
+      // Preparar datos del template (sin to_email, se configura en EmailJS Dashboard)
+      const fullWebsite = sanitizedData.website ? `${urlProtocol}${sanitizedData.website}` : 'No proporcionado'
+      
+      const templateParams = {
+        user_name: sanitizedData.name,
+        user_lastname: sanitizedData.lastName,
+        user_email: sanitizedData.email,
+        user_website: fullWebsite,
+        user_budget: sanitizedData.budget,
+        user_message: sanitizedData.message,
+        reply_to: sanitizedData.email,
+      }
+
+      // Envío 1: Email de confirmación al usuario
+      await emailjs.send(
+        serviceId,
+        templateIdConfirmation,
+        templateParams,
+        publicKey
+      )
+
+      // Envío 2: Notificación interna con datos del lead
+      await emailjs.send(
+        serviceId,
+        templateIdNotification,
+        templateParams,
+        publicKey
+      )
+
+      // Éxito: ambos emails enviados
       setStatus('success')
-    }, 900)
+      
+      // Limpiar formulario después de 3 segundos
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          lastName: '',
+          email: '',
+          website: '',
+          budget: '',
+          message: '',
+        })
+        setStatus('idle')
+      }, 3000)
+
+    } catch (err) {
+      console.error('Error al enviar emails:', err)
+      setError(getEmailErrorMessage(err))
+      setStatus('idle')
+    }
   }
 
   return (
@@ -76,7 +150,7 @@ export const ContactPage = () => {
                 <h1 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
                   Iniciar Protocolo de Crecimiento
                 </h1>
-                <p className="max-w-xl text-sm text-slate-300 md:text-base">
+                <p className="max-w-xl text-sm text-white md:text-base !text-white">
                   Activa nuestra maquinaria de crecimiento. Cada campo es un parámetro de misión para calibrar tu siguiente salto.
                 </p>
               </div>
@@ -123,7 +197,9 @@ export const ContactPage = () => {
                   name="website"
                   value={formData.website}
                   onChange={handleInputChange}
-                  placeholder="https://"
+                  placeholder="ejemplo.com"
+                  prefix={urlProtocol}
+                  onPrefixChange={handleProtocolChange}
                 />
 
                 <FormField
@@ -162,6 +238,28 @@ export const ContactPage = () => {
                     <p className="text-[#7bf59b]">Briefing recibido. Nuestro equipo te contactará en menos de 48h.</p>
                   ) : null}
                 </div>
+
+                <p className="text-[10px] leading-relaxed text-slate-500 md:text-xs">
+                  Este formulario está protegido por reCAPTCHA. Se aplican la{' '}
+                  <a
+                    href="https://policies.google.com/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 underline-offset-2 hover:text-[#FFD700] hover:underline"
+                  >
+                    Política de Privacidad
+                  </a>
+                  {' '}y los{' '}
+                  <a
+                    href="https://policies.google.com/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 underline-offset-2 hover:text-[#FFD700] hover:underline"
+                  >
+                    Términos de Servicio
+                  </a>
+                  {' '}de Google.
+                </p>
 
                 {/* Botón de envío para mobile - solo visible en mobile */}
                 <motion.button
