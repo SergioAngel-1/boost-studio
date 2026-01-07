@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { AccentButton } from '../../atoms/buttons/AccentButton'
 import { fluidSizing } from '../../utils/fluidSizing'
+import { ROUTES } from '../../../core/routes'
 
 const heroVisual = '/Images/Boost_home.jpg'
 
@@ -51,7 +52,7 @@ export const HeroSection = () => (
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
             className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8"
           >
-            <AccentButton className="bg-[#FFD700] text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]" href="https://cal.com">
+            <AccentButton className="bg-[#FFD700] text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]" href={ROUTES.contact}>
               Hablar con Boost
             </AccentButton>
             <span className="text-slate-400" style={{ fontSize: fluidSizing.text.sm }}>Agenda una sesión estratégica de 30 minutos.</span>
@@ -70,8 +71,8 @@ export const HeroSection = () => (
             <img src={heroVisual} alt="Visual principal Boost Studio" className="h-full w-full object-contain" loading="eager" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/25" />
             <div className="absolute inset-x-0 bottom-0 flex flex-col bg-gradient-to-t from-black/80 via-black/40 to-transparent text-left" style={{ gap: fluidSizing.spacing.sm, padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing.xl} ${fluidSizing.spacing.xl}` }}>
-              <span className="text-xs uppercase tracking-[0.45em] text-[#FFE587]">Growth Insights</span>
-              <p className="font-semibold text-white" style={{ fontSize: fluidSizing.heading.h3 }}>+214% <span className="text-[#FFE587]">nuevos ingresos</span></p>
+              <span className="text-xs uppercase tracking-[0.45em] text-[#FFD700]">Growth Insights</span>
+              <p className="font-semibold text-white" style={{ fontSize: fluidSizing.heading.h3 }}>+214% <span className="text-[#FFD700]">nuevos ingresos</span></p>
               <p className="text-sm text-slate-200/80">Cuando cada sprint prioriza métricas accionables, el crecimiento deja de ser un accidente.</p>
               <div className="mt-2 space-y-3 text-[0.7rem] uppercase tracking-[0.35em] text-slate-200/70">
                 <div className="flex items-center justify-between">
@@ -79,10 +80,10 @@ export const HeroSection = () => (
                   <span>Retention</span>
                 </div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full w-4/5 rounded-full bg-[#FFE587]" />
+                  <div className="h-full w-4/5 rounded-full bg-[#FFD700]" />
                 </div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full w-3/4 rounded-full bg-[#FFE587]/80" />
+                  <div className="h-full w-3/4 rounded-full bg-[#FFD700]/80" />
                 </div>
               </div>
             </div>
