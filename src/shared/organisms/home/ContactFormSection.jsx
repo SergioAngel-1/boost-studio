@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Zap } from 'lucide-react'
 import { AccentButton } from '../../atoms/buttons/AccentButton'
 import { fluidSizing } from '../../utils/fluidSizing'
+import { ROUTES } from '../../../core/routes'
 
 const WHATSAPP_NUMBER = '521234567890'
 
@@ -71,7 +72,7 @@ export const ContactFormSection = () => (
 
         <div className="flex flex-col gap-4 lg:items-end">
           <AccentButton
-            href="/contacto"
+            href={ROUTES.contact}
             icon={ArrowRight}
             className="bg-[#FFD700] px-10 py-5 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]"
           >
