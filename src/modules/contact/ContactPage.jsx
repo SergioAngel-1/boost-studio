@@ -166,7 +166,7 @@ export const ContactPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden bg-white p-8 text-black lg:p-16">
+          <div className="relative overflow-hidden bg-[#FFD700] p-8 text-black lg:p-16">
             <div className="pointer-events-none absolute top-10 right-10 text-[11px] font-mono uppercase tracking-[0.35em] text-slate-400">
               Channel ID // CL-204
             </div>
@@ -183,19 +183,19 @@ export const ContactPage = () => {
                   </p>
                 </div>
 
-                <div className="space-y-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div className="space-y-6 rounded-2xl border border-black/20 bg-black/10 backdrop-blur-md p-6">
                   <ContactInfoItem
                     icon={HiMapPin}
                     title="HQ Titanium Tower"
                     description="Piso 18 · Distrito Financiero · Ciudad de México"
                   />
-                  <div className="h-px bg-slate-200" />
+                  <div className="h-px bg-black/20" />
                   <ContactInfoItem
                     icon={HiEnvelope}
                     title="growth@booststudio.com"
                     description="Respuesta t-48h | Equipo Core Growth"
                   />
-                  <div className="h-px bg-slate-200" />
+                  <div className="h-px bg-black/20" />
                   <ContactInfoItem
                     icon={HiPhone}
                     title="+1 (800) BOOST-UP"
@@ -203,13 +203,13 @@ export const ContactPage = () => {
                   />
                 </div>
 
-                <div className="space-y-4 rounded-2xl border border-slate-200 bg-[#020101] p-6">
-                  <p className="text-xs font-mono uppercase tracking-[0.4em] text-slate-400">Tiempo de Respuesta</p>
+                <div className="space-y-4 rounded-2xl border border-black/20 bg-black/10 backdrop-blur-md p-6">
+                  <p className="text-xs font-mono uppercase tracking-[0.4em] text-black/60">Tiempo de Respuesta</p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-white">{'<48h'}</span>
-                    <span className="text-sm text-slate-300">promedio</span>
+                    <span className="text-4xl font-bold text-black">{'<48h'}</span>
+                    <span className="text-sm text-black/70">promedio</span>
                   </div>
-                  <p className="text-sm text-slate-300">
+                  <p className="text-sm text-black/80">
                     Nuestro equipo de Growth revisa cada briefing personalmente y responde con un plan de acción inicial.
                   </p>
                 </div>
