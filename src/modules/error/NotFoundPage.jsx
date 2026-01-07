@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { HiHome, HiArrowLeft } from 'react-icons/hi'
-import { HiMiniSparkles } from 'react-icons/hi2'
+import { HiExclamationTriangle } from 'react-icons/hi2'
+import { ROUTES } from '../../core/routes'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 export const NotFoundPage = () => (
@@ -21,7 +22,7 @@ export const NotFoundPage = () => (
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="inline-flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FFD700]/40 bg-[#FFD700]/10 backdrop-blur-xl"
           >
-            <HiMiniSparkles className="h-12 w-12 text-[#FFD700]" />
+            <HiExclamationTriangle className="h-12 w-12 text-[#FFD700]" />
           </motion.div>
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -70,7 +71,7 @@ export const NotFoundPage = () => (
           className="flex flex-col gap-4 sm:flex-row sm:items-center"
         >
           <Link
-            to="/"
+            to={ROUTES.home}
             className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FFD700] px-8 py-4 text-sm font-semibold uppercase tracking-[0.3em] text-base-950 shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             <HiHome className="h-5 w-5" />
@@ -96,19 +97,19 @@ export const NotFoundPage = () => (
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
           className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500"
         >
-          <Link to="/servicios" className="transition-colors duration-300 hover:text-[#FFD700]">
+          <Link to={ROUTES.services} className="transition-colors duration-300 hover:text-[#FFD700]">
             Servicios
           </Link>
           <span className="h-1 w-1 rounded-full bg-slate-600" />
-          <Link to="/nosotros" className="transition-colors duration-300 hover:text-[#FFD700]">
+          <Link to={ROUTES.about} className="transition-colors duration-300 hover:text-[#FFD700]">
             Nosotros
           </Link>
           <span className="h-1 w-1 rounded-full bg-slate-600" />
-          <Link to="/casos" className="transition-colors duration-300 hover:text-[#FFD700]">
+          <Link to={ROUTES.cases} className="transition-colors duration-300 hover:text-[#FFD700]">
             Casos
           </Link>
           <span className="h-1 w-1 rounded-full bg-slate-600" />
-          <Link to="/contacto" className="transition-colors duration-300 hover:text-[#FFD700]">
+          <Link to={ROUTES.contact} className="transition-colors duration-300 hover:text-[#FFD700]">
             Contacto
           </Link>
         </motion.div>
