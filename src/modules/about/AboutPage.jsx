@@ -4,8 +4,10 @@ import { AnimatedBackground } from '../../shared/molecules/AnimatedBackground'
 import { HeroSection } from '../../shared/molecules/HeroSection'
 import { StatsGrid } from '../../shared/molecules/StatsGrid'
 import { FeatureCard } from '../../shared/atoms/cards/FeatureCard'
-import { TeamMemberCard } from '../../shared/atoms/cards/TeamMemberCard'
+import { TeamCarousel } from '../../shared/molecules/TeamCarousel'
+import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
+import { ROUTES } from '../../core/routes'
 
 const philosophyPillars = [
   {
@@ -33,10 +35,10 @@ const trackRecord = [
 ]
 
 const team = [
-  { name: 'Valeria Ortiz', role: 'Head of Growth' },
-  { name: 'Andrés Molina', role: 'Lead Developer' },
-  { name: 'Camila Rivas', role: 'Creative Director' },
-  { name: 'Diego Herrera', role: 'Automation Architect' },
+  { name: 'Diego Rodrigez', role: 'Head of Growth' },
+  { name: 'Simón Galvis', role: 'Lead Designer' },
+  { name: 'Sergio Jáuregui', role: 'Lead Developer' },
+  { name: 'Alejandra Restrepo', role: 'UX/UI Designer' },
 ]
 
 export const AboutPage = () => (
@@ -76,16 +78,7 @@ export const AboutPage = () => (
         title="Mentes detrás del sistema."
         align="center"
       />
-      <div className="grid gap-8 sm:grid-cols-2">
-        {team.map(({ name, role }, index) => (
-          <TeamMemberCard
-            key={name}
-            name={name}
-            role={role}
-            delay={0.1 + index * 0.05}
-          />
-        ))}
-      </div>
+      <TeamCarousel team={team} />
     </section>
 
     <section className="mx-auto flex w-full max-w-[900px] flex-col items-center text-center" style={{ gap: fluidSizing.spacing.xl, padding: `0 ${fluidSizing.spacing.lg} ${fluidSizing.section.py}` }}>
@@ -96,7 +89,7 @@ export const AboutPage = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="font-semibold leading-tight text-white" style={{ fontSize: fluidSizing.heading.h2 }}
       >
-        ¿Listo para dejar de jugar y empezar a escalar?
+        Activa tu motor de crecimiento
       </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 32 }}
@@ -104,12 +97,12 @@ export const AboutPage = () => (
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
       >
-        <a
-          href="/contact"
-          className="inline-flex items-center justify-center rounded-full border border-[#FFD700]/70 bg-[#FFD700] px-10 py-4 text-sm font-semibold uppercase tracking-[0.3em] text-base-950 shadow-[0_0_45px_rgba(255,215,0,0.4)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_70px_rgba(255,215,0,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        <AccentButton
+          href={ROUTES.contact}
+          className="bg-[#FFD700] px-10 py-4 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]"
         >
-          Conocer al Equipo
-        </a>
+          Hablar con Boost
+        </AccentButton>
       </motion.div>
     </section>
   </div>
