@@ -38,7 +38,7 @@ const glows = [
 ]
 
 const ImmersiveBackdropComponent = () => (
-  <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[#050405]">
+  <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,215,0,0.08),_transparent_55%)]" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.06),_transparent_60%)]" />
     {glows.map((glow, index) => (

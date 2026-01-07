@@ -43,10 +43,10 @@ const socialLinks = [
 
 export const Footer = () => (
   <footer
-    className="relative flex justify-center text-black"
+    className="relative flex justify-center bg-transparent text-black"
     style={{
       marginTop: fluidSizing.spacing['6xl'],
-      marginBottom: fluidSizing.spacing['3xl'],
+      paddingBottom: fluidSizing.spacing['3xl'],
       paddingLeft: fluidSizing.spacing.lg,
       paddingRight: fluidSizing.spacing.lg,
     }}
@@ -56,7 +56,7 @@ export const Footer = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="z-40 w-[clamp(320px,92vw,60rem)] rounded-[3rem] bg-[#FFD700] px-8 py-10 text-center shadow-glow-md md:px-14"
+      className="z-40 w-[clamp(320px,85vw,50rem)] rounded-[2.5rem] bg-[#FFD700] px-8 py-10 text-center shadow-[0_20px_60px_rgba(255,215,0,0.15)] md:px-12"
     >
       <div className="flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-3">
@@ -84,7 +84,7 @@ export const Footer = () => (
               className="group flex h-12 w-12 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
               aria-label={item.label}
             >
-              <span className="text-black transition-colors duration-300 group-hover:text-[#F97316]">{item.icon}</span>
+              <span className="text-black transition-colors duration-300 group-hover:text-white">{item.icon}</span>
             </motion.a>
           ))}
         </div>
