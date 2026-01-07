@@ -13,7 +13,7 @@ const fadeInUp = {
 }
 
 export const ProjectCard = ({ project }) => {
-  const { title, industry, category, challenge, solution, metric, secondary, image } = project
+  const { title, industry, category, challenge, solution, metric, secondary, image, modalContent } = project
   const { openModal } = useModal()
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, amount: 0.6 })
@@ -30,7 +30,7 @@ export const ProjectCard = ({ project }) => {
   const handleOpenModal = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    openModal(<ProjectModal project={project} />)
+    openModal(<ProjectModal project={project} />, modalContent?.title || title)
   }
 
   return (

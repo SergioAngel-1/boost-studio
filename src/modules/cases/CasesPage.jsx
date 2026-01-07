@@ -96,7 +96,7 @@ export const CasesPage = () => {
         >
           <AccentButton
             href={ROUTES.contact}
-            className="border border-[#FFD700] bg-transparent px-6 py-3 text-[#FFD700] shadow-none hover:bg-[#FFD700]/10 md:px-8 md:py-4"
+            className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
           >
             Auditar mi Crecimiento
           </AccentButton>

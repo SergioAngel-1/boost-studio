@@ -6,12 +6,12 @@ import { ServiceModal } from '../../shared/molecules/ServiceModal'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 const cardVariants = {
-  hiddenLeft: { opacity: 0, x: -60 },
-  hiddenRight: { opacity: 0, x: 60 },
+  hiddenLeft: { opacity: 0, x: -30 },
+  hiddenRight: { opacity: 0, x: 30 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -158,11 +158,11 @@ export const ServicesPage = () => {
               const { id, title, description, alignment, Icon } = service
               const isLeft = alignment === 'left'
 
-              const activateService = () => openModal(<ServiceModal service={service} />)
+              const activateService = () => openModal(<ServiceModal service={service} />, title)
               const handleKeyDown = (event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault()
-                  openModal(<ServiceModal service={service} />)
+                  openModal(<ServiceModal service={service} />, title)
                 }
               }
 
@@ -175,7 +175,7 @@ export const ServicesPage = () => {
                     <motion.article
                       initial="hiddenLeft"
                       whileInView="visible"
-                      viewport={{ once: true, amount: 0.45 }}
+                      viewport={{ once: true, amount: 0.2 }}
                       variants={cardVariants}
                       onClick={activateService}
                       role="button"
@@ -215,7 +215,7 @@ export const ServicesPage = () => {
                     <motion.article
                       initial="hiddenRight"
                       whileInView="visible"
-                      viewport={{ once: true, amount: 0.45 }}
+                      viewport={{ once: true, amount: 0.2 }}
                       variants={cardVariants}
                       onClick={activateService}
                       role="button"
