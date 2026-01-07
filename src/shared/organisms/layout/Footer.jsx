@@ -42,58 +42,55 @@ const socialLinks = [
 ]
 
 export const Footer = () => (
-  <footer className="relative flex justify-center text-black" style={{ marginTop: fluidSizing.spacing['6xl'], marginBottom: fluidSizing.spacing['3xl'], paddingLeft: fluidSizing.spacing.lg, paddingRight: fluidSizing.spacing.lg }}>
+  <footer
+    className="relative flex justify-center text-black"
+    style={{
+      marginTop: fluidSizing.spacing['6xl'],
+      marginBottom: fluidSizing.spacing['3xl'],
+      paddingLeft: fluidSizing.spacing.lg,
+      paddingRight: fluidSizing.spacing.lg,
+    }}
+  >
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="z-40 w-[clamp(320px,92vw,72rem)] rounded-[3rem] bg-[#FFD700] px-8 py-8 shadow-glow-md md:px-12 md:py-9"
+      className="z-40 w-[clamp(320px,92vw,60rem)] rounded-[3rem] bg-[#FFD700] px-8 py-10 text-center shadow-glow-md md:px-14"
     >
-      <div className="flex flex-wrap items-center justify-between gap-8">
-        <div className="flex min-w-[220px] items-center gap-4">
-          <img src={boostLogo} alt="Boost Studio" className="h-10 w-auto object-contain" />
+      <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-3">
+          <img src={boostLogo} alt="Boost Studio" className="h-12 w-auto object-contain" />
           <span className="text-sm font-extrabold uppercase tracking-[0.32em]">Encendemos el crecimiento</span>
         </div>
 
-        <div className="flex flex-1 flex-wrap items-center justify-center gap-5">
+        <div className="flex items-center gap-4 text-sm uppercase tracking-[0.3em] text-black/70">
+          <span>Consultoría</span>
+          <span className="h-2 w-2 rounded-full bg-black/60" />
+          <span>Producto</span>
+          <span className="h-2 w-2 rounded-full bg-black/60" />
+          <span>Crecimiento</span>
+        </div>
+
+        <div className="flex items-center gap-4">
           {socialLinks.map((item, index) => (
             <motion.a
               key={item.label}
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ y: -4, rotate: index % 2 === 0 ? 3.5 : -3.5 }}
-              transition={{ type: 'spring', stiffness: 280, damping: 18 }}
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-black/90 bg-transparent"
+              whileHover={{ y: -3, rotate: index % 2 === 0 ? 2.5 : -2.5 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="group flex h-12 w-12 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
               aria-label={item.label}
             >
-              <span className="text-black transition-colors duration-300 group-hover:text-[#FFD700]">{item.icon}</span>
+              <span className="text-black transition-colors duration-300 group-hover:text-[#F97316]">{item.icon}</span>
             </motion.a>
           ))}
         </div>
-
-        <form
-          className="flex min-w-[220px] flex-1 items-center justify-end gap-3 border-b-2 border-black pb-2"
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <input
-            type="email"
-            required
-            placeholder="tu@email.com"
-            className="flex-1 bg-transparent text-sm font-semibold text-black placeholder:text-black/40 focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black bg-black text-sm font-semibold text-[#FFD700] transition-transform duration-300 hover:-translate-y-[2px] hover:bg-[#FFD700] hover:text-black"
-            aria-label="Suscribirse"
-          >
-            →
-          </button>
-        </form>
       </div>
 
-      <div className="mt-6 flex justify-center text-xs font-bold uppercase tracking-[0.36em] text-black/70">
+      <div className="mt-10 flex justify-center text-xs font-bold uppercase tracking-[0.36em] text-black/60">
         © 2026 Boost Studio.
       </div>
     </motion.div>

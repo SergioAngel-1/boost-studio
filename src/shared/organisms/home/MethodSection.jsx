@@ -3,87 +3,104 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { HOME_METHOD_STEPS } from '../../data/home'
 import { fluidSizing } from '../../utils/fluidSizing'
 
-const methodCardVariant = {
-  hidden: { opacity: 0, y: 26 },
-  visible: (index = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 },
-  }),
+const buildNodeLabel = (title = '', stepNumber = 1) => {
+  const stepPrefix = String(stepNumber).padStart(2, '0')
+
+  return `${stepPrefix}. ${title.toUpperCase()}`
 }
 
-const alignmentMap = {
-  left: 'lg:items-end lg:text-right',
-  center: 'lg:items-center lg:text-center',
-  right: 'lg:items-start lg:text-left',
+const StepNode = ({ stepNumber, title, isActive = false, onClick }) => {
+  const label = buildNodeLabel(title, stepNumber)
+
+  return (
+    <motion.button
+      type="button"
+      onClick={onClick}
+      aria-pressed={isActive}
+      whileHover={{ y: -3 }}
+      whileTap={{ scale: 0.98 }}
+      className={`relative flex items-center rounded-full border px-6 py-3 text-left backdrop-blur-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 ${
+        isActive
+          ? 'border-[#FFD700]/70 bg-[#FFD700]/15 shadow-[0_0_28px_rgba(255,215,0,0.35)]'
+          : 'border-white/12 bg-white/[0.05] hover:border-[#FFD700]/45 hover:bg-[#FFD700]/10'
+      }`}
+    >
+      <span
+        className={`text-[0.65rem] font-semibold uppercase tracking-[0.38em] ${
+          isActive ? 'text-[#FFD700]' : 'text-white/70'
+        }`}
+      >
+        {label}
+      </span>
+    </motion.button>
+  )
 }
 
-const cardWrapperAlignments = ['justify-start lg:pl-6', 'justify-center', 'justify-end lg:pr-6']
-
-const StepButton = ({ label, isActive = false, onClick }) => (
-  <button
-    type="button"
-    onClick={onClick}
-    aria-pressed={isActive}
-    className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/40 bg-white/[0.08] text-xs font-semibold uppercase tracking-[0.28em] backdrop-blur-sm transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 ${
-      isActive ? 'scale-110 bg-[#FFD700] text-base-950' : 'text-white/75 hover:text-white'
-    }`}
-  >
-    {label}
-  </button>
+const EnergyLine = () => (
+  <motion.div
+    key="energy-line"
+    initial={{ scaleX: 0, opacity: 0 }}
+    animate={{ scaleX: 1, opacity: 1 }}
+    exit={{ scaleX: 0, opacity: 0 }}
+    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    className="pointer-events-none hidden h-[3px] flex-1 origin-left rounded-full lg:block"
+    style={{
+      background:
+        'linear-gradient(90deg, rgba(255,215,0,0) 0%, rgba(255,215,0,0.85) 45%, rgba(255,215,0,0.2) 100%)',
+      boxShadow: '0 0 28px rgba(255, 215, 0, 0.45)',
+    }}
+  />
 )
 
-const MethodCard = ({ index, stepNumber, title, description, alignment = 'center', className = '', isActive = false }) => (
+const DesktopMethodDetail = ({ stepNumber, title, description }) => (
   <motion.div
-    custom={index}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.5 }}
-    variants={methodCardVariant}
-    exit={{ opacity: 0, scale: 0.9, y: -24, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
-    className={`group relative flex min-h-[240px] flex-col gap-4 rounded-[2.4rem] border border-white/10 bg-white/[0.03] p-8 text-left backdrop-blur-sm ${
-      alignmentMap[alignment] ?? ''
-    } ${className} ${
-      isActive
-        ? 'border-[#FFD700]/60 bg-white/[0.06]'
-        : 'opacity-80 transition-opacity duration-500 hover:opacity-100'
-    }`}
+    key={title}
+    initial={{ opacity: 0, x: 80 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: 60 }}
+    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    className="hidden w-full max-w-[440px] flex-col gap-5 rounded-[2.6rem] border border-white/12 bg-white/[0.08] p-10 text-left text-white shadow-[0_0_48px_rgba(255,215,0,0.22)] backdrop-blur-xl lg:flex"
   >
-    <span className="text-xs font-semibold uppercase tracking-[0.38em] text-[#FFD700]">0{stepNumber}</span>
-    <h3 className="text-xl font-semibold text-white">{title}</h3>
-    <AnimatePresence mode="wait" initial={false}>
-      {isActive ? (
-        <motion.p
-          key="active"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-sm leading-relaxed text-slate-300/90"
-        >
-          {description}
-        </motion.p>
-      ) : (
-        <motion.p
-          key="locked"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-sm leading-relaxed text-slate-400/60"
-        >
-          Activa este módulo desde el núcleo para revelar el plan.
-        </motion.p>
-      )}
-    </AnimatePresence>
+    <span className="text-xs font-semibold uppercase tracking-[0.38em] text-[#FFD700]">
+      {String(stepNumber).padStart(2, '0')}
+    </span>
+    <h3 className="text-2xl font-semibold leading-tight text-white">{title}</h3>
+    <p className="text-sm leading-relaxed text-slate-200/90">{description}</p>
+    <span className="pointer-events-none block h-[1px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/45 to-transparent" />
+    <p className="text-xs uppercase tracking-[0.28em] text-slate-300/70">
+      El núcleo energiza este módulo para generar resultados medibles en semanas.
+    </p>
+  </motion.div>
+)
+
+const MobileMethodDetail = ({ stepNumber, title, description }) => (
+  <motion.div
+    key={`${title}-mobile`}
+    initial={{ opacity: 0, y: 16 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -16 }}
+    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    className="w-full rounded-[2.4rem] border border-white/12 bg-white/[0.06] p-7 text-left text-white shadow-[0_0_32px_rgba(255,215,0,0.18)] backdrop-blur-xl lg:hidden"
+  >
+    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[#FFD700]">
+      {String(stepNumber).padStart(2, '0')}
+    </span>
+    <h3 className="mt-3 text-lg font-semibold text-white">{title}</h3>
+    <p className="mt-4 text-sm leading-relaxed text-slate-200/85">{description}</p>
   </motion.div>
 )
 
 export const MethodSection = () => {
   const [activeStep, setActiveStep] = useState(0)
 
+  const selectedStep = HOME_METHOD_STEPS[activeStep] ?? HOME_METHOD_STEPS[0]
+  const selectedStepNumber = (activeStep ?? 0) + 1
+
   return (
-    <div className="relative flex flex-col" style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing['3xl']}` }}>
+    <div
+      className="relative flex flex-col"
+      style={{ gap: fluidSizing.spacing['3xl'], padding: `${fluidSizing.spacing['3xl']} ${fluidSizing.spacing['3xl']}` }}
+    >
       <motion.span
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -98,78 +115,78 @@ export const MethodSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="font-semibold leading-tight text-white" style={{ fontSize: fluidSizing.heading.h2, maxWidth: fluidSizing.container['5xl'] }}
+        className="font-semibold leading-tight text-white"
+        style={{ fontSize: fluidSizing.heading.h2, maxWidth: fluidSizing.container['5xl'] }}
       >
         Un sistema orquestado para encender la <span className="text-[#FFD700]">expansión</span> de tu producto
       </motion.h2>
 
-      {/* Desktop Version */}
-      <div className="relative hidden w-full flex-col items-center gap-14 lg:flex">
-        <div className="relative grid w-full grid-cols-[auto_minmax(120px,1fr)_auto_minmax(120px,1fr)_auto_minmax(120px,1fr)_auto] items-center gap-6 py-12">
-          <StepButton label="01" isActive={activeStep === 0} onClick={() => setActiveStep(0)} />
-          <span className="pointer-events-none hidden h-[2px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/25 to-transparent lg:block" />
+      <div className="relative flex flex-col" style={{ gap: fluidSizing.spacing['2xl'] }}>
+        <motion.div
+          layout
+          className={`relative flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center ${
+            selectedStep ? 'lg:justify-between' : 'lg:justify-center'
+          }`}
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-[360px] w-[360px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/60"
+            layout
+            transition={{ type: 'spring', stiffness: 180, damping: 24 }}
+            className="relative flex h-[260px] w-[260px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_90px_rgba(255,215,0,0.22)] sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]"
           >
-            <div className="absolute inset-12 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.4),_rgba(2,1,1,0.85))] blur-[60px]" />
-            <img src="/Images/Boost_Metod.jpg" alt="Núcleo del Método Boost" loading="lazy" className="relative h-full w-full rounded-full object-cover" />
+            <div className="absolute inset-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.38),_rgba(2,1,1,0.88))] blur-[54px]" />
+            <img
+              src="/Images/Boost_Metod.jpg"
+              alt="Núcleo del Método Boost"
+              loading="lazy"
+              className="relative h-full w-full rounded-full object-cover"
+            />
+            <motion.div
+              animate={{ rotate: [0, 2, -1, 0], scale: [1, 1.02, 1], opacity: [0.4, 0.68, 0.4] }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute inset-4 rounded-full border border-[#FFD700]/25"
+            />
+            <motion.span
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="pointer-events-none absolute -right-12 top-1/2 hidden h-16 w-16 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.35),_transparent_70%)] blur-[28px] lg:block"
+            />
           </motion.div>
-          <span className="pointer-events-none hidden h-[2px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/25 to-transparent lg:block" />
-          <StepButton label="02" isActive={activeStep === 1} onClick={() => setActiveStep(1)} />
-          <span className="pointer-events-none hidden h-[2px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/25 to-transparent lg:block" />
-          <StepButton label="03" isActive={activeStep === 2} onClick={() => setActiveStep(2)} />
-        </div>
 
-        <div className="relative flex w-full flex-col gap-6">
-          <span className="pointer-events-none block h-[1px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/30 to-transparent" />
-          <AnimatePresence mode="wait">
-            {HOME_METHOD_STEPS.map(({ title, description }, index) =>
-              activeStep === index ? (
-                <motion.div
-                  key={title}
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -26 }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className={`flex w-full ${cardWrapperAlignments[index] ?? 'justify-center'}`}
-                >
-                  <MethodCard
-                    index={index}
-                    stepNumber={index + 1}
-                    title={title}
-                    description={description}
-                    alignment={index === 0 ? 'left' : index === 1 ? 'right' : 'center'}
-                    isActive
-                    className="w-full max-w-[360px]"
-                  />
-                </motion.div>
-              ) : null
-            )}
+          <AnimatePresence>{selectedStep ? <EnergyLine /> : null}</AnimatePresence>
+
+          <AnimatePresence>
+            {selectedStep ? (
+              <DesktopMethodDetail
+                stepNumber={selectedStepNumber}
+                title={selectedStep.title}
+                description={selectedStep.description}
+              />
+            ) : null}
           </AnimatePresence>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* Mobile Version */}
-      <div className="grid gap-10 lg:hidden">
-        <div className="relative mx-auto flex h-[220px] w-[220px] items-center justify-center rounded-full border border-[#FFD700]/30 bg-black/60">
-          <div className="absolute inset-6 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.35),_rgba(2,1,1,0.85))] blur-[40px]" />
-          <img src="/Images/Boost_Metod.jpg" alt="Núcleo del Método Boost" className="relative h-full w-full rounded-full object-cover" />
+        <div className="flex w-full flex-wrap justify-center gap-3 sm:gap-4">
+          {HOME_METHOD_STEPS.map(({ title }, index) => (
+            <StepNode
+              key={title}
+              stepNumber={index + 1}
+              title={title}
+              isActive={activeStep === index}
+              onClick={() => setActiveStep(index)}
+            />
+          ))}
         </div>
-        {HOME_METHOD_STEPS.map(({ title, description }, index) => (
-          <MethodCard
-            key={title}
-            index={index}
-            stepNumber={index + 1}
-            title={title}
-            description={description}
-            alignment="center"
-            isActive
-          />
-        ))}
+
+        <AnimatePresence>
+          {selectedStep ? (
+            <MobileMethodDetail
+              stepNumber={selectedStepNumber}
+              title={selectedStep.title}
+              description={selectedStep.description}
+            />
+          ) : null}
+        </AnimatePresence>
       </div>
     </div>
   )
