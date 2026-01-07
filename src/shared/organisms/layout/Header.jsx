@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { LayoutGroup } from 'framer-motion'
 import { NAV_ITEMS } from '../../../core/navigation'
+import { EXTERNAL_LINKS } from '../../../core/routes'
 import { fluidSizing } from '../../utils/fluidSizing'
 import { Logo } from '../../atoms/navigation/Logo'
 import { NavItem } from '../../atoms/navigation/NavItem'
@@ -61,7 +62,9 @@ export const Header = () => {
         </div>
 
         <a
-          href="https://cal.com"
+          href={EXTERNAL_LINKS.talkToBoost}
+          target="_blank"
+          rel="noreferrer"
           className="inline-flex items-center gap-3 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-7 py-3 font-semibold uppercase tracking-[0.38em] text-base-950 shadow-glow transition-transform duration-500 hover:scale-[1.05]"
           style={{ fontSize: fluidSizing.text.xs }}
         >
