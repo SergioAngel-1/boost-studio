@@ -51,7 +51,7 @@ export const HeroSection = () => (
             variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
             className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8"
           >
-            <AccentButton className="bg-[#FFD700] text-base-950 hover:bg-[#FFC655]" href="https://cal.com">
+            <AccentButton className="bg-[#FFD700] text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]" href="https://cal.com">
               Hablar con Boost
             </AccentButton>
             <span className="text-slate-400" style={{ fontSize: fluidSizing.text.sm }}>Agenda una sesión estratégica de 30 minutos.</span>
