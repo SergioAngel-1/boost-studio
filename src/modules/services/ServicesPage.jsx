@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { SERVICES_ROADMAP } from '../../shared/data/services'
 import { useModal } from '../../shared/context/ModalContext'
 import { ServiceModal } from '../../shared/molecules/ServiceModal'
+import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
+import { ROUTES } from '../../core/routes'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 const cardVariants = {
@@ -241,6 +243,32 @@ export const ServicesPage = () => {
           </div>
         </div>
       </div>
+
+      {/* CTA Section */}
+      <section className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center md:gap-8 md:px-6 md:py-20 lg:py-24">
+        <motion.h2
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
+        >
+          ¿Listo para impulsar tu crecimiento?
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.55 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        >
+          <AccentButton
+            href={ROUTES.contact}
+            className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
+          >
+            Hablar con Boost
+          </AccentButton>
+        </motion.div>
+      </section>
     </section>
   )
 }
