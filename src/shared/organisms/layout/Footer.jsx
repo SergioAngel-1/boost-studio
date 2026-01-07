@@ -72,7 +72,7 @@ export const Footer = () => (
                 className="group flex h-12 w-12 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
                 aria-label={item.label}
               >
-                <Icon className="h-6 w-6 text-black transition-colors duration-300 group-hover:text-white" />
+                <Icon className="h-6 w-6 text-black" />
               </motion.a>
             )
           })}
