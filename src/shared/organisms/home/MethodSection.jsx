@@ -21,13 +21,13 @@ const StepNode = ({ stepNumber, title, isActive = false, onClick }) => {
       whileTap={{ scale: 0.98 }}
       className={`relative flex items-center rounded-full border px-6 py-3 text-left backdrop-blur-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 ${
         isActive
-          ? 'border-[#FFD700]/70 bg-[#FFD700]/15 shadow-[0_0_28px_rgba(255,215,0,0.35)]'
+          ? 'border-[#FFD700]/70 bg-[#FFD700]/15'
           : 'border-white/12 bg-white/[0.05] hover:border-[#FFD700]/45 hover:bg-[#FFD700]/10'
       }`}
     >
       <span
         className={`text-[0.65rem] font-semibold uppercase tracking-[0.38em] ${
-          isActive ? 'text-[#FFD700]' : 'text-white/70'
+          isActive ? 'text-white' : 'text-white/70'
         }`}
       >
         {label}
@@ -42,11 +42,10 @@ const EnergyLine = () => (
     initial={{ scaleX: 0, opacity: 0 }}
     animate={{ scaleX: 1, opacity: 1 }}
     exit={{ scaleX: 0, opacity: 0 }}
-    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
     className="pointer-events-none hidden h-[3px] flex-1 origin-left rounded-full lg:block"
     style={{
-      background:
-        'linear-gradient(90deg, rgba(255,215,0,0) 0%, rgba(255,215,0,0.85) 45%, rgba(255,215,0,0.2) 100%)',
+      background: 'linear-gradient(90deg, rgba(255,215,0,0) 0%, rgba(255,215,0,0.85) 45%, rgba(255,215,0,0.2) 100%)',
       boxShadow: '0 0 28px rgba(255, 215, 0, 0.45)',
     }}
   />
@@ -55,11 +54,11 @@ const EnergyLine = () => (
 const DesktopMethodDetail = ({ stepNumber, title, description }) => (
   <motion.div
     key={title}
-    initial={{ opacity: 0, x: 80 }}
+    initial={{ opacity: 0, x: 60 }}
     animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: 60 }}
-    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    className="hidden w-full max-w-[440px] flex-col gap-5 rounded-[2.6rem] border border-white/12 bg-white/[0.08] p-10 text-left text-white shadow-[0_0_48px_rgba(255,215,0,0.22)] backdrop-blur-xl lg:flex"
+    exit={{ opacity: 0, x: -40 }}
+    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    className="hidden w-full max-w-[440px] flex-col gap-5 rounded-[2.6rem] border border-white/12 bg-white/[0.08] p-10 text-left text-white backdrop-blur-xl transition duration-300 hover:border-[#FFD700]/80 lg:flex"
   >
     <span className="text-xs font-semibold uppercase tracking-[0.38em] text-[#FFD700]">
       {String(stepNumber).padStart(2, '0')}
@@ -80,7 +79,7 @@ const MobileMethodDetail = ({ stepNumber, title, description }) => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -16 }}
     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-    className="w-full rounded-[2.4rem] border border-white/12 bg-white/[0.06] p-7 text-left text-white shadow-[0_0_32px_rgba(255,215,0,0.18)] backdrop-blur-xl lg:hidden"
+    className="w-full rounded-[2.4rem] border border-white/12 bg-white/[0.06] p-7 text-left text-white backdrop-blur-xl lg:hidden"
   >
     <span className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[#FFD700]">
       {String(stepNumber).padStart(2, '0')}
@@ -130,8 +129,11 @@ export const MethodSection = () => {
         >
           <motion.div
             layout
-            transition={{ type: 'spring', stiffness: 180, damping: 24 }}
-            className="relative flex h-[260px] w-[260px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_90px_rgba(255,215,0,0.22)] sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ type: 'spring', stiffness: 180, damping: 24, delay: 0.2 }}
+            className="relative flex h-[260px] w-[260px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_50px_rgba(255,215,0,0.18)] sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]"
           >
             <div className="absolute inset-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.38),_rgba(2,1,1,0.88))] blur-[54px]" />
             <img
@@ -153,7 +155,9 @@ export const MethodSection = () => {
             />
           </motion.div>
 
-          <AnimatePresence>{selectedStep ? <EnergyLine /> : null}</AnimatePresence>
+          <AnimatePresence>
+            {selectedStep ? <EnergyLine /> : null}
+          </AnimatePresence>
 
           <AnimatePresence>
             {selectedStep ? (
@@ -166,7 +170,13 @@ export const MethodSection = () => {
           </AnimatePresence>
         </motion.div>
 
-        <div className="flex w-full flex-wrap justify-center gap-3 sm:gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
+          className="flex w-full flex-wrap justify-center gap-3 sm:gap-4"
+        >
           {HOME_METHOD_STEPS.map(({ title }, index) => (
             <StepNode
               key={title}
@@ -176,7 +186,7 @@ export const MethodSection = () => {
               onClick={() => setActiveStep(index)}
             />
           ))}
-        </div>
+        </motion.div>
 
         <AnimatePresence>
           {selectedStep ? (
