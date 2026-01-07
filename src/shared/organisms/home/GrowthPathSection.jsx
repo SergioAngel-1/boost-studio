@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { HiMiniSparkles } from 'react-icons/hi2'
+import { HiBolt } from 'react-icons/hi2'
 import { HOME_GROWTH_POINTS } from '../../data/home'
 import { fluidSizing } from '../../utils/fluidSizing'
 
@@ -105,7 +105,7 @@ export const GrowthPathSection = () => (
             }}
           >
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow">
-              <HiMiniSparkles className="h-[18px] w-[18px]" />
+              <HiBolt className="h-[18px] w-[18px]" />
             </span>
             <div>
               <p className="text-2xl font-semibold text-[#FFD700]">{value}</p>
@@ -138,7 +138,7 @@ export const GrowthPathSection = () => (
           className="relative flex flex-col gap-3 pl-16"
         >
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow">
-            <HiMiniSparkles className="h-[18px] w-[18px]" />
+            <HiBolt className="h-[18px] w-[18px]" />
           </span>
           <div>
             <p className="text-2xl font-semibold text-[#FFD700]">{value}</p>

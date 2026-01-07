@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
-import { HiMiniSparkles } from 'react-icons/hi2'
+import { HiChatBubbleLeftRight } from 'react-icons/hi2'
 import { AccentButton } from '../../atoms/buttons/AccentButton'
 import { fluidSizing } from '../../utils/fluidSizing'
 import { ROUTES } from '../../../core/routes'
@@ -43,7 +43,7 @@ export const ContactFormSection = () => (
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#FFD700] text-base-950">
-              <HiMiniSparkles className="h-6 w-6" />
+              <HiChatBubbleLeftRight className="h-6 w-6" />
             </span>
             <div className="flex flex-col">
               <span className="text-xs font-mono uppercase tracking-[0.35em] text-[#FFD700]">Status</span>
