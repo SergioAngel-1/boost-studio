@@ -6,15 +6,20 @@ const ModalContext = createContext(undefined)
 export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [content, setContent] = useState(null)
+  const [title, setTitle] = useState(null)
 
-  const openModal = useCallback((modalContent) => {
+  const openModal = useCallback((modalContent, modalTitle = null) => {
     setContent(modalContent)
+    setTitle(modalTitle)
     setIsOpen(true)
   }, [])
 
   const closeModal = useCallback(() => {
     setIsOpen(false)
-    setTimeout(() => setContent(null), 300)
+    setTimeout(() => {
+      setContent(null)
+      setTitle(null)
+    }, 300)
   }, [])
 
   useEffect(() => {
@@ -44,6 +49,7 @@ export const ModalProvider = ({ children }) => {
   const value = {
     isOpen,
     content,
+    title,
     openModal,
     closeModal,
   }
