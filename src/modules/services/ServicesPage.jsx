@@ -7,12 +7,12 @@ import { ServiceModal } from '../../shared/molecules/ServiceModal'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 const cardVariants = {
-  hiddenLeft: { opacity: 0, x: -140 },
-  hiddenRight: { opacity: 0, x: 140 },
+  hiddenLeft: { opacity: 0, x: -60 },
+  hiddenRight: { opacity: 0, x: 60 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -181,20 +181,19 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
-                      className="order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-[#FFD700]/70 bg-white/[0.05] p-8 text-left shadow-[0_0_70px_rgba(255,215,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 hover:border-[#FFD700] lg:order-1 lg:col-start-1 lg:ml-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-white/10 bg-[#050405]/92 p-8 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 lg:order-1 lg:col-start-1 lg:ml-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] text-sm font-bold uppercase tracking-[0.28em] text-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.5)]">
-                          {id}
+                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow">
+                          <Icon />
                         </span>
-                        <Icon />
                       </div>
                       <h2 className="text-xl font-semibold text-white">{title}</h2>
                       <p className="text-sm leading-relaxed text-slate-300/90">{description}</p>
                       <span className="pointer-events-none absolute right-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0.9),rgba(255,215,0,0))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
                     </motion.article>
                   ) : (
-                    <div className="order-2 hidden lg:order-1 lg:col-start-1 lg:block" />
+                    <div className="relative z-0 order-2 hidden lg:order-1 lg:col-start-1 lg:block" />
                   )}
 
                   <div className="order-1 lg:order-2 lg:col-start-2">
@@ -206,7 +205,7 @@ export const ServicesPage = () => {
                       }}
                     >
                       <span className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.65),_rgba(255,215,0,0))] blur-xl" />
-                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-base font-extrabold uppercase tracking-[0.2em] text-base-950 shadow-[0_0_50px_rgba(255,215,0,0.65)]">
+                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-base font-extrabold uppercase tracking-[0.2em] text-base-950 shadow-glow-md">
                         {id}
                       </span>
                     </div>
@@ -222,20 +221,19 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
-                      className="order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-[#FFD700]/70 bg-white/[0.05] p-8 text-left shadow-[0_0_70px_rgba(255,215,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 hover:border-[#FFD700] lg:order-3 lg:col-start-3 lg:mr-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                      className="relative z-10 order-2 flex cursor-pointer flex-col gap-5 rounded-[2.6rem] border border-white/10 bg-[#050405]/92 p-8 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 lg:order-3 lg:col-start-3 lg:mr-auto lg:max-w-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] text-sm font-bold uppercase tracking-[0.28em] text-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.5)]">
-                          {id}
+                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow">
+                          <Icon />
                         </span>
-                        <Icon />
                       </div>
                       <h2 className="text-xl font-semibold text-white">{title}</h2>
                       <p className="text-sm leading-relaxed text-slate-300/90">{description}</p>
                       <span className="pointer-events-none absolute left-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0),rgba(255,215,0,0.9))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
                     </motion.article>
                   ) : (
-                    <div className="order-3 hidden lg:col-start-3 lg:block" />
+                    <div className="relative z-0 order-3 hidden lg:col-start-3 lg:block" />
                   )}
                 </div>
               )

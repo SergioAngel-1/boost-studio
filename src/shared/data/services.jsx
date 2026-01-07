@@ -1,40 +1,12 @@
-export const IconGrowth = () => (
-  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-8 w-8 text-[#FFD700]">
-    <path d="M6 25.5h20" />
-    <path d="M9.5 21.5v-6.5L14.5 20l5-6.5 5 4" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M6 11l1.8-1.8" />
-    <path d="M11 8h7" />
-    <path d="M24 11l2-2" />
-  </svg>
-)
+import { TrendingUp, Layers, Target, MessageSquare } from 'lucide-react'
 
-export const IconDigitalAssets = () => (
-  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-8 w-8 text-[#FFD700]">
-    <rect x="5" y="7" width="22" height="18" rx="3" />
-    <path d="M5 12h22" />
-    <path d="M10.5 10h.05" strokeLinecap="round" />
-    <path d="M14 21h8" strokeLinecap="round" />
-    <path d="M10 21h1.5" strokeLinecap="round" />
-  </svg>
-)
+export const IconGrowth = () => <TrendingUp className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
 
-export const IconDemand = () => (
-  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-8 w-8 text-[#FFD700]">
-    <path d="M13 6h6l3 7-6 10-6-10 3-7Z" strokeLinejoin="round" />
-    <path d="M16 12v4" strokeLinecap="round" />
-    <path d="M22 26l4 4" strokeLinecap="round" />
-    <circle cx="24" cy="24" r="3" />
-  </svg>
-)
+export const IconDigitalAssets = () => <Layers className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
 
-export const IconContent = () => (
-  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-8 w-8 text-[#FFD700]">
-    <path d="M8.5 7h15a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5H18l-4.5 4.5V19H8.5A2.5 2.5 0 0 1 6 16.5v-7A2.5 2.5 0 0 1 8.5 7Z" strokeLinejoin="round" />
-    <path d="M12 12h8" strokeLinecap="round" />
-    <path d="M12 15.5h5" strokeLinecap="round" />
-    <path d="M21 12.5 22.5 11" strokeLinecap="round" />
-  </svg>
-)
+export const IconDemand = () => <Target className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
+
+export const IconContent = () => <MessageSquare className="h-8 w-8 text-[#FFD700]" strokeWidth={1.8} />
 
 export const HOME_SERVICES = [
   {
