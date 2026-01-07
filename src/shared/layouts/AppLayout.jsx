@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import { Header } from '../organisms/layout/Header'
 import { ImmersiveBackdrop } from '../organisms/layout/ImmersiveBackdrop'
 import { Footer } from '../organisms/layout/Footer'
+import { Modal } from '../molecules/Modal'
 import { ScrollToTop } from '../utils/ScrollToTop'
 
 export const AppLayout = () => (
@@ -15,5 +16,6 @@ export const AppLayout = () => (
       </main>
       <Footer />
     </div>
+    <Modal />
   </div>
 )

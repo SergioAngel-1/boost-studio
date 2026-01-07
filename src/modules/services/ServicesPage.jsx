@@ -2,7 +2,6 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { SERVICES_ROADMAP } from '../../shared/data/services'
 import { useModal } from '../../shared/context/ModalContext'
-import { Modal } from '../../shared/molecules/Modal'
 import { ServiceModal } from '../../shared/molecules/ServiceModal'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
@@ -284,8 +283,6 @@ export const ServicesPage = () => {
           ))}
         </div>
       </div>
-
-      <Modal />
     </section>
   )
 }

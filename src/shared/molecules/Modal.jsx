@@ -20,19 +20,29 @@ export const Modal = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.92 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-3xl rounded-[2.4rem] border border-[#FFD700]/40 bg-[#060507]/95 p-10 backdrop-blur-2xl"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-[1.8rem] border border-[#FFD700]/40 bg-[#060507]/95 backdrop-blur-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <button
-              type="button"
-              onClick={closeModal}
-              aria-label="Cerrar modal"
-              className="absolute right-6 top-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:border-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70"
-            >
-              ✕
-            </button>
+            <div className="absolute top-6 right-6 z-10">
+              <button
+                type="button"
+                onClick={closeModal}
+                aria-label="Cerrar modal"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#060507]/80 backdrop-blur-sm text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:border-[#FFD700]/60 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70"
+              >
+                ✕
+              </button>
+            </div>
 
-            <div className="pr-8">{content}</div>
+            <div 
+              className="max-h-[85vh] overflow-y-auto p-10 pr-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFD700]/20 hover:scrollbar-thumb-[#FFD700]/40"
+              style={{
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'rgba(255, 215, 0, 0.2) transparent'
+              }}
+            >
+              <div className="pr-12">{content}</div>
+            </div>
           </motion.div>
         </motion.div>
       ) : null}
