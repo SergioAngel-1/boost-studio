@@ -2,7 +2,7 @@ export const ROUTES = {
   home: '/',
   services: '/servicios',
   about: '/nosotros',
-  cases: '/casos',
+  cases: '/casos-de-exito',
   contact: '/contacto',
 }
 
