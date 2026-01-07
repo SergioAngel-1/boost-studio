@@ -7,16 +7,14 @@ import { WhatsAppButton } from '../organisms/home/WhatsAppButton'
 import { ScrollToTop } from '../utils/ScrollToTop'
 
 export const AppLayout = () => (
-  <div className="relative min-h-screen overflow-x-hidden text-white">
+  <div className="relative min-h-screen text-white">
     <ScrollToTop />
-    <div className="relative min-h-screen">
-      <ImmersiveBackdrop />
-      <Header />
-      <main className="relative mx-auto w-full max-w-full overflow-x-hidden">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <ImmersiveBackdrop />
+    <Header />
+    <main className="relative mx-auto w-full max-w-full overflow-x-hidden">
+      <Outlet />
+    </main>
+    <Footer />
     <Modal />
     <WhatsAppButton />
   </div>
