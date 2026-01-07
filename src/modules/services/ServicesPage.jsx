@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { SEO } from '../../shared/components/SEO'
+import { SEO_CONFIG } from '../../config/seo'
 import { SERVICES_ROADMAP } from '../../shared/data/services'
 import { useModal } from '../../shared/context/ModalContext'
 import { ServiceModal } from '../../shared/molecules/ServiceModal'
@@ -85,7 +87,9 @@ export const ServicesPage = () => {
 
 
   return (
-    <section aria-labelledby="services-heading" className="relative w-full bg-[#020102] px-4 py-12 text-white md:px-8 md:py-16 lg:px-12 lg:py-20">
+    <>
+      <SEO {...SEO_CONFIG.pages.services} url="/servicios" />
+      <section aria-labelledby="services-heading" className="relative w-full bg-[#020102] px-4 py-12 text-white md:px-8 md:py-16 lg:px-12 lg:py-20">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 md:gap-12">
         <header className="space-y-4 md:space-y-6">
           <motion.p
@@ -278,5 +282,6 @@ export const ServicesPage = () => {
         </motion.div>
       </section>
     </section>
+    </>
   )
 }

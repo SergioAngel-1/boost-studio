@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { SEO } from '../../shared/components/SEO'
+import { SEO_CONFIG } from '../../config/seo'
 import { SectionIntro } from '../../shared/molecules/SectionIntro'
 import { AnimatedBackground } from '../../shared/molecules/AnimatedBackground'
 import { HeroSection } from '../../shared/molecules/HeroSection'
@@ -42,7 +44,9 @@ const team = [
 ]
 
 export const AboutPage = () => (
-  <section aria-label="Página sobre nosotros" className="relative overflow-hidden bg-[#020102] text-white">
+  <>
+    <SEO {...SEO_CONFIG.pages.about} url="/nosotros" />
+    <section aria-label="Página sobre nosotros" className="relative overflow-hidden bg-[#020102] text-white">
     <section aria-labelledby="hero-heading" className="relative flex min-h-[90vh] items-center justify-center px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <AnimatedBackground />
       <HeroSection
@@ -112,4 +116,5 @@ export const AboutPage = () => (
       </motion.div>
     </section>
   </section>
+  </>
 )

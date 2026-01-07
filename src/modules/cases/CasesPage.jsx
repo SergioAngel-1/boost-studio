@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { SEO } from '../../shared/components/SEO'
+import { SEO_CONFIG } from '../../config/seo'
 import { useCountingValue } from '../../shared/hooks/useCountingValue'
 import { PROJECTS_DATA } from '../../shared/data/projects'
 import { ProjectCard } from '../../shared/atoms/cards/ProjectCard'
@@ -26,7 +28,9 @@ export const CasesPage = () => {
   const displayRevenue = formatRevenue(revenue)
 
   return (
-    <section aria-label="Página de casos de estudio" className="relative overflow-hidden bg-[#020102] text-white">
+    <>
+      <SEO {...SEO_CONFIG.pages.cases} url="/casos-de-exito" />
+      <section aria-label="Página de casos de estudio" className="relative overflow-hidden bg-[#020102] text-white">
       <section
         ref={heroRef}
         aria-labelledby="hero-heading"
@@ -114,5 +118,6 @@ export const CasesPage = () => {
         </motion.div>
       </section>
     </section>
+    </>
   )
 }

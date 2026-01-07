@@ -4,6 +4,8 @@ import emailjs from '@emailjs/browser'
 import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2'
 import { HiArrowRight } from 'react-icons/hi'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
+import { SEO } from '../../shared/components/SEO'
+import { SEO_CONFIG } from '../../config/seo'
 import { FormField } from '../../shared/atoms/forms/FormField'
 import { ContactInfoItem } from '../../shared/atoms/contact/ContactInfoItem'
 import { SocialLink } from '../../shared/atoms/contact/SocialLink'
@@ -122,7 +124,9 @@ export const ContactPage = () => {
   }
 
   return (
-    <section aria-labelledby="contact-heading" className="relative min-h-screen overflow-hidden bg-[#020101]">
+    <>
+      <SEO {...SEO_CONFIG.pages.contact} url="/contacto" />
+      <section aria-labelledby="contact-heading" className="relative min-h-screen overflow-hidden bg-[#020101]">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -371,5 +375,6 @@ export const ContactPage = () => {
         </form>
       </motion.div>
     </section>
+    </>
   )
 }
