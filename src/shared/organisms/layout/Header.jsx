@@ -8,10 +8,13 @@ import { Logo } from '../../atoms/navigation/Logo'
 import { NavItem } from '../../atoms/navigation/NavItem'
 import { AnimatedBeam } from '../../molecules/AnimatedBeam'
 import { useBeamAnimation } from '../../hooks/useBeamAnimation'
+import { HamburgerButton } from '../../atoms/navigation/HamburgerButton'
+import { MobileMenu } from '../../atoms/navigation/MobileMenu'
 
 export const Header = () => {
   const { pathname } = useLocation()
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const activeIndex = useMemo(
     () => NAV_ITEMS.findIndex((item) => (item.to === '/' ? pathname === '/' : pathname.startsWith(item.to))),
@@ -28,11 +31,12 @@ export const Header = () => {
   }, [updateBeam, pathname])
 
   return (
-    <header
-      className="sticky top-0 z-50 border-b border-white/5 bg-[#020101]/80 backdrop-blur-xl"
-      style={{ padding: `${fluidSizing.spacing.md} ${fluidSizing.spacing.lg}` }}
-    >
-      <div className="relative mx-auto flex max-w-[1650px] items-center justify-between gap-6 overflow-visible">
+    <>
+      <header
+        className="sticky top-0 z-50 border-b border-white/5 bg-[#020101]/80 backdrop-blur-xl"
+        style={{ padding: `${fluidSizing.spacing.md} ${fluidSizing.spacing.lg}` }}
+      >
+        <div className="relative mx-auto flex max-w-[1650px] items-center justify-between gap-4 overflow-visible md:gap-6">
         <div className="relative flex items-center">
           <Logo />
         </div>
@@ -61,16 +65,35 @@ export const Header = () => {
           <AnimatedBeam beamData={beamData} />
         </div>
 
-        <a
-          href={EXTERNAL_LINKS.talkToBoost}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-3 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-7 py-3 font-semibold uppercase tracking-[0.38em] text-base-950 shadow-glow transition-transform duration-500 hover:scale-[1.05]"
-          style={{ fontSize: fluidSizing.text.xs }}
-        >
-          Hablar con Boost
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={EXTERNAL_LINKS.talkToBoost}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-3 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-7 py-3 font-semibold uppercase tracking-[0.38em] text-base-950 shadow-glow transition-transform duration-500 hover:scale-[1.05] md:inline-flex"
+            style={{ fontSize: fluidSizing.text.xs }}
+          >
+            Hablar con Boost
+          </a>
+
+          <a
+            href={EXTERNAL_LINKS.talkToBoost}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.25em] text-base-950 shadow-glow transition-transform duration-300 hover:scale-[1.05] md:hidden"
+          >
+            Contacto
+          </a>
+
+          <HamburgerButton
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </div>
       </div>
     </header>
+
+    <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+    </>
   )
 }
