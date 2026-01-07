@@ -36,13 +36,20 @@ export const Header = () => {
         className="sticky top-0 z-50 border-b border-white/5 bg-[#020101]/80 backdrop-blur-xl"
         style={{ padding: `${fluidSizing.spacing.md} ${fluidSizing.spacing.lg}` }}
       >
+        {/* Skip link para accesibilidad */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-[#FFD700] focus:px-4 focus:py-2 focus:text-black focus:outline-none focus:ring-2 focus:ring-[#FFD700]"
+        >
+          Saltar al contenido principal
+        </a>
         <div className="relative mx-auto flex max-w-[1650px] items-center justify-between gap-4 overflow-visible md:gap-6">
         <div className="relative flex items-center">
           <Logo />
         </div>
 
         <div className="relative hidden flex-1 items-center justify-center overflow-visible md:flex" style={{ paddingBottom: '24px' }}>
-          <nav className="relative z-20 flex items-center gap-7">
+          <nav aria-label="Navegación principal" className="relative z-20 flex items-center gap-7">
             <LayoutGroup id="nav-highlight">
               {NAV_ITEMS.map((item, index) => (
                 <NavItem
@@ -70,6 +77,7 @@ export const Header = () => {
             href={EXTERNAL_LINKS.talkToBoost}
             target="_blank"
             rel="noreferrer"
+            aria-label="Hablar con Boost - Abre en nueva pestaña"
             className="hidden items-center gap-3 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-7 py-3 font-semibold uppercase tracking-[0.38em] text-base-950 shadow-glow transition-transform duration-500 hover:scale-[1.05] md:inline-flex"
             style={{ fontSize: fluidSizing.text.xs }}
           >
@@ -80,6 +88,8 @@ export const Header = () => {
             href={EXTERNAL_LINKS.talkToBoost}
             target="_blank"
             rel="noreferrer"
+            aria-hidden="true"
+            tabIndex={-1}
             className="inline-flex items-center gap-2 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.25em] text-base-950 shadow-glow transition-transform duration-300 hover:scale-[1.05] md:hidden"
           >
             Contacto

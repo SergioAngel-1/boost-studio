@@ -85,7 +85,7 @@ export const ServicesPage = () => {
 
 
   return (
-    <section className="relative w-full bg-[#020102] px-4 py-12 text-white md:px-8 md:py-16 lg:px-12 lg:py-20">
+    <section aria-labelledby="services-heading" className="relative w-full bg-[#020102] px-4 py-12 text-white md:px-8 md:py-16 lg:px-12 lg:py-20">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 md:gap-12">
         <header className="space-y-4 md:space-y-6">
           <motion.p
@@ -98,6 +98,7 @@ export const ServicesPage = () => {
             Strategic Service Roadmap
           </motion.p>
           <motion.h1
+            id="services-heading"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
@@ -129,6 +130,8 @@ export const ServicesPage = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.35 }}
+              aria-hidden="true"
+              role="presentation"
             >
               <defs>
                 <linearGradient id={gradientId} x1="50%" y1="0%" x2="50%" y2="100%">
@@ -183,16 +186,17 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
+                      aria-label={`Ver detalles del servicio: ${title}`}
                       className="relative z-10 order-2 flex cursor-pointer flex-col gap-4 rounded-2xl border border-white/10 bg-[#050405]/92 p-5 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:gap-5 md:rounded-3xl md:p-6 lg:order-1 lg:col-start-1 lg:ml-auto lg:max-w-xl lg:p-8"
                     >
                       <div className="flex items-center gap-3 md:gap-4">
-                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12">
-                          <Icon />
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12" aria-label={`Icono de ${title}`}>
+                          <Icon aria-hidden="true" />
                         </span>
                       </div>
                       <h2 className="text-lg font-semibold text-white md:text-xl">{title}</h2>
                       <p className="text-xs leading-relaxed text-slate-300/90 md:text-sm">{description}</p>
-                      <span className="pointer-events-none absolute right-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0.9),rgba(255,215,0,0))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
+                      <span className="pointer-events-none absolute right-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0.9),rgba(255,215,0,0))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" aria-hidden="true" />
                     </motion.article>
                   ) : (
                     <div className="relative z-0 order-2 hidden lg:order-1 lg:col-start-1 lg:block" />
@@ -205,9 +209,10 @@ export const ServicesPage = () => {
                         circleRefs.current[index] = node
                         return node
                       }}
+                      aria-label={`Servicio ${id}: ${title}`}
                     >
-                      <span className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.65),_rgba(255,215,0,0))] blur-xl" />
-                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-sm font-extrabold uppercase tracking-[0.15em] text-base-950 shadow-glow-md md:text-base md:tracking-[0.2em]">
+                      <span className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.65),_rgba(255,215,0,0))] blur-xl" aria-hidden="true" />
+                      <span className="flex h-full w-full items-center justify-center rounded-full border border-[#FFD700]/50 bg-[#FFD700] text-sm font-extrabold uppercase tracking-[0.15em] text-base-950 shadow-glow-md md:text-base md:tracking-[0.2em]" aria-label={`Número ${id}`}>
                         {id}
                       </span>
                     </div>
@@ -223,16 +228,17 @@ export const ServicesPage = () => {
                       role="button"
                       tabIndex={0}
                       onKeyDown={handleKeyDown}
+                      aria-label={`Ver detalles del servicio: ${title}`}
                       className="relative z-10 order-2 flex cursor-pointer flex-col gap-4 rounded-2xl border border-white/10 bg-[#050405]/92 p-5 text-left backdrop-blur-xl transition-all duration-300 delay-75 hover:-translate-y-1 hover:border-[#FFD700]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:gap-5 md:rounded-3xl md:p-6 lg:order-3 lg:col-start-3 lg:mr-auto lg:max-w-xl lg:p-8"
                     >
                       <div className="flex items-center gap-3 md:gap-4">
-                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12">
-                          <Icon />
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD700]/60 bg-[#050405] shadow-glow md:h-12 md:w-12" aria-label={`Icono de ${title}`}>
+                          <Icon aria-hidden="true" />
                         </span>
                       </div>
                       <h2 className="text-lg font-semibold text-white md:text-xl">{title}</h2>
                       <p className="text-xs leading-relaxed text-slate-300/90 md:text-sm">{description}</p>
-                      <span className="pointer-events-none absolute left-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0),rgba(255,215,0,0.9))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" />
+                      <span className="pointer-events-none absolute left-[-70px] top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,rgba(255,215,0,0),rgba(255,215,0,0.9))] shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block" aria-hidden="true" />
                     </motion.article>
                   ) : (
                     <div className="relative z-0 order-3 hidden lg:col-start-3 lg:block" />
@@ -245,8 +251,9 @@ export const ServicesPage = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center md:gap-8 md:px-6 md:py-20 lg:py-24">
+      <section aria-labelledby="cta-heading" className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center md:gap-8 md:px-6 md:py-20 lg:py-24">
         <motion.h2
+          id="cta-heading"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
@@ -264,6 +271,7 @@ export const ServicesPage = () => {
           <AccentButton
             href={ROUTES.contact}
             className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
+            aria-label="Hablar con Boost - Ir a formulario de contacto"
           >
             Hablar con Boost
           </AccentButton>

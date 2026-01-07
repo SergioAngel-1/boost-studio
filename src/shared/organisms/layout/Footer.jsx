@@ -42,33 +42,35 @@ export const Footer = () => (
           <span className="text-xs font-extrabold uppercase tracking-[0.25em] md:text-sm md:tracking-[0.32em]">Encendemos el crecimiento</span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 text-[0.65rem] uppercase tracking-[0.25em] text-black/70 md:gap-3 md:text-sm md:tracking-[0.3em]">
-          <span>Consultoría</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
-          <span>Producto</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
-          <span>Crecimiento</span>
-        </div>
+        <ul className="flex flex-wrap items-center justify-center gap-2 text-[0.65rem] uppercase tracking-[0.25em] text-black/70 md:gap-3 md:text-sm md:tracking-[0.3em]" role="list" aria-label="Áreas de servicio">
+          <li>Consultoría</li>
+          <li aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
+          <li>Producto</li>
+          <li aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
+          <li>Crecimiento</li>
+        </ul>
 
-        <div className="flex items-center gap-3 md:gap-4">
-          {socialLinks.map((item, index) => {
-            const Icon = item.icon
-            return (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -3, rotate: index % 2 === 0 ? 2.5 : -2.5 }}
-                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                className="group flex h-11 w-11 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)] md:h-12 md:w-12"
-                aria-label={item.label}
-              >
-                <Icon className="h-5 w-5 text-black md:h-6 md:w-6" />
-              </motion.a>
-            )
-          })}
-        </div>
+        <nav aria-label="Redes sociales">
+          <div className="flex items-center gap-3 md:gap-4">
+            {socialLinks.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ y: -3, rotate: index % 2 === 0 ? 2.5 : -2.5 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-black/80 bg-[#FFD700] shadow-[0_12px_24px_rgba(0,0,0,0.12)] md:h-12 md:w-12"
+                  aria-label={`${item.label} - Abre en nueva pestaña`}
+                >
+                  <Icon className="h-5 w-5 text-black md:h-6 md:w-6" aria-hidden="true" />
+                </motion.a>
+              )
+            })}
+          </div>
+        </nav>
       </div>
 
       <div className="mt-6 flex justify-center text-[0.6rem] font-bold uppercase tracking-[0.3em] text-black/60 md:mt-10 md:text-xs md:tracking-[0.36em]">

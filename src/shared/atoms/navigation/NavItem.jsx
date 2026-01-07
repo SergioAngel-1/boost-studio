@@ -22,11 +22,13 @@ export const NavItem = ({ to, label, isActive, isMarker, onMouseEnter, onMouseLe
             layoutId="nav-marker-glow"
             transition={{ type: 'spring', stiffness: 320, damping: 32 }}
             className="absolute inset-x-[-6px] -inset-y-1 rounded-full bg-[#FFD700]/10 blur-[6px]"
+            aria-hidden="true"
           />
           <motion.span
             layoutId="nav-marker-core"
             transition={{ type: 'spring', stiffness: 360, damping: 34 }}
             className="absolute inset-x-[-4px] top-1/2 h-4 -translate-y-1/2 rounded-full bg-[#FFD700]/6"
+            aria-hidden="true"
           />
         </>
       ) : null}

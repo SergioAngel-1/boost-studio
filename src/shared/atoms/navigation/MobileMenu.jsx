@@ -88,6 +88,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm"
             onClick={onClose}
+            aria-hidden="true"
           />
 
           <motion.div
@@ -95,6 +96,9 @@ export const MobileMenu = ({ isOpen, onClose }) => {
             animate="open"
             exit="closed"
             variants={menuVariants}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación móvil"
             className="fixed inset-y-0 right-0 z-[70] flex w-[280px] flex-col border-l border-white/10 bg-[#020101]/95 backdrop-blur-2xl"
           >
             {/* Header fijo */}
@@ -107,14 +111,14 @@ export const MobileMenu = ({ isOpen, onClose }) => {
                   aria-label="Cerrar menú"
                   className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:border-[#FFD700]/60 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70"
                 >
-                  <HiXMark className="h-5 w-5" />
+                  <HiXMark className="h-5 w-5" aria-hidden="true" />
                 </button>
               </div>
             </div>
 
             {/* Contenido scrolleable */}
             <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
-              <nav>
+              <nav aria-label="Navegación móvil">
                 <ul className="space-y-2.5">
                   {NAV_ITEMS.map((item, index) => (
                     <motion.li
@@ -136,7 +140,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
                           }`
                         }
                       >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD700] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD700] opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
                         <span className="truncate">{item.label}</span>
                       </NavLink>
                     </motion.li>
@@ -154,6 +158,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
                 href={EXTERNAL_LINKS.talkToBoost}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Hablar con Boost - Abre en nueva pestaña"
                 className="flex items-center justify-center gap-2 rounded-full bg-[#FFD700] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-base-950 shadow-glow transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Hablar con Boost

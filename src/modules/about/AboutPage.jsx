@@ -42,29 +42,32 @@ const team = [
 ]
 
 export const AboutPage = () => (
-  <div className="relative overflow-hidden bg-[#020102] text-white">
-    <section className="relative flex min-h-[90vh] items-center justify-center px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
+  <section aria-label="Página sobre nosotros" className="relative overflow-hidden bg-[#020102] text-white">
+    <section aria-labelledby="hero-heading" className="relative flex min-h-[90vh] items-center justify-center px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <AnimatedBackground />
       <HeroSection
         eyebrow="El Manifiesto"
         title="No somos una agencia. Somos tu motor de crecimiento injusto."
         description="En un mundo lleno de ruido, nosotros traemos la señal. Combinamos ingeniería de datos con creatividad agresiva para escalar negocios que ya no caben en su molde actual."
+        headingId="hero-heading"
       />
     </section>
 
-    <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
+    <section aria-labelledby="philosophy-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
         eyebrow="The Boost DNA"
         title="Nuestra filosofía de crecimiento imparable"
         align="center"
+        headingId="philosophy-heading"
       />
-      <div className="grid gap-4 md:gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 lg:grid-cols-3" role="list" aria-label="Pilares de filosofía">
         {philosophyPillars.map(({ title, description }, index) => (
           <FeatureCard
             key={title}
             title={title}
             description={description}
             delay={0.1 + index * 0.05}
+            role="listitem"
           />
         ))}
       </div>
@@ -72,17 +75,19 @@ export const AboutPage = () => (
 
     <StatsGrid stats={trackRecord} />
 
-    <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
+    <section aria-labelledby="team-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
         eyebrow="The Architects"
         title="Mentes detrás del sistema."
         align="center"
+        headingId="team-heading"
       />
       <TeamCarousel team={team} />
     </section>
 
-    <section className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
+    <section aria-labelledby="cta-heading" className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
       <motion.h2
+        id="cta-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
@@ -100,10 +105,11 @@ export const AboutPage = () => (
         <AccentButton
           href={ROUTES.contact}
           className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
+          aria-label="Hablar con Boost - Ir a formulario de contacto"
         >
           Hablar con Boost
         </AccentButton>
       </motion.div>
     </section>
-  </div>
+  </section>
 )

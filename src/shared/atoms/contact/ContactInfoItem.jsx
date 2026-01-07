@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-export const ContactInfoItem = ({ icon: Icon, title, description, className = '' }) => (
-  <div className={`flex items-start gap-4 ${className}`}>
-    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/20 bg-black/10">
+export const ContactInfoItem = ({ icon: Icon, title, description, className = '', iconHidden = false, role }) => (
+  <div className={`flex items-start gap-4 ${className}`} role={role}>
+    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/20 bg-black/10" aria-hidden={iconHidden}>
       <Icon size={18} strokeWidth={1.6} />
     </div>
     <div>
@@ -17,4 +17,6 @@ ContactInfoItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   className: PropTypes.string,
+  iconHidden: PropTypes.bool,
+  role: PropTypes.string,
 }

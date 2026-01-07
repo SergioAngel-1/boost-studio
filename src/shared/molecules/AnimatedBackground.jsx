@@ -6,6 +6,7 @@ export const AnimatedBackground = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+    aria-hidden="true"
   >
     <motion.div
       className="absolute inset-0"

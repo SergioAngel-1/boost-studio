@@ -11,7 +11,12 @@ export const CustomSelect = ({
   icon: Icon,
   required = false,
   name = '',
-  placeholder = 'Seleccionar...'
+  placeholder = 'Seleccionar...',
+  id,
+  'aria-label': ariaLabel,
+  'aria-required': ariaRequired,
+  'aria-invalid': ariaInvalid,
+  'aria-describedby': ariaDescribedby
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const selectRef = useRef(null)
@@ -54,8 +59,13 @@ export const CustomSelect = ({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="peer flex w-full items-center justify-between border-b border-white/10 bg-transparent pb-3 text-left text-base text-white focus:outline-none"
+        id={id}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        aria-label={ariaLabel}
+        aria-required={ariaRequired}
+        aria-invalid={ariaInvalid}
+        aria-describedby={ariaDescribedby}
       >
         <span className={value ? 'text-white' : 'text-slate-500'}>
           {displayText}
@@ -69,7 +79,7 @@ export const CustomSelect = ({
         )}
       </button>
 
-      <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[#FFD700] transition-transform duration-300 ease-out peer-focus:scale-x-100" />
+      <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[#FFD700] transition-transform duration-300 ease-out peer-focus:scale-x-100" aria-hidden="true" />
 
       <AnimatePresence>
         {isOpen && (
@@ -126,4 +136,9 @@ CustomSelect.propTypes = {
   required: PropTypes.bool,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  id: PropTypes.string,
+  'aria-label': PropTypes.string,
+  'aria-required': PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  'aria-invalid': PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  'aria-describedby': PropTypes.string,
 }

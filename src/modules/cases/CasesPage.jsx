@@ -26,9 +26,10 @@ export const CasesPage = () => {
   const displayRevenue = formatRevenue(revenue)
 
   return (
-    <div className="relative overflow-hidden bg-[#020102] text-white">
+    <section aria-label="Página de casos de estudio" className="relative overflow-hidden bg-[#020102] text-white">
       <section
         ref={heroRef}
+        aria-labelledby="hero-heading"
         className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:justify-between md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20"
       >
         <div className="flex max-w-2xl flex-col gap-4 text-left md:gap-6">
@@ -41,6 +42,7 @@ export const CasesPage = () => {
             The Proof
           </motion.p>
           <motion.h1
+            id="hero-heading"
             initial={{ opacity: 0, y: 32 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -62,24 +64,32 @@ export const CasesPage = () => {
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
           className="relative flex w-full flex-col items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 delay-75 hover:border-[#FFD700]/70 md:min-w-[260px] md:gap-4 md:rounded-3xl md:p-8"
+          role="complementary"
+          aria-label="Estadísticas de ingresos generados"
+          aria-live="polite"
         >
           <span className="text-[0.6rem] uppercase tracking-[0.35em] text-slate-400 md:text-xs md:tracking-[0.4em]">Revenue Activado</span>
-          <span className="text-3xl font-semibold text-[#FFD700] md:text-4xl lg:text-5xl">{displayRevenue}</span>
+          <span className="text-3xl font-semibold text-[#FFD700] md:text-4xl lg:text-5xl" aria-label={`${displayRevenue} generados`}>{displayRevenue}</span>
           <p className="text-[0.6rem] uppercase tracking-[0.3em] text-slate-400/80 md:text-xs md:tracking-[0.35em]">Generado para partners en los últimos 12 meses</p>
         </motion.div>
       </section>
 
-      <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-4 pb-12 md:gap-16 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
-        {PROJECTS_DATA.map((project) => (
-          <ProjectCard 
-            key={project.id} 
-            project={project}
-          />
-        ))}
+      <section aria-labelledby="projects-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-4 pb-12 md:gap-16 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
+        <h2 id="projects-heading" className="sr-only">Casos de estudio</h2>
+        <div role="list" aria-label="Lista de proyectos">
+          {PROJECTS_DATA.map((project) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project}
+              role="listitem"
+            />
+          ))}
+        </div>
       </section>
 
-      <section className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
+      <section aria-labelledby="cta-heading" className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-6 px-4 pb-12 text-center md:gap-8 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
         <motion.h2
+          id="cta-heading"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.55 }}
@@ -97,11 +107,12 @@ export const CasesPage = () => {
           <AccentButton
             href={ROUTES.contact}
             className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
+            aria-label="Auditar mi Crecimiento - Ir a formulario de contacto"
           >
             Auditar mi Crecimiento
           </AccentButton>
         </motion.div>
       </section>
-    </div>
+    </section>
   )
 }

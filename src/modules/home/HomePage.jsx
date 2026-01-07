@@ -5,7 +5,7 @@ import { ContactFormSection } from '../../shared/organisms/home/ContactFormSecti
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 export const HomePage = () => (
-  <section className="space-y-[var(--section-gap)]" style={{ '--section-gap': fluidSizing.section.gap }}>
+  <section aria-label="Página de inicio" className="space-y-[var(--section-gap)]" style={{ '--section-gap': fluidSizing.section.gap }}>
     <HeroSection />
     <GrowthPathSection />
     <MethodSection />

@@ -6,6 +6,7 @@ export const AnimatedBeam = ({ beamData }) => {
 
   return (
     <svg
+      aria-hidden="true"
       style={{ 
         width: beamData.width,
         height: beamData.height,

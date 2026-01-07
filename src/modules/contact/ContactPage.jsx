@@ -122,17 +122,17 @@ export const ContactPage = () => {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#020101]">
+    <section aria-labelledby="contact-heading" className="relative min-h-screen overflow-hidden bg-[#020101]">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
-        <form onSubmit={handleSubmit} className="overflow-hidden rounded-2xl bg-neutral-900 shadow-[0_0_60px_rgba(255,215,0,0.08)] md:rounded-3xl lg:grid lg:grid-cols-2 lg:rounded-[4rem]">
+        <form onSubmit={handleSubmit} aria-label="Formulario de contacto para iniciar protocolo de crecimiento" className="overflow-hidden rounded-2xl bg-neutral-900 shadow-[0_0_60px_rgba(255,215,0,0.08)] md:rounded-3xl lg:grid lg:grid-cols-2 lg:rounded-[4rem]">
           <div className="relative overflow-hidden bg-zinc-950 p-5 md:p-8 lg:p-16">
-            <div className="pointer-events-none absolute -top-36 -left-28 h-72 w-72 rounded-full bg-[#FFD700]/5 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-[-120px] right-[-60px] h-80 w-80 rounded-full bg-[#FFD700]/5 blur-3xl" />
-            <div className="pointer-events-none absolute inset-0">
+            <div className="pointer-events-none absolute -top-36 -left-28 h-72 w-72 rounded-full bg-[#FFD700]/5 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute bottom-[-120px] right-[-60px] h-80 w-80 rounded-full bg-[#FFD700]/5 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0" aria-hidden="true">
               <div className="absolute left-10 top-10 hidden h-12 w-12 border-l border-t border-[#FFD700]/35 md:block" />
               <div className="absolute right-10 top-10 hidden h-12 w-12 border-r border-t border-[#FFD700]/35 md:block" />
               <div className="absolute bottom-10 left-10 hidden h-12 w-12 border-b border-l border-[#FFD700]/35 md:block" />
@@ -147,7 +147,7 @@ export const ContactPage = () => {
                   </span>
                   <span>Ref-092</span>
                 </div>
-                <h1 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
+                <h1 id="contact-heading" className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
                   Iniciar Protocolo de Crecimiento
                 </h1>
                 <p className="max-w-xl text-sm text-white md:text-base !text-white">
@@ -265,6 +265,7 @@ export const ContactPage = () => {
                 <motion.button
                   type="submit"
                   disabled={status === 'loading'}
+                  aria-label={status === 'loading' ? 'Procesando formulario' : 'Enviar briefing'}
                   whileHover={status === 'loading' ? {} : { scale: 1.02 }}
                   whileTap={status === 'loading' ? {} : { scale: 0.98 }}
                   className={`group flex w-full items-center justify-center gap-2 rounded-full bg-[#FFD700] px-5 py-3.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-black transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/80 lg:hidden ${
@@ -273,6 +274,7 @@ export const ContactPage = () => {
                 >
                   {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
                   <HiArrowRight
+                    aria-hidden="true"
                     className={`h-3.5 w-3.5 transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
                   />
                 </motion.button>
@@ -281,7 +283,7 @@ export const ContactPage = () => {
           </div>
 
           <div className="relative overflow-hidden bg-[#FFD700] p-5 text-black md:p-8 lg:p-16">
-            <div className="pointer-events-none absolute right-4 top-4 text-[0.6rem] font-mono uppercase tracking-[0.3em] text-slate-400 md:right-10 md:top-10 md:text-[11px] md:tracking-[0.35em]">
+            <div className="pointer-events-none absolute right-4 top-4 text-[0.6rem] font-mono uppercase tracking-[0.3em] text-slate-400 md:right-10 md:top-10 md:text-[11px] md:tracking-[0.35em]" aria-hidden="true">
               Channel ID // CL-204
             </div>
 
@@ -289,7 +291,7 @@ export const ContactPage = () => {
               <div className="space-y-6 md:space-y-10">
                 <div className="space-y-3 md:space-y-4">
                   <p className="text-[0.65rem] font-mono uppercase tracking-[0.35em] text-slate-500 md:text-xs md:tracking-[0.45em]">Direct Channel</p>
-                  <h2 className="text-2xl font-semibold text-black md:text-3xl lg:text-4xl">
+                  <h2 id="direct-line-heading" className="text-2xl font-semibold text-black md:text-3xl lg:text-4xl">
                     Línea Directa
                   </h2>
                   <p className="text-sm leading-relaxed text-slate-600 md:text-base">
@@ -297,23 +299,29 @@ export const ContactPage = () => {
                   </p>
                 </div>
 
-                <div className="space-y-4 rounded-xl border border-black/20 bg-black/10 p-4 backdrop-blur-md md:space-y-6 md:rounded-2xl md:p-6">
+                <div className="space-y-4 rounded-xl border border-black/20 bg-black/10 p-4 backdrop-blur-md md:space-y-6 md:rounded-2xl md:p-6" role="list" aria-label="Información de contacto">
                   <ContactInfoItem
                     icon={HiMapPin}
+                    iconHidden={true}
                     title="HQ Titanium Tower"
                     description="Piso 18 · Distrito Financiero · Ciudad de México"
+                    role="listitem"
                   />
-                  <div className="h-px bg-black/20" />
+                  <div className="h-px bg-black/20" aria-hidden="true" />
                   <ContactInfoItem
                     icon={HiEnvelope}
+                    iconHidden={true}
                     title="growth@booststudio.com"
                     description="Respuesta t-48h | Equipo Core Growth"
+                    role="listitem"
                   />
-                  <div className="h-px bg-black/20" />
+                  <div className="h-px bg-black/20" aria-hidden="true" />
                   <ContactInfoItem
                     icon={HiPhone}
+                    iconHidden={true}
                     title="+1 (800) BOOST-UP"
                     description="Horario operativo: 08:00 - 20:00 (EST)"
+                    role="listitem"
                   />
                 </div>
 
@@ -342,10 +350,11 @@ export const ContactPage = () => {
           </div>
 
           {/* Botón de envío para desktop - solo visible en desktop */}
-          <div className="hidden lg:col-span-2 lg:block">
+          <div className="hidden lg:col-span-2 lg:block" aria-hidden="true">
             <motion.button
               type="submit"
               disabled={status === 'loading'}
+              tabIndex={-1}
               whileHover={status === 'loading' ? {} : { scale: 1.01 }}
               whileTap={status === 'loading' ? {} : { scale: 0.99 }}
               className={`group flex w-full items-center justify-center gap-3 border-t border-white/5 bg-[#FFD700] py-6 text-sm font-semibold uppercase tracking-[0.3em] text-black transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/80 ${
@@ -354,6 +363,7 @@ export const ContactPage = () => {
             >
               {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
               <HiArrowRight
+                aria-hidden="true"
                 className={`h-5 w-5 transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
               />
             </motion.button>

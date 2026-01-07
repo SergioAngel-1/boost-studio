@@ -12,7 +12,7 @@ const alignMap = {
   end: 'items-end text-right',
 }
 
-export const SectionIntro = ({ eyebrow, title, description, align = 'start' }) => (
+export const SectionIntro = ({ eyebrow, title, description, align = 'start', headingId }) => (
   <motion.header
     variants={container}
     initial="hidden"
@@ -23,7 +23,7 @@ export const SectionIntro = ({ eyebrow, title, description, align = 'start' }) =
     {eyebrow ? (
       <span className="text-xs uppercase tracking-[0.4em] text-neutral-500">{eyebrow}</span>
     ) : null}
-    <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-white md:text-5xl">{title}</h2>
+    <h2 id={headingId} className="max-w-3xl text-3xl font-semibold leading-tight text-white md:text-5xl">{title}</h2>
     {description ? (
       <p className="max-w-2xl text-sm leading-relaxed text-neutral-400 md:text-base">{description}</p>
     ) : null}
@@ -35,4 +35,5 @@ SectionIntro.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   align: PropTypes.oneOf(['start', 'center', 'end']),
+  headingId: PropTypes.string,
 }

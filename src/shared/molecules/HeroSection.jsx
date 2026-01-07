@@ -8,7 +8,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay },
 })
 
-export const HeroSection = ({ eyebrow, title, description, className = '' }) => (
+export const HeroSection = ({ eyebrow, title, description, className = '', headingId }) => (
   <div className={`mx-auto flex w-full max-w-5xl flex-col items-center text-center ${className}`}>
     {eyebrow ? (
       <motion.p
@@ -19,6 +19,7 @@ export const HeroSection = ({ eyebrow, title, description, className = '' }) => 
       </motion.p>
     ) : null}
     <motion.h1
+      id={headingId}
       {...fadeUp(0.15)}
       className="mt-6 text-[2.8rem] font-semibold leading-[1.05] sm:text-[3.6rem] md:text-[4.5rem] lg:text-[5.4rem]"
     >
@@ -40,4 +41,5 @@ HeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   className: PropTypes.string,
+  headingId: PropTypes.string,
 }

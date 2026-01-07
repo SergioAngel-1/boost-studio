@@ -34,7 +34,7 @@ const mobileLineVariants = {
 const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C 1240 120, 1400 120, 1600 240'
 
 export const GrowthPathSection = () => (
-  <section className="relative w-full overflow-hidden">
+  <section aria-labelledby="growth-path-heading" className="relative w-full overflow-hidden">
     <div className="px-4 pb-8 md:px-8 md:pb-12 lg:px-12">
       <motion.span
         initial={{ opacity: 0, y: 24 }}
@@ -46,6 +46,7 @@ export const GrowthPathSection = () => (
         The Electric Growth Path
       </motion.span>
       <motion.h2
+        id="growth-path-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -67,7 +68,7 @@ export const GrowthPathSection = () => (
 
     {/* Desktop Version - Full bleed SVG */}
     <div className="relative hidden w-full lg:block" style={{ height: '360px' }}>
-      <svg viewBox="0 0 1600 360" preserveAspectRatio="none" className="h-full w-full">
+      <svg viewBox="0 0 1600 360" preserveAspectRatio="none" className="h-full w-full" aria-hidden="true" role="presentation">
         <motion.path
           d={pathD}
           stroke="#FFD700"
@@ -86,7 +87,7 @@ export const GrowthPathSection = () => (
       </svg>
 
       {/* Cards Container - Distributed along the line */}
-      <div className="absolute inset-0 mx-auto flex w-full max-w-[1400px] items-center" style={{ gap: fluidSizing.spacing.lg, padding: `0 ${fluidSizing.spacing['2xl']}` }}>
+      <div className="absolute inset-0 mx-auto flex w-full max-w-[1400px] items-center" style={{ gap: fluidSizing.spacing.lg, padding: `0 ${fluidSizing.spacing['2xl']}` }} role="list" aria-label="Puntos de crecimiento">
         {HOME_GROWTH_POINTS.map(({ value, label, description, alignment }, index) => (
           <motion.div
             key={value}
@@ -103,9 +104,10 @@ export const GrowthPathSection = () => (
               padding: `${fluidSizing.spacing.lg} ${fluidSizing.spacing.lg}`,
               borderRadius: fluidSizing.radius['2xl']
             }}
+            role="listitem"
           >
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow">
-              <HiBolt className="h-[18px] w-[18px]" />
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow" aria-label="Icono de energía">
+              <HiBolt className="h-[18px] w-[18px]" aria-hidden="true" />
             </span>
             <div>
               <p className="text-2xl font-semibold text-[#FFD700]">{value}</p>
@@ -118,13 +120,14 @@ export const GrowthPathSection = () => (
     </div>
 
     {/* Mobile Version */}
-    <div className="relative mx-4 flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl md:mx-8 md:gap-8 md:rounded-3xl md:p-8 lg:hidden">
+    <div className="relative mx-4 flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl md:mx-8 md:gap-8 md:rounded-3xl md:p-8 lg:hidden" role="list" aria-label="Puntos de crecimiento">
       <motion.div
         className="absolute left-5 top-8 h-[calc(100%-4rem)] w-[2px] bg-gradient-to-b from-[#FFD700] via-[#FFD700]/25 to-transparent md:left-8"
         variants={mobileLineVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.6 }}
+        aria-hidden="true"
       />
 
       {HOME_GROWTH_POINTS.map(({ value, label, description }, index) => (
@@ -136,9 +139,10 @@ export const GrowthPathSection = () => (
           viewport={{ once: true, amount: 0.4 }}
           variants={growthNodeVariants}
           className="relative flex flex-col gap-2.5 pl-12 md:gap-3 md:pl-16"
+          role="listitem"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow md:h-10 md:w-10">
-            <HiBolt className="h-4 w-4 md:h-[18px] md:w-[18px]" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow md:h-10 md:w-10" aria-label="Icono de energía">
+            <HiBolt className="h-4 w-4 md:h-[18px] md:w-[18px]" aria-hidden="true" />
           </span>
           <div>
             <p className="text-xl font-semibold text-[#FFD700] md:text-2xl">{value}</p>

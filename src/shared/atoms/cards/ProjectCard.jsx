@@ -12,7 +12,7 @@ const fadeInUp = {
   transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
 }
 
-export const ProjectCard = ({ project }) => {
+export const ProjectCard = ({ project, role }) => {
   const { title, industry, category, challenge, solution, metric, secondary, image, modalContent } = project
   const { openModal } = useModal()
   const cardRef = useRef(null)
@@ -38,6 +38,7 @@ export const ProjectCard = ({ project }) => {
       ref={cardRef}
       {...fadeInUp}
       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#070709] shadow-[0_0_60px_rgba(255,215,0,0.08)] transition-all duration-300 delay-75 hover:border-[#FFD700]/70 md:rounded-3xl"
+      role={role}
     >
       <div className="relative flex flex-col gap-6 md:gap-8 lg:flex-row lg:gap-10">
         <div className="relative h-[240px] flex-1 overflow-hidden md:h-[320px] lg:h-auto">
