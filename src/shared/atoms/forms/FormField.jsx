@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { CustomSelect } from './CustomSelect'
 
 export const FormField = ({ 
   label, 
@@ -38,34 +39,26 @@ export const FormField = ({
             required={required}
           />
         ) : isSelect ? (
-          <>
-            <select
-              name={name}
-              value={value}
-              onChange={onChange}
-              className="peer w-full appearance-none border-b border-white/10 bg-transparent pb-3 text-base text-white focus:outline-none"
-              required={required}
-            >
-              {options?.map((opt) => (
-                <option key={opt.value} value={opt.value} className="bg-zinc-950 text-white">
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-            {Icon ? (
-              <Icon className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-[#FFD700]" size={18} strokeWidth={1.6} />
-            ) : null}
-          </>
+          <CustomSelect
+            value={value}
+            onChange={onChange}
+            options={options}
+            icon={Icon}
+            className="w-full"
+            required={required}
+            name={name}
+          />
         ) : hasPrefix ? (
           <div className="flex items-center gap-2">
-            <select
+            <CustomSelect
               value={prefix}
               onChange={onPrefixChange}
-              className="w-24 appearance-none border-b border-white/10 bg-transparent pb-3 text-sm text-slate-400 focus:outline-none"
-            >
-              <option value="https://" className="bg-zinc-950">https://</option>
-              <option value="http://" className="bg-zinc-950">http://</option>
-            </select>
+              options={[
+                { value: 'https://', label: 'https://' },
+                { value: 'http://', label: 'http://' },
+              ]}
+              className="w-24"
+            />
             <input
               type="text"
               name={name}
