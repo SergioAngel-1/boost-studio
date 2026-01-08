@@ -12,27 +12,27 @@ import { ROUTES } from '../../core/routes'
 
 const philosophyPillars = [
   {
-    title: 'Obsesión por el ROI',
+    title: 'Enfoque en Resultados',
     description:
-      "No creemos en los 'likes'. Creemos en el dinero en el banco. Cada pixel que movemos tiene la misión de convertir.",
+      'Cada estrategia de marketing digital que implementamos está diseñada para generar retorno de inversión medible. Priorizamos métricas que impactan directamente en el crecimiento de tu negocio.',
   },
   {
-    title: 'Anti-Fragilidad',
+    title: 'Estrategias Adaptables',
     description:
-      'Los mercados cambian. Los algoritmos mutan. Construimos sistemas de adquisición robustos que sobreviven a las crisis y prosperan en el caos.',
+      'Construimos sistemas de growth marketing flexibles que se adaptan a cambios del mercado. Nuestras estrategias evolucionan con tu negocio para mantener el crecimiento sostenido.',
   },
   {
-    title: 'Velocidad de Ejecución',
+    title: 'Implementación Ágil',
     description:
-      'El dinero ama la velocidad. Lo que a otros les toma un trimestre, nosotros lo prototipamos en una semana y lo escalamos en dos.',
+      'Metodología de trabajo ágil que nos permite lanzar campañas rápidamente, probar hipótesis con datos reales y escalar lo que funciona en semanas, no meses.',
   },
 ]
 
 const trackRecord = [
-  { value: '+50M', label: 'Ingresos Generados' },
-  { value: '300+', label: 'Experimentos Ejecutados' },
-  { value: '12', label: 'Países Alcanzados' },
-  { value: '98%', label: 'Tasa de Retención' },
+  { value: '50+', label: 'Proyectos Completados' },
+  { value: '15+', label: 'Clientes Activos' },
+  { value: '3x', label: 'Crecimiento Promedio' },
+  { value: '90%', label: 'Tasa de Satisfacción' },
 ]
 
 const team = [
@@ -49,17 +49,17 @@ export const AboutPage = () => (
     <section aria-labelledby="hero-heading" className="relative flex min-h-[90vh] items-center justify-center px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <AnimatedBackground />
       <HeroSection
-        eyebrow="El Manifiesto"
-        title="No somos una agencia. Somos tu motor de crecimiento injusto."
-        description="En un mundo lleno de ruido, nosotros traemos la señal. Combinamos ingeniería de datos con creatividad agresiva para escalar negocios que ya no caben en su molde actual."
+        eyebrow="Nuestra Filosofía"
+        title="Agencia de growth marketing especializada en resultados medibles"
+        description="Combinamos análisis de datos, estrategias de marketing digital y diseño de experiencias para ayudar a empresas ambiciosas a escalar su crecimiento de forma sostenible y rentable."
         headingId="hero-heading"
       />
     </section>
 
     <section aria-labelledby="philosophy-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
-        eyebrow="The Boost DNA"
-        title="Nuestra filosofía de crecimiento imparable"
+        eyebrow="Nuestra Metodología"
+        title="Cómo trabajamos con nuestros clientes"
         align="center"
         headingId="philosophy-heading"
       />
@@ -80,8 +80,8 @@ export const AboutPage = () => (
 
     <section aria-labelledby="team-heading" className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12 lg:py-20">
       <SectionIntro
-        eyebrow="The Architects"
-        title="Mentes detrás del sistema."
+        eyebrow="Nuestro Equipo"
+        title="Especialistas en growth marketing y diseño digital"
         align="center"
         headingId="team-heading"
       />
@@ -97,7 +97,7 @@ export const AboutPage = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
       >
-        Activa tu motor de crecimiento
+        ¿Quieres hacer crecer tu negocio digital?
       </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 32 }}
@@ -108,9 +108,9 @@ export const AboutPage = () => (
         <AccentButton
           href={ROUTES.contact}
           className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
-          aria-label="Hablar con Boost - Ir a formulario de contacto"
+          aria-label="Solicitar Consultoría - Ir a formulario de contacto"
         >
-          Hablar con Boost
+          Solicitar Consultoría
         </AccentButton>
       </motion.div>
     </section>
