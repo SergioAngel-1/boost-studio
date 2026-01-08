@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import boostLogo from '/Images/Boost_Logo.png'
+import boostLogo from '/Images/Boost_Logo.webp'
 
 export const Logo = () => (
   <NavLink to="/" className="group relative flex items-center" aria-label="Boost Studio - Ir a página de inicio">

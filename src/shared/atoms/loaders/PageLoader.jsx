@@ -24,7 +24,7 @@ export const PageLoader = () => (
         />
         <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border-2 border-[#FFD700]/60 bg-gradient-to-br from-[#FFD700]/20 to-[#FFD700]/5 backdrop-blur-xl">
           <img 
-            src="/Images/cropped-favicon-1.jpg" 
+            src="/Images/Boost_Loader.webp" 
             alt="Boost Studio Logo" 
             className="h-full w-full object-cover"
             width="80"

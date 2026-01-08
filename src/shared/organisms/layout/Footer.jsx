@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
 import { ROUTES, EXTERNAL_LINKS } from '../../../core/routes'
-import boostLogo from '/Images/Boost_Logo.jpg'
+import boostLogo from '/Images/Boost_Logo_Negro.webp'
 
 const socialLinks = [
   {

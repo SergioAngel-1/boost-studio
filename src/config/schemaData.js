@@ -12,7 +12,7 @@ export const SCHEMA_CONFIG = {
     name: 'Boost Studio',
     alternateName: 'Boost',
     url: 'https://growthbooststudio.com',
-    logo: 'https://growthbooststudio.com/Images/Boost_Logo.png',
+    logo: 'https://growthbooststudio.com/Images/Boost_Logo.webp',
     description: 'Agencia de Growth Digital especializada en estrategias data-driven para escalar negocios. Growth Marketing, UX/UI, Performance Marketing y Content Strategy con enfoque en resultados medibles.',
     foundingDate: '2020',
     contactPoint: {
@@ -32,7 +32,7 @@ export const SCHEMA_CONFIG = {
     '@type': 'ProfessionalService',
     '@id': 'https://growthbooststudio.com/#service',
     name: 'Boost Studio',
-    image: 'https://growthbooststudio.com/Images/Boost_Logo.png',
+    image: 'https://growthbooststudio.com/Images/Boost_Logo.webp',
     priceRange: '$$$',
     telephone: '+57-320-960-4146',
     url: 'https://growthbooststudio.com',

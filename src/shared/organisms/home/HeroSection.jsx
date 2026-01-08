@@ -23,7 +23,7 @@ export const HeroSection = () => (
         </HeroContent>
 
         <HeroVisual 
-          src="/Images/Boost_home.jpg"
+          src="/Images/Boost_home.webp"
           alt="Visualización del impacto de Boost Studio: Dashboard mostrando métricas de crecimiento y análisis de datos"
         />
       </div>
