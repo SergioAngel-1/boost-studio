@@ -46,9 +46,9 @@ export const ProjectCard = ({ project, role }) => {
             alt={`${title} showcase visual`}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover transition duration-500 ease-out grayscale group-hover:scale-105 group-hover:grayscale-0"
+            className="h-full w-full object-cover transition duration-500 ease-out md:grayscale md:group-hover:scale-105 md:group-hover:grayscale-0"
           />
-          <div className="absolute inset-0 bg-black/55 transition duration-500 group-hover:bg-black/20" />
+          <div className="absolute inset-0 bg-black/20 transition duration-500 md:bg-black/55 md:group-hover:bg-black/20" />
           <div className="pointer-events-none absolute inset-0 border border-white/5 opacity-0 transition duration-500 group-hover:opacity-100" />
         </div>
         
@@ -77,7 +77,7 @@ export const ProjectCard = ({ project, role }) => {
             </div>
             <button
               onClick={handleOpenModal}
-              className="inline-flex items-center justify-center rounded-full border border-[#FFD700]/70 bg-transparent px-4 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-[#FFD700] shadow-none transition-all duration-300 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:px-5 md:py-2.5 md:text-xs md:tracking-[0.3em] md:opacity-0 md:group-hover:opacity-100"
+              className="inline-flex items-center justify-center rounded-full border border-[#FFD700]/70 bg-transparent px-4 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-[#FFD700] shadow-none transition-all duration-300 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:px-5 md:py-2.5 md:text-xs md:tracking-[0.3em] lg:opacity-0 lg:group-hover:opacity-100"
             >
               Ver Estudio Completo
             </button>
