@@ -8,24 +8,25 @@ const WHATSAPP_NUMBER = '521234567890'
 
 export const ContactFormSection = () => (
   <section aria-labelledby="contact-heading" className="relative flex flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12">
-    <motion.span
+    <motion.p
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
+      className="text-[0.65rem] uppercase tracking-[0.35em] md:text-xs md:tracking-[0.45em]"
+      style={{ color: '#cbd5e1' }}
     >
-      Protocolo de Activación
-    </motion.span>
+      Consultoría Gratuita
+    </motion.p>
     <motion.h2
       id="contact-heading"
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="max-w-4xl text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
+      className="max-w-4xl text-2xl font-semibold leading-tight !text-white md:text-4xl lg:text-5xl"
     >
-      ¿Listo para encender tu <span className="text-[#FFD700]">crecimiento exponencial</span>?
+      Agenda tu consultoría de growth marketing <span className="text-[#FFD700]">sin costo</span>
     </motion.h2>
 
     <motion.div
@@ -50,8 +51,8 @@ export const ContactFormSection = () => (
             </div>
           </div>
 
-          <p className="max-w-2xl leading-relaxed text-slate-300" style={{ fontSize: 'clamp(0.875rem, 0.875rem + 0.125vw, 1rem)' }}>
-            Activa nuestra maquinaria de crecimiento. Completa el briefing estratégico y nuestro equipo core te contactará en menos de 48 horas con un plan de acción calibrado.
+          <p className="max-w-2xl leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 0.875rem + 0.125vw, 1rem)', color: '#cbd5e1' }}>
+            Recibe asesoría especializada de nuestra agencia de growth marketing. Completa el formulario y nuestro equipo te contactará en menos de 48 horas con un análisis personalizado y estrategia de crecimiento para tu negocio.
           </p>
 
           <ul className="flex flex-wrap gap-3 text-xs text-slate-400 md:gap-4 md:text-sm" role="list" aria-label="Beneficios del servicio">
@@ -75,9 +76,9 @@ export const ContactFormSection = () => (
             href={ROUTES.contact}
             icon={HiArrowRight}
             className="bg-[#FFD700] px-6 py-3 text-base-950 shadow-none hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] md:px-8 md:py-4"
-            aria-label="Iniciar Protocolo de Crecimiento - Ir a formulario de contacto"
+            aria-label="Agendar Consultoría Gratuita - Ir a formulario de contacto"
           >
-            Iniciar Protocolo
+            Agendar Consultoría
           </AccentButton>
 
           <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em] text-slate-500 md:text-xs md:tracking-[0.3em] lg:text-right">
