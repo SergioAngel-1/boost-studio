@@ -1,18 +1,18 @@
 export const HOME_METHOD_STEPS = [
   {
-    title: 'Diagnóstico de precisión',
+    title: 'Auditoría y Diagnóstico',
     description:
-      'Auditamos producto, funnels y métricas para detectar dónde se está fugando el crecimiento. Cada hallazgo termina en un plan accionable.',
+      'Analizamos tu producto digital, embudos de conversión y métricas clave para identificar oportunidades de crecimiento. Cada hallazgo se traduce en una estrategia accionable con impacto medible.',
   },
   {
-    title: 'Activación enfocada',
+    title: 'Estrategia de Crecimiento',
     description:
-      'Diseñamos journeys end-to-end con experimentos que eliminan fricción y convierten intención en ingresos medibles.',
+      'Diseñamos experiencias de usuario optimizadas y campañas de marketing digital que eliminan fricción y maximizan la conversión de visitantes en clientes.',
   },
   {
-    title: 'Escala sostenida',
+    title: 'Optimización Continua',
     description:
-      'Operamos como tu célula de crecimiento: iteraciones quincenales, dashboards vivos y decisiones guiadas por data real.',
+      'Implementamos un ciclo de mejora constante con análisis de datos en tiempo real, pruebas A/B y ajustes estratégicos para escalar tu negocio de forma sostenible.',
   },
 ]
 

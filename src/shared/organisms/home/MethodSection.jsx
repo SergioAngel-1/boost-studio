@@ -135,24 +135,25 @@ export const MethodSection = () => {
 
   return (
     <section aria-labelledby="method-heading" className="relative flex flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12">
-      <motion.span
+      <motion.p
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
+        className="text-[0.65rem] uppercase tracking-[0.35em] md:text-xs md:tracking-[0.45em]"
+        style={{ color: '#cbd5e1' }}
       >
-        El Método Boost
-      </motion.span>
+        Metodología Boost
+      </motion.p>
       <motion.h2
         id="method-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-4xl text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
+        className="max-w-4xl text-2xl font-semibold leading-tight !text-white md:text-4xl lg:text-5xl"
       >
-        Un sistema orquestado para encender la <span className="text-[#FFD700]">expansión</span> de tu producto
+        Nuestra metodología de consultoría growth para <span className="text-[#FFD700]">escalar</span> tu negocio digital
       </motion.h2>
 
       <div className="relative flex flex-col gap-8 md:gap-12">
