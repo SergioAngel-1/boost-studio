@@ -18,8 +18,8 @@ const socialLinks = [
     icon: FaLinkedinIn,
   },
   {
-    label: 'Twitter',
-    href: EXTERNAL_LINKS.twitter,
+    label: 'X',
+    href: EXTERNAL_LINKS.x,
     icon: FaXTwitter,
   },
   {

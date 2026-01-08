@@ -367,7 +367,7 @@ export const ContactPage = () => {
                 <div className="flex gap-3 md:gap-4">
                   <SocialLink icon={FaWhatsapp} href={EXTERNAL_LINKS.whatsapp} label="WhatsApp" />
                   <SocialLink icon={FaLinkedinIn} href={EXTERNAL_LINKS.linkedin} label="LinkedIn" />
-                  <SocialLink icon={FaXTwitter} href={EXTERNAL_LINKS.twitter} label="Twitter" />
+                  <SocialLink icon={FaXTwitter} href={EXTERNAL_LINKS.x} label="X" />
                   <SocialLink icon={FaInstagram} href={EXTERNAL_LINKS.instagram} label="Instagram" />
                 </div>
               </div>
