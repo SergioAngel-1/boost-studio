@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { HOME_METHOD_STEPS } from '../../data/home'
+import { MethodCore } from '../../molecules/MethodCore'
 
 const buildNodeLabel = (title = '', stepNumber = 1) => {
   const stepPrefix = String(stepNumber).padStart(2, '0')
@@ -163,33 +164,7 @@ export const MethodSection = () => {
             selectedStep ? 'lg:justify-between' : 'lg:justify-center'
           }`}
         >
-          <motion.div
-            layout
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ type: 'spring', stiffness: 180, damping: 24, delay: 0.2 }}
-            className="relative flex h-[220px] w-[220px] items-center justify-center overflow-visible rounded-full border border-[#FFD700]/45 bg-black/65 shadow-[0_0_50px_rgba(255,215,0,0.18)] sm:h-[280px] sm:w-[280px] lg:h-[360px] lg:w-[360px]"
-          >
-            <div className="absolute inset-10 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.38),_rgba(2,1,1,0.88))] blur-[54px]" aria-hidden="true" />
-            <img
-              src="/Images/Boost_Metod.jpg"
-              alt="Núcleo del Método Boost: Sistema central que energiza todos los módulos de crecimiento"
-              loading="lazy"
-              className="relative h-full w-full rounded-full object-cover"
-            />
-            <motion.div
-              animate={{ rotate: [0, 2, -1, 0], scale: [1, 1.02, 1], opacity: [0.4, 0.68, 0.4] }}
-              transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-              className="pointer-events-none absolute inset-4 rounded-full border border-[#FFD700]/25"
-            />
-            <motion.span
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="pointer-events-none absolute -right-12 top-1/2 hidden h-16 w-16 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.35),_transparent_70%)] blur-[28px] lg:block"
-            />
-          </motion.div>
+          <MethodCore />
 
           <AnimatePresence>
             {selectedStep ? <EnergyLine /> : null}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { HiBolt } from 'react-icons/hi2'
 import { HOME_GROWTH_POINTS } from '../../data/home'
 import { fluidSizing } from '../../utils/fluidSizing'
+import { GrowthPointIcon } from '../../atoms/icons/GrowthPointIcon'
 
 const growthLineVariants = {
   hidden: { pathLength: 0, opacity: 0 },
@@ -35,7 +35,7 @@ const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C
 
 export const GrowthPathSection = () => (
   <section aria-labelledby="growth-path-heading" className="relative w-full overflow-hidden">
-    <div className="px-4 pb-8 md:px-8 md:pb-12 lg:px-12">
+    <div className="px-4 pb-16 md:px-8 md:pb-20 lg:px-12">
       <motion.p
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -108,9 +108,7 @@ export const GrowthPathSection = () => (
             }}
             role="listitem"
           >
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow" aria-label="Icono de energía">
-              <HiBolt className="h-[18px] w-[18px]" aria-hidden="true" />
-            </span>
+            <GrowthPointIcon />
             <div>
               <p className="text-2xl font-semibold text-[#FFD700]">{value}</p>
               <p className="text-sm font-medium uppercase tracking-[0.18em] text-white">{label}</p>
@@ -143,9 +141,7 @@ export const GrowthPathSection = () => (
           className="relative flex flex-col gap-2.5 pl-12 md:gap-3 md:pl-16"
           role="listitem"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FFD700] text-base-950 text-sm font-semibold shadow-glow md:h-10 md:w-10" aria-label="Icono de energía">
-            <HiBolt className="h-4 w-4 md:h-[18px] md:w-[18px]" aria-hidden="true" />
-          </span>
+          <GrowthPointIcon />
           <div>
             <p className="text-xl font-semibold text-[#FFD700] md:text-2xl">{value}</p>
             <p className="text-xs font-medium uppercase tracking-[0.15em] text-white md:text-sm md:tracking-[0.18em]">{label}</p>

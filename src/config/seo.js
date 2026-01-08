@@ -24,7 +24,7 @@ export const SEO_CONFIG = {
       keywords: 'servicios growth marketing, diseño ux ui, performance marketing, estrategia contenido, captación demanda, seo paid media, analítica web, optimización conversiones, marketing digital',
       ogTitle: 'Servicios de Growth Digital | Estrategias Data-Driven',
       ogDescription: 'Growth Marketing, UX/UI, Captación de Demanda, Content Strategy. Servicios integrados para crecimiento exponencial con enfoque en datos y resultados.',
-      ogImage: '/Images/Boost_Metod.jpg',
+      ogImage: '/Images/Boost_Method.png',
       twitterTitle: 'Servicios de Growth Digital | Boost Studio',
       twitterDescription: 'Servicios especializados de Growth Marketing, UX/UI, Performance Marketing y Content Strategy para escalar tu negocio.',
     },
