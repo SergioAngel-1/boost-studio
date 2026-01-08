@@ -36,33 +36,35 @@ const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C
 export const GrowthPathSection = () => (
   <section aria-labelledby="growth-path-heading" className="relative w-full overflow-hidden">
     <div className="px-4 pb-8 md:px-8 md:pb-12 lg:px-12">
-      <motion.span
+      <motion.p
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
+        className="text-[0.65rem] uppercase tracking-[0.35em] md:text-xs md:tracking-[0.45em]"
+        style={{ color: '#cbd5e1' }}
       >
-        The Electric Growth Path
-      </motion.span>
+        Capacidades de Crecimiento
+      </motion.p>
       <motion.h2
         id="growth-path-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-4 max-w-4xl text-2xl font-semibold leading-tight text-white md:mt-6 md:text-4xl lg:text-5xl"
+        className="mt-4 max-w-4xl text-2xl font-semibold leading-tight !text-white md:mt-6 md:text-4xl lg:text-5xl"
       >
-        Un mapa energético que revela cómo Boost <span className="text-[#FFD700]">enciende</span> tu crecimiento
+        Cómo nuestra agencia de growth marketing <span className="text-[#FFD700]">impulsa</span> tu negocio digital
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300/85 md:text-base"
+        className="mt-4 max-w-3xl text-sm leading-relaxed md:text-base"
+        style={{ color: '#cbd5e1' }}
       >
-        Visualizamos la progresión real de las capacidades de crecimiento que activamos en tus primeros 90 días. Cada nodo es una ganancia medible alimentada por el núcleo Boost.
+        Cinco pilares estratégicos que activamos para escalar tu producto digital. Cada capacidad se integra con las demás para generar crecimiento sostenible y resultados medibles.
       </motion.p>
     </div>
 

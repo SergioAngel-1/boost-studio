@@ -18,42 +18,42 @@ export const HOME_METHOD_STEPS = [
 
 export const HOME_GROWTH_POINTS = [
   {
-    value: '+45%',
-    label: 'Tráfico Orgánico',
+    value: 'SEO',
+    label: 'Posicionamiento Orgánico',
     description:
-      'Estrategias SEO técnicas y de contenido que atraen visitas cualificadas sin dependencia de Ads.',
+      'Estrategias de SEO técnico y contenido optimizado para atraer tráfico cualificado sin depender de publicidad pagada.',
     position: { left: '10%', top: '32%' },
     alignment: 'top',
   },
   {
-    value: '+250k',
-    label: 'Usuarios Alcanzados',
+    value: 'Reach',
+    label: 'Amplificación de Marca',
     description:
-      'Amplificación de marca mediante distribución inteligente de contenidos y assets virales.',
+      'Distribución estratégica de contenido en canales propios y ganados para maximizar alcance y reconocimiento.',
     position: { left: '28%', top: '68%' },
     alignment: 'bottom',
   },
   {
-    value: '+32%',
-    label: 'Leads Calificados (SQLs)',
+    value: 'Leads',
+    label: 'Generación de Demanda',
     description:
-      'Embudos de alta conversión diseñados para filtrar y nutrir prospectos listos para cerrar venta.',
+      'Funnels de conversión optimizados que transforman visitantes en leads calificados listos para ventas.',
     position: { left: '50%', top: '28%' },
     alignment: 'top',
   },
   {
-    value: '3x',
-    label: 'Retorno de Inversión (ROI)',
+    value: 'ROI',
+    label: 'Rentabilidad Medible',
     description:
-      'Foco obsesivo en la rentabilidad. Aseguramos que cada dólar invertido multiplique su valor.',
+      'Obsesión por el retorno. Cada estrategia está diseñada para que tu inversión en marketing genere ingresos reales.',
     position: { left: '72%', top: '68%' },
     alignment: 'bottom',
   },
   {
-    value: '-40%',
-    label: 'Costo por Adquisición (CPA)',
+    value: 'CAC',
+    label: 'Eficiencia en Adquisición',
     description:
-      'Optimización continua de pauta y mejora del Quality Score para escalar reduciendo costes.',
+      'Optimización continua de campañas y canales para reducir el costo de adquirir cada cliente sin sacrificar calidad.',
     position: { left: '90%', top: '32%' },
     alignment: 'top',
   },
