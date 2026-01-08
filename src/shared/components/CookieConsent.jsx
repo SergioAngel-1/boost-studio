@@ -41,13 +41,8 @@ const CookieConsentContent = ({ onClose }) => {
   }
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Glow effects - contenidos dentro del overflow */}
-      <div className="pointer-events-none absolute -top-20 left-1/4 h-48 w-48 rounded-full bg-[#FFD700]/20 blur-[80px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute -bottom-16 right-1/4 h-40 w-40 rounded-full bg-[#FFD700]/15 blur-[60px]" aria-hidden="true" />
-
-      {/* Contenido */}
-      <div className="relative space-y-6">
+    <div className="relative">
+      <div className="space-y-6">
         {/* Header con icono */}
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#FFD700]/60 bg-[#FFD700]/10 md:h-20 md:w-20">
