@@ -23,7 +23,7 @@ const formatRevenue = (value) => {
 export const CasesPage = () => {
   const heroRef = useRef(null)
   const heroInView = useInView(heroRef, { once: true, amount: 0.6 })
-  const revenue = useCountingValue({ target: 10000000, isActive: heroInView, duration: 3 })
+  const revenue = useCountingValue({ target: 500000, isActive: heroInView, duration: 3 })
   const displayRevenue = formatRevenue(revenue)
 
   return (
@@ -42,7 +42,7 @@ export const CasesPage = () => {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[0.65rem] uppercase tracking-[0.35em] text-[#FFD700]/80 md:text-xs md:tracking-[0.45em]"
           >
-            The Proof
+            Casos de Éxito
           </motion.p>
           <motion.h1
             id="hero-heading"
@@ -51,7 +51,7 @@ export const CasesPage = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl"
           >
-            La especulación termina donde empieza la data.
+            Proyectos reales de marketing digital y growth
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 28 }}
@@ -59,7 +59,7 @@ export const CasesPage = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
             className="text-sm leading-relaxed text-slate-300/85 md:text-base"
           >
-            No mostramos logos. Mostramos curvas de crecimiento exponencial. Aquí hay 3 despliegues tácticos que rompieron el mercado.
+            Resultados medibles de nuestras estrategias de redes sociales, publicidad digital y posicionamiento de marca para clientes reales.
           </motion.p>
         </div>
         <motion.div
@@ -71,9 +71,9 @@ export const CasesPage = () => {
           aria-label="Estadísticas de ingresos generados"
           aria-live="polite"
         >
-          <span className="text-[0.6rem] uppercase tracking-[0.35em] text-slate-400 md:text-xs md:tracking-[0.4em]">Revenue Activado</span>
+          <span className="text-[0.6rem] uppercase tracking-[0.35em] text-slate-400 md:text-xs md:tracking-[0.4em]">Inversión Gestionada</span>
           <span className="text-3xl font-semibold text-[#FFD700] md:text-4xl lg:text-5xl" aria-label={`${displayRevenue} generados`}>{displayRevenue}</span>
-          <p className="text-[0.6rem] uppercase tracking-[0.3em] text-slate-400/80 md:text-xs md:tracking-[0.35em]">Generado para partners en los últimos 12 meses</p>
+          <p className="text-[0.6rem] uppercase tracking-[0.3em] text-slate-400/80 md:text-xs md:tracking-[0.35em]">En campañas de publicidad digital</p>
         </motion.div>
       </section>
 
