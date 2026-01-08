@@ -19,6 +19,12 @@ export const Modal = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 px-4 backdrop-blur-xl md:px-6"
+          style={{
+            paddingTop: 'max(1rem, env(safe-area-inset-top))',
+            paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
+            paddingLeft: 'max(1rem, env(safe-area-inset-left))',
+            paddingRight: 'max(1rem, env(safe-area-inset-right))',
+          }}
           onClick={handleOverlayClick}
         >
           <motion.div
@@ -26,7 +32,11 @@ export const Modal = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.92 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#FFD700]/40 bg-[#060507]/95 backdrop-blur-2xl md:max-h-[85vh] md:rounded-3xl"
+            className="relative flex w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#FFD700]/40 bg-[#060507]/95 backdrop-blur-2xl md:rounded-3xl"
+            style={{
+              maxHeight: 'calc(90dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+              height: 'auto',
+            }}
             onClick={(event) => event.stopPropagation()}
           >
             {/* Header */}
@@ -49,7 +59,10 @@ export const Modal = () => {
               className="min-h-0 flex-1 overflow-y-auto p-5 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFD700]/20 hover:scrollbar-thumb-[#FFD700]/40 md:p-8"
               style={{
                 scrollbarWidth: 'thin',
-                scrollbarColor: 'rgba(255, 215, 0, 0.2) transparent'
+                scrollbarColor: 'rgba(255, 215, 0, 0.2) transparent',
+                WebkitOverflowScrolling: 'touch',
+                overscrollBehavior: 'contain',
+                paddingBottom: 'max(1.25rem, calc(1.25rem + env(safe-area-inset-bottom)))',
               }}
             >
               {content}

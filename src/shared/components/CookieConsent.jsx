@@ -41,10 +41,10 @@ const CookieConsentContent = ({ onClose }) => {
   }
 
   return (
-    <>
-      {/* Glow effects */}
-      <div className="pointer-events-none absolute -top-32 left-1/4 h-64 w-64 rounded-full bg-[#FFD700]/20 blur-[100px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute -bottom-24 right-1/4 h-56 w-56 rounded-full bg-[#FFD700]/15 blur-[80px]" aria-hidden="true" />
+    <div className="relative overflow-hidden">
+      {/* Glow effects - contenidos dentro del overflow */}
+      <div className="pointer-events-none absolute -top-20 left-1/4 h-48 w-48 rounded-full bg-[#FFD700]/20 blur-[80px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute -bottom-16 right-1/4 h-40 w-40 rounded-full bg-[#FFD700]/15 blur-[60px]" aria-hidden="true" />
 
       {/* Contenido */}
       <div className="relative space-y-6">
@@ -86,11 +86,20 @@ const CookieConsentContent = ({ onClose }) => {
         </div>
 
         {/* Botones de acción */}
-        <div className="flex flex-col gap-3 md:flex-row md:gap-4">
+        <div 
+          className="flex flex-col gap-3 md:flex-row md:gap-4"
+          style={{
+            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+          }}
+        >
           <button
             onClick={handleReject}
             className="flex-1 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] !text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-base"
             aria-label="Rechazar cookies analíticas - Solo cookies esenciales"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+            }}
           >
             Solo Esenciales
           </button>
@@ -98,23 +107,35 @@ const CookieConsentContent = ({ onClose }) => {
             onClick={handleAccept}
             className="flex-1 rounded-full bg-[#FFD700] px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] !text-black transition-all duration-300 hover:bg-[#FFD700]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-base"
             aria-label="Aceptar todas las cookies"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+            }}
           >
             Aceptar Cookies
           </button>
         </div>
 
         {/* Link a política de privacidad */}
-        <p className="text-center text-xs !text-slate-400 md:text-sm">
+        <p 
+          className="text-center text-xs !text-slate-400 md:text-sm"
+          style={{
+            paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))',
+          }}
+        >
           Para más información, consulta nuestra{' '}
           <Link 
             to={ROUTES.privacy} 
             className="!text-[#FFD700] underline transition-colors hover:!text-[#FFD700]/80"
             onClick={onClose}
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+            }}
           >
             Política de Privacidad
           </Link>
         </p>
       </div>
-    </>
+    </div>
   )
 }

@@ -6,6 +6,12 @@
 
 :root {
   color-scheme: only dark;
+  
+  /* iOS Safe Area Support */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 @layer base {
@@ -20,6 +26,12 @@
     min-height: 100vh;
     color: #f5f5f5;
     background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 55%), #020101;
+    
+    /* iOS optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
   }
 
   #root {

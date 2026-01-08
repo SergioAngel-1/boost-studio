@@ -29,8 +29,22 @@ export const ModalProvider = ({ children }) => {
     if (typeof window === 'undefined') return undefined
 
     if (isOpen) {
+      // Guardar estilos originales
       const originalOverflow = document.body.style.overflow
+      const originalPosition = document.body.style.position
+      const originalTop = document.body.style.top
+      const originalWidth = document.body.style.width
+      const scrollY = window.scrollY
+
+      // Bloquear scroll con soporte para iOS
       document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+      
+      // Prevenir scroll bounce en iOS
+      document.body.style.touchAction = 'none'
+      document.body.style.webkitOverflowScrolling = 'auto'
 
       const handleKeyDown = (event) => {
         if (event.key === 'Escape' && !disableOutsideClick) {
@@ -38,11 +52,30 @@ export const ModalProvider = ({ children }) => {
         }
       }
 
+      // Prevenir scroll en iOS cuando se intenta hacer scroll fuera del modal
+      const preventScroll = (e) => {
+        if (e.target === document.body) {
+          e.preventDefault()
+        }
+      }
+
       window.addEventListener('keydown', handleKeyDown)
+      document.addEventListener('touchmove', preventScroll, { passive: false })
 
       return () => {
+        // Restaurar estilos originales
         document.body.style.overflow = originalOverflow
+        document.body.style.position = originalPosition
+        document.body.style.top = originalTop
+        document.body.style.width = originalWidth
+        document.body.style.touchAction = ''
+        document.body.style.webkitOverflowScrolling = ''
+        
+        // Restaurar posición de scroll
+        window.scrollTo(0, scrollY)
+        
         window.removeEventListener('keydown', handleKeyDown)
+        document.removeEventListener('touchmove', preventScroll)
       }
     }
 
