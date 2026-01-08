@@ -6,6 +6,9 @@
 // Configuración de GTM desde variables de entorno
 const GTM_ID = import.meta.env.VITE_GTM_ID
 
+let gtmLoadPromise = null
+let webVitalsStarted = false
+
 /**
  * Verifica si el usuario ha dado consentimiento para cookies
  */
@@ -20,8 +23,27 @@ export const hasConsent = () => {
  */
 export const initializeAnalytics = () => {
   if (hasConsent()) {
-    loadGTM()
+    startTracking()
   }
+}
+
+const startTracking = async () => {
+  if (typeof window === 'undefined') return
+
+  try {
+    await loadGTM()
+    await ensureWebVitals()
+  } catch (error) {
+    console.error('[Analytics] ❌ Error iniciando el tracking', error)
+  }
+}
+
+const ensureWebVitals = async () => {
+  if (webVitalsStarted) return
+
+  const { reportWebVitals } = await import('../shared/utils/reportWebVitals.js')
+  reportWebVitals()
+  webVitalsStarted = true
 }
 
 /**
@@ -29,10 +51,18 @@ export const initializeAnalytics = () => {
  * Solo se ejecuta si el usuario acepta cookies
  */
 export const loadGTM = () => {
-  // Evitar cargar dos veces
+  if (typeof window === 'undefined') return Promise.resolve()
+  if (!GTM_ID) {
+    console.warn('[Analytics] GTM_ID no configurado')
+    return Promise.resolve()
+  }
+
   if (window.gtmLoaded) {
-    console.log('[Analytics] GTM ya está cargado')
-    return
+    return Promise.resolve()
+  }
+
+  if (gtmLoadPromise) {
+    return gtmLoadPromise
   }
 
   console.log('[Analytics] Cargando Google Tag Manager...')
@@ -44,32 +74,40 @@ export const loadGTM = () => {
     event: 'gtm.js',
   })
 
-  // Crear y cargar script de GTM
-  const script = document.createElement('script')
-  script.async = true
-  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`
-  
-  script.onload = () => {
-    console.log('[Analytics] ✅ GTM cargado exitosamente')
-    window.gtmLoaded = true
+  gtmLoadPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script')
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`
+    
+    script.onload = () => {
+      console.log('[Analytics] ✅ GTM cargado exitosamente')
+      window.gtmLoaded = true
+      resolve()
+    }
+
+    script.onerror = (error) => {
+      console.error('[Analytics] ❌ Error al cargar GTM', error)
+      gtmLoadPromise = null
+      reject(error)
+    }
+
+    document.head.appendChild(script)
+  })
+
+  if (document.body && !document.body.querySelector('noscript[data-gtm="true"]')) {
+    const noscript = document.createElement('noscript')
+    noscript.dataset.gtm = 'true'
+    const iframe = document.createElement('iframe')
+    iframe.src = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`
+    iframe.height = '0'
+    iframe.width = '0'
+    iframe.style.display = 'none'
+    iframe.style.visibility = 'hidden'
+    noscript.appendChild(iframe)
+    document.body.insertBefore(noscript, document.body.firstChild)
   }
 
-  script.onerror = () => {
-    console.error('[Analytics] ❌ Error al cargar GTM')
-  }
-
-  document.head.appendChild(script)
-
-  // Agregar noscript iframe para GTM
-  const noscript = document.createElement('noscript')
-  const iframe = document.createElement('iframe')
-  iframe.src = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`
-  iframe.height = '0'
-  iframe.width = '0'
-  iframe.style.display = 'none'
-  iframe.style.visibility = 'hidden'
-  noscript.appendChild(iframe)
-  document.body.insertBefore(noscript, document.body.firstChild)
+  return gtmLoadPromise
 }
 
 /**
@@ -124,6 +162,7 @@ export const removeAnalytics = () => {
 
   // Marcar que GTM no está cargado
   window.gtmLoaded = false
+  gtmLoadPromise = null
 
   console.log('[Analytics] ✅ Cookies eliminadas y tracking deshabilitado')
 }
@@ -137,7 +176,7 @@ export const saveConsent = (accepted) => {
   console.log(`[Analytics] Consentimiento guardado: ${value}`)
 
   if (accepted) {
-    loadGTM()
+    startTracking()
   } else {
     removeAnalytics()
   }
