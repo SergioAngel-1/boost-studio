@@ -35,7 +35,7 @@ export const HeroVisual = ({ src, alt }) => (
         alt={alt} 
         className="h-full w-full object-contain opacity-60" 
         loading="eager"
-        fetchpriority="high"
+        fetchPriority="high"
         width="1200"
         height="800"
         decoding="async"
