@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
-import { EXTERNAL_LINKS } from '../../../core/routes'
+import { ROUTES, EXTERNAL_LINKS } from '../../../core/routes'
 import boostLogo from '/Images/Boost_Logo.jpg'
 
 const socialLinks = [
@@ -78,6 +79,29 @@ export const Footer = () => (
             })}
           </div>
         </nav>
+
+        <div className="flex flex-wrap items-center justify-center gap-3 text-[0.6rem] uppercase tracking-[0.25em] text-black/50 md:gap-4 md:text-xs md:tracking-[0.3em]">
+          <Link 
+            to={ROUTES.faq}
+            className="transition-colors hover:text-black/80"
+          >
+            Preguntas Frecuentes
+          </Link>
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-black/40" />
+          <Link 
+            to={ROUTES.privacy}
+            className="transition-colors hover:text-black/80"
+          >
+            Privacidad
+          </Link>
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-black/40" />
+          <Link 
+            to={ROUTES.terms}
+            className="transition-colors hover:text-black/80"
+          >
+            Términos
+          </Link>
+        </div>
       </div>
 
       <div className="mt-6 flex justify-center text-[0.6rem] font-bold uppercase tracking-[0.3em] text-black/60 md:mt-10 md:text-xs md:tracking-[0.36em]">

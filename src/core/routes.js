@@ -4,6 +4,9 @@ export const ROUTES = {
   about: '/nosotros',
   cases: '/casos-de-exito',
   contact: '/contacto',
+  faq: '/preguntas-frecuentes',
+  privacy: '/politica-de-privacidad',
+  terms: '/terminos-y-condiciones',
 }
 
 export const EXTERNAL_LINKS = {

@@ -8,6 +8,9 @@ const ServicesPage = lazy(() => import('../modules/services/ServicesPage').then(
 const AboutPage = lazy(() => import('../modules/about/AboutPage').then(module => ({ default: module.AboutPage })))
 const CasesPage = lazy(() => import('../modules/cases/CasesPage').then(module => ({ default: module.CasesPage })))
 const ContactPage = lazy(() => import('../modules/contact/ContactPage').then(module => ({ default: module.ContactPage })))
+const FAQPage = lazy(() => import('../modules/faq/FAQPage').then(module => ({ default: module.FAQPage })))
+const PrivacyPolicyPage = lazy(() => import('../modules/legal/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })))
+const TermsPage = lazy(() => import('../modules/legal/TermsPage').then(module => ({ default: module.TermsPage })))
 const NotFoundPage = lazy(() => import('../modules/error/NotFoundPage').then(module => ({ default: module.NotFoundPage })))
 
 export const router = createBrowserRouter([
@@ -19,6 +22,9 @@ export const router = createBrowserRouter([
       { path: ROUTES.about, element: <AboutPage /> },
       { path: ROUTES.cases, element: <CasesPage /> },
       { path: ROUTES.contact, element: <ContactPage /> },
+      { path: ROUTES.faq, element: <FAQPage /> },
+      { path: ROUTES.privacy, element: <PrivacyPolicyPage /> },
+      { path: ROUTES.terms, element: <TermsPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
