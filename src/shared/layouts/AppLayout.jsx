@@ -4,6 +4,7 @@ import { ImmersiveBackdrop } from '../organisms/layout/ImmersiveBackdrop'
 import { Footer } from '../organisms/layout/Footer'
 import { Modal } from '../molecules/Modal'
 import { WhatsAppButton } from '../organisms/home/WhatsAppButton'
+import { CookieConsent } from '../components/CookieConsent'
 import { ScrollToTop } from '../utils/ScrollToTop'
 import { useScrollDepth } from '../hooks/useScrollDepth'
 
@@ -21,6 +22,7 @@ export const AppLayout = () => {
       <Footer />
       <Modal />
       <WhatsAppButton />
+      <CookieConsent />
     </div>
   )
 }

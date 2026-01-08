@@ -7,10 +7,12 @@ export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [content, setContent] = useState(null)
   const [title, setTitle] = useState(null)
+  const [disableOutsideClick, setDisableOutsideClick] = useState(false)
 
-  const openModal = useCallback((modalContent, modalTitle = null) => {
+  const openModal = useCallback((modalContent, modalTitle = null, options = {}) => {
     setContent(modalContent)
     setTitle(modalTitle)
+    setDisableOutsideClick(options.disableOutsideClick || false)
     setIsOpen(true)
   }, [])
 
@@ -19,6 +21,7 @@ export const ModalProvider = ({ children }) => {
     setTimeout(() => {
       setContent(null)
       setTitle(null)
+      setDisableOutsideClick(false)
     }, 300)
   }, [])
 
@@ -30,7 +33,7 @@ export const ModalProvider = ({ children }) => {
       document.body.style.overflow = 'hidden'
 
       const handleKeyDown = (event) => {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && !disableOutsideClick) {
           closeModal()
         }
       }
@@ -44,12 +47,13 @@ export const ModalProvider = ({ children }) => {
     }
 
     return undefined
-  }, [isOpen, closeModal])
+  }, [isOpen, disableOutsideClick, closeModal])
 
   const value = {
     isOpen,
     content,
     title,
+    disableOutsideClick,
     openModal,
     closeModal,
   }
