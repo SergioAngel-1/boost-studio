@@ -2,7 +2,7 @@ export const SEO_CONFIG = {
   defaultTitle: 'Boost Studio | Agencia de Growth Digital Data-Driven',
   titleTemplate: '%s | Boost Studio',
   defaultDescription: 'Agencia de Growth Digital especializada en estrategias data-driven para escalar negocios. Growth Marketing, UX/UI, Performance Marketing y Content Strategy con enfoque en resultados medibles.',
-  siteUrl: 'https://booststudio.com',
+  siteUrl: 'https://growthbooststudio.com',
   defaultImage: '/Images/Boost_Logo.jpg',
   twitterHandle: '@booststudio',
   

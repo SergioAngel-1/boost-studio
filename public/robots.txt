@@ -5,7 +5,7 @@ Disallow: /admin/
 Disallow: /*.json$
 
 # Sitemaps
-Sitemap: https://booststudio.com/sitemap.xml
+Sitemap: https://growthbooststudio.com/sitemap.xml
 
 # Crawl-delay para bots agresivos
 User-agent: AhrefsBot

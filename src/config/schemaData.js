@@ -4,15 +4,15 @@
  */
 
 export const SCHEMA_CONFIG = {
-  siteUrl: 'https://booststudio.com',
+  siteUrl: 'https://growthbooststudio.com',
   
   organization: {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Boost Studio',
     alternateName: 'Boost',
-    url: 'https://booststudio.com',
-    logo: 'https://booststudio.com/Images/Boost_Logo.png',
+    url: 'https://growthbooststudio.com',
+    logo: 'https://growthbooststudio.com/Images/Boost_Logo.png',
     description: 'Agencia de Growth Digital especializada en estrategias data-driven para escalar negocios. Growth Marketing, UX/UI, Performance Marketing y Content Strategy con enfoque en resultados medibles.',
     foundingDate: '2020',
     contactPoint: {
@@ -30,12 +30,12 @@ export const SCHEMA_CONFIG = {
   professionalService: {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': 'https://booststudio.com/#service',
+    '@id': 'https://growthbooststudio.com/#service',
     name: 'Boost Studio',
-    image: 'https://booststudio.com/Images/Boost_Logo.png',
+    image: 'https://growthbooststudio.com/Images/Boost_Logo.png',
     priceRange: '$$$',
     telephone: '+57-320-960-4146',
-    url: 'https://booststudio.com',
+    url: 'https://growthbooststudio.com',
     areaServed: {
       '@type': 'Country',
       name: 'Colombia',
@@ -46,12 +46,12 @@ export const SCHEMA_CONFIG = {
   services: {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': 'https://booststudio.com/#services',
+    '@id': 'https://growthbooststudio.com/#services',
     serviceType: 'Digital Marketing Agency',
     provider: {
       '@type': 'Organization',
       name: 'Boost Studio',
-      url: 'https://booststudio.com',
+      url: 'https://growthbooststudio.com',
     },
     areaServed: {
       '@type': 'Country',
