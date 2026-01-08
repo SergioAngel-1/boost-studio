@@ -11,7 +11,7 @@ export const FeatureCard = ({ title, description, delay = 0, className = '', rol
     role={role}
   >
     <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#FFD700]/75">{title}</span>
-    <p className="text-sm leading-relaxed text-slate-300/85">{description}</p>
+    <p className="pb-4 text-sm leading-relaxed text-slate-300/85">{description}</p>
     <span className="pointer-events-none absolute inset-x-8 bottom-8 h-[2px] scale-x-0 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
   </motion.article>
 )
