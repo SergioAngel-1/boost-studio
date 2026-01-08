@@ -30,3 +30,4 @@ dist-ssr
 
 # Images
 /public/Images/
+/public/favicon
