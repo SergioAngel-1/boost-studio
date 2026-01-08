@@ -38,12 +38,12 @@ export const fluidSizing = {
   
   // Headings
   heading: {
-    h1: fluidSize(8, 80),      // 1.5rem - 5rem
-    h2: fluidSize(16, 60),      // 1.25rem - 3.75rem
-    h3: fluidSize(16, 44),      // 1.125rem - 2.75rem
-    h4: fluidSize(16, 32),      // 1rem - 2rem
-    h5: fluidSize(14, 24),      // 0.875rem - 1.5rem
-    h6: fluidSize(12, 20),      // 0.75rem - 1.25rem
+    h1: fluidSize(32, 64),      // 2rem - 4rem (para laptops pequeños a monitores grandes)
+    h2: fluidSize(24, 48),      // 1.5rem - 3rem
+    h3: fluidSize(20, 36),      // 1.25rem - 2.25rem
+    h4: fluidSize(18, 28),      // 1.125rem - 1.75rem
+    h5: fluidSize(16, 24),      // 1rem - 1.5rem
+    h6: fluidSize(14, 20),      // 0.875rem - 1.25rem
   },
   
   // Espaciado
@@ -84,6 +84,16 @@ export const fluidSizing = {
     xl: fluidSize(16, 24),
     '2xl': fluidSize(24, 32),
     '3xl': fluidSize(32, 48),
+  },
+  
+  // Letter spacing (tracking)
+  tracking: {
+    tight: '-0.025em',
+    normal: '0em',
+    wide: '0.025em',
+    wider: '0.05em',
+    widest: '0.1em',
+    button: fluidSize(1.5, 2.8), // 0.25em - 0.48em (para botones)
   },
 }
 

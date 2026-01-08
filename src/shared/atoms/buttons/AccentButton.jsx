@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useGTM } from '../../hooks/useGTM'
+import { fluidSizing } from '../../utils/fluidSizing'
 
 const MotionLink = motion.create(Link)
 
@@ -22,7 +23,16 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon 
     whileHover: { scale: 1.02 },
     whileTap: { scale: 0.98 },
     onClick: handleClick,
-    className: `inline-flex items-center gap-2 rounded-full bg-[#FFD700] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-black shadow-[0_0_40px_rgba(247,214,76,0.25)] transition-colors duration-300 md:gap-3 md:text-base md:tracking-[0.3em] ${className}`,
+    className: `inline-flex items-center rounded-full bg-[#FFD700] font-semibold uppercase text-black shadow-[0_0_40px_rgba(247,214,76,0.25)] transition-colors duration-300 ${className}`,
+    style: { 
+      fontSize: fluidSizing.text.sm,
+      paddingLeft: fluidSizing.spacing.lg,
+      paddingRight: fluidSizing.spacing.lg,
+      paddingTop: fluidSizing.spacing.sm,
+      paddingBottom: fluidSizing.spacing.sm,
+      gap: fluidSizing.spacing.xs,
+      letterSpacing: fluidSizing.tracking.button,
+    },
   }
 
   if (isInternalLink) {
