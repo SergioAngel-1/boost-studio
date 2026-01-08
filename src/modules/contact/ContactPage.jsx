@@ -9,6 +9,8 @@ import { SEO_CONFIG } from '../../config/seo'
 import { FormField } from '../../shared/atoms/forms/FormField'
 import { ContactInfoItem } from '../../shared/atoms/contact/ContactInfoItem'
 import { SocialLink } from '../../shared/atoms/contact/SocialLink'
+import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
+import { useGTM } from '../../shared/hooks/useGTM'
 import { fluidSizing } from '../../shared/utils/fluidSizing'
 import { EXTERNAL_LINKS } from '../../core/routes'
 import { emailConfig, validateEmailConfig, getEmailErrorMessage } from '../../config/emailjs'
@@ -26,6 +28,7 @@ export const ContactPage = () => {
   const [urlProtocol, setUrlProtocol] = useState('https://')
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState(null)
+  const { trackEvent } = useGTM()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -103,6 +106,15 @@ export const ContactPage = () => {
       // Éxito: ambos emails enviados
       setStatus('success')
       
+      // Track successful form submission
+      trackEvent('form_submission', {
+        form_name: 'contact_form',
+        form_location: '/contacto',
+        user_budget: sanitizedData.budget,
+        has_website: !!sanitizedData.website,
+        message_length: sanitizedData.message.length,
+      })
+      
       // Limpiar formulario después de 3 segundos
       setTimeout(() => {
         setFormData({
@@ -118,8 +130,18 @@ export const ContactPage = () => {
 
     } catch (err) {
       console.error('Error al enviar emails:', err)
-      setError(getEmailErrorMessage(err))
+      const errorMessage = getEmailErrorMessage(err)
+      setError(errorMessage)
       setStatus('idle')
+      
+      // Track form submission error
+      trackEvent('form_error', {
+        form_name: 'contact_form',
+        form_location: '/contacto',
+        error_type: 'email_service',
+        error_message: errorMessage,
+        user_budget: sanitizedData.budget,
+      })
     }
   }
 
@@ -266,22 +288,22 @@ export const ContactPage = () => {
                 </p>
 
                 {/* Botón de envío para mobile - solo visible en mobile */}
-                <motion.button
+                <button
                   type="submit"
                   disabled={status === 'loading'}
+                  className="w-full lg:hidden"
                   aria-label={status === 'loading' ? 'Procesando formulario' : 'Enviar briefing'}
-                  whileHover={status === 'loading' ? {} : { scale: 1.02 }}
-                  whileTap={status === 'loading' ? {} : { scale: 0.98 }}
-                  className={`group flex w-full items-center justify-center gap-2 rounded-full bg-[#FFD700] px-5 py-3.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-black transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/80 lg:hidden ${
-                    status === 'loading' ? 'opacity-70' : 'hover:bg-[#ffcf20]'
-                  }`}
                 >
-                  {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
-                  <HiArrowRight
-                    aria-hidden="true"
-                    className={`h-3.5 w-3.5 transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
-                  />
-                </motion.button>
+                  <AccentButton
+                    href="#"
+                    icon={HiArrowRight}
+                    className={`w-full justify-center px-5 py-3.5 text-[0.65rem] tracking-[0.2em] ${
+                      status === 'loading' ? 'opacity-70 pointer-events-none' : ''
+                    }`}
+                  >
+                    {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
+                  </AccentButton>
+                </button>
               </div>
             </div>
           </div>
@@ -354,23 +376,23 @@ export const ContactPage = () => {
           </div>
 
           {/* Botón de envío para desktop - solo visible en desktop */}
-          <div className="hidden lg:col-span-2 lg:block" aria-hidden="true">
-            <motion.button
+          <div className="hidden lg:col-span-2 lg:block">
+            <button
               type="submit"
               disabled={status === 'loading'}
-              tabIndex={-1}
-              whileHover={status === 'loading' ? {} : { scale: 1.01 }}
-              whileTap={status === 'loading' ? {} : { scale: 0.99 }}
-              className={`group flex w-full items-center justify-center gap-3 border-t border-white/5 bg-[#FFD700] py-6 text-sm font-semibold uppercase tracking-[0.3em] text-black transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/80 ${
-                status === 'loading' ? 'opacity-70' : 'hover:bg-[#ffcf20]'
-              }`}
+              className="w-full"
+              aria-label={status === 'loading' ? 'Procesando formulario' : 'Enviar briefing'}
             >
-              {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
-              <HiArrowRight
-                aria-hidden="true"
-                className={`h-5 w-5 transition-transform duration-300 ${status === 'loading' ? '' : 'group-hover:translate-x-1'}`}
-              />
-            </motion.button>
+              <AccentButton
+                href="#"
+                icon={HiArrowRight}
+                className={`w-full justify-center gap-3 rounded-none border-t border-white/5 py-6 text-sm tracking-[0.3em] ${
+                  status === 'loading' ? 'opacity-70 pointer-events-none' : ''
+                }`}
+              >
+                {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
+              </AccentButton>
+            </button>
           </div>
         </form>
       </motion.div>

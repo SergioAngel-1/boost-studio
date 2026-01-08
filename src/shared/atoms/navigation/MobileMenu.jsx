@@ -5,6 +5,7 @@ import { HiXMark } from 'react-icons/hi2'
 import PropTypes from 'prop-types'
 import { NAV_ITEMS } from '../../../core/navigation'
 import { EXTERNAL_LINKS } from '../../../core/routes'
+import { AccentButton } from '../buttons/AccentButton'
 
 const menuVariants = {
   closed: {
@@ -151,18 +152,19 @@ export const MobileMenu = ({ isOpen, onClose }) => {
 
             {/* Footer fijo */}
             <div className="shrink-0 border-t border-white/10 px-4 py-4">
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
-                href={EXTERNAL_LINKS.talkToBoost}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Hablar con Boost - Abre en nueva pestaña"
-                className="flex items-center justify-center gap-2 rounded-full bg-[#FFD700] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-base-950 shadow-glow transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
-                Hablar con Boost
-              </motion.a>
+                <AccentButton
+                  href={EXTERNAL_LINKS.talkToBoost}
+                  className="w-full justify-center px-5 py-3 text-xs tracking-[0.2em] shadow-glow"
+                  aria-label="Hablar con Boost - Abre en nueva pestaña"
+                >
+                  Hablar con Boost
+                </AccentButton>
+              </motion.div>
             </div>
           </motion.div>
         </>

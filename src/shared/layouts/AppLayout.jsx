@@ -5,17 +5,22 @@ import { Footer } from '../organisms/layout/Footer'
 import { Modal } from '../molecules/Modal'
 import { WhatsAppButton } from '../organisms/home/WhatsAppButton'
 import { ScrollToTop } from '../utils/ScrollToTop'
+import { useScrollDepth } from '../hooks/useScrollDepth'
 
-export const AppLayout = () => (
-  <div className="relative min-h-screen text-white">
-    <ScrollToTop />
-    <ImmersiveBackdrop />
-    <Header />
-    <main aria-label="Contenido principal" className="relative mx-auto w-full max-w-full overflow-x-hidden">
-      <Outlet />
-    </main>
-    <Footer />
-    <Modal />
-    <WhatsAppButton />
-  </div>
-)
+export const AppLayout = () => {
+  useScrollDepth()
+
+  return (
+    <div className="relative min-h-screen text-white">
+      <ScrollToTop />
+      <ImmersiveBackdrop />
+      <Header />
+      <main aria-label="Contenido principal" className="relative mx-auto w-full max-w-full overflow-x-hidden">
+        <Outlet />
+      </main>
+      <Footer />
+      <Modal />
+      <WhatsAppButton />
+    </div>
+  )
+}

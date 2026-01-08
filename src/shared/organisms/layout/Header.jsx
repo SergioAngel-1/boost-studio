@@ -10,6 +10,7 @@ import { AnimatedBeam } from '../../molecules/AnimatedBeam'
 import { useBeamAnimation } from '../../hooks/useBeamAnimation'
 import { HamburgerButton } from '../../atoms/navigation/HamburgerButton'
 import { MobileMenu } from '../../atoms/navigation/MobileMenu'
+import { AccentButton } from '../../atoms/buttons/AccentButton'
 
 export const Header = () => {
   const { pathname } = useLocation()
@@ -73,27 +74,21 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
+          <AccentButton
             href={EXTERNAL_LINKS.talkToBoost}
-            target="_blank"
-            rel="noreferrer"
+            className="hidden border border-[#FFD700]/40 px-7 py-3 shadow-glow md:inline-flex"
             aria-label="Hablar con Boost - Abre en nueva pestaña"
-            className="hidden items-center gap-3 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-7 py-3 font-semibold uppercase tracking-[0.38em] text-base-950 shadow-glow transition-transform duration-500 hover:scale-[1.05] md:inline-flex"
-            style={{ fontSize: fluidSizing.text.xs }}
           >
             Hablar con Boost
-          </a>
+          </AccentButton>
 
-          <a
+          <AccentButton
             href={EXTERNAL_LINKS.talkToBoost}
-            target="_blank"
-            rel="noreferrer"
-            aria-hidden="true"
-            tabIndex={-1}
-            className="inline-flex items-center gap-2 rounded-full border border-[#FFD700]/40 bg-[#FFD700] px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.25em] text-base-950 shadow-glow transition-transform duration-300 hover:scale-[1.05] md:hidden"
+            className="border border-[#FFD700]/40 px-5 py-2.5 text-sm shadow-glow md:hidden"
+            aria-label="Contacto - Hablar con Boost"
           >
             Contacto
-          </a>
+          </AccentButton>
 
           <HamburgerButton
             isOpen={isMobileMenuOpen}
