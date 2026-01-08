@@ -37,16 +37,16 @@ export const Footer = () => (
     >
       <div className="flex flex-col items-center gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 md:gap-3">
-          <img src={boostLogo} alt="Boost Studio" className="h-10 w-auto object-contain md:h-12" />
+          <img src={boostLogo} alt="Boost Studio - Agencia de Growth Marketing Digital en México" className="h-10 w-auto object-contain md:h-12" />
           <span className="text-xs font-extrabold uppercase tracking-[0.25em] md:text-sm md:tracking-[0.32em]">Encendemos el crecimiento</span>
         </div>
 
         <ul className="flex flex-wrap items-center justify-center gap-2 text-[0.65rem] uppercase tracking-[0.25em] text-black/70 md:gap-3 md:text-sm md:tracking-[0.3em]" role="list" aria-label="Áreas de servicio">
-          <li>Consultoría</li>
+          <li>Growth Marketing</li>
           <li aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
-          <li>Producto</li>
+          <li>Diseño Digital</li>
           <li aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-black/60 md:h-2 md:w-2" />
-          <li>Crecimiento</li>
+          <li>Estrategia de Crecimiento</li>
         </ul>
 
         <nav aria-label="Redes sociales">
