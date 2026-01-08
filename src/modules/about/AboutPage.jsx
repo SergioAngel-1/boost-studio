@@ -8,7 +8,6 @@ import { StatsGrid } from '../../shared/molecules/StatsGrid'
 import { FeatureCard } from '../../shared/atoms/cards/FeatureCard'
 import { TeamCarousel } from '../../shared/molecules/TeamCarousel'
 import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
-import { fluidSizing } from '../../shared/utils/fluidSizing'
 import { ROUTES } from '../../core/routes'
 
 const philosophyPillars = [

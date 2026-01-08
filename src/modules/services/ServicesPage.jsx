@@ -7,7 +7,6 @@ import { useModal } from '../../shared/context/ModalContext'
 import { ServiceModal } from '../../shared/molecules/ServiceModal'
 import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
 import { ROUTES } from '../../core/routes'
-import { fluidSizing } from '../../shared/utils/fluidSizing'
 
 const cardVariants = {
   hiddenLeft: { opacity: 0, x: -30 },

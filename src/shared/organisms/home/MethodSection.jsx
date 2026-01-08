@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { HOME_METHOD_STEPS } from '../../data/home'
-import { fluidSizing } from '../../utils/fluidSizing'
 
 const buildNodeLabel = (title = '', stepNumber = 1) => {
   const stepPrefix = String(stepNumber).padStart(2, '0')

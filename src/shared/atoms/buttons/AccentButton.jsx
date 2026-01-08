@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fluidSizing } from '../../utils/fluidSizing'
 import { useGTM } from '../../hooks/useGTM'
 
 const MotionLink = motion.create(Link)

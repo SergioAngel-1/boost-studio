@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion'
 import { useCountingValue } from '../../hooks/useCountingValue'
 import { useModal } from '../../context/ModalContext'
 import { ProjectModal } from '../../molecules/ProjectModal'
-import { fluidSizing } from '../../utils/fluidSizing'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 56 },

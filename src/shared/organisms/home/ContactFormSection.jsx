@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 import { HiChatBubbleLeftRight } from 'react-icons/hi2'
 import { AccentButton } from '../../atoms/buttons/AccentButton'
-import { fluidSizing } from '../../utils/fluidSizing'
 import { ROUTES } from '../../../core/routes'
 
 const WHATSAPP_NUMBER = '521234567890'

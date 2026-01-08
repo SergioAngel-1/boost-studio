@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
-import { fluidSizing } from '../../utils/fluidSizing'
 import { EXTERNAL_LINKS } from '../../../core/routes'
 import boostLogo from '/Images/Boost_Logo.jpg'
 

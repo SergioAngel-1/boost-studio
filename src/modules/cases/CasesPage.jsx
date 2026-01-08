@@ -6,7 +6,6 @@ import { useCountingValue } from '../../shared/hooks/useCountingValue'
 import { PROJECTS_DATA } from '../../shared/data/projects'
 import { ProjectCard } from '../../shared/atoms/cards/ProjectCard'
 import { AccentButton } from '../../shared/atoms/buttons/AccentButton'
-import { fluidSizing } from '../../shared/utils/fluidSizing'
 import { ROUTES } from '../../core/routes'
 
 const formatRevenue = (value) => {
