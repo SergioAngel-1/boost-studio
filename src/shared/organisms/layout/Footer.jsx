@@ -2,7 +2,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
 import { ROUTES, EXTERNAL_LINKS } from '../../../core/routes'
-import boostLogo from '/Images/Boost_Logo_Negro.webp'
+const FOOTER_LOGO_DEFAULT = '/Images/Boost_Logo_Negro-200.webp'
+const FOOTER_LOGO_SRCSET =
+  '/Images/Boost_Logo_Negro-120.webp 120w, /Images/Boost_Logo_Negro-200.webp 200w, /Images/Boost_Logo_Negro-320.webp 320w'
 
 const socialLinks = [
   {
@@ -39,11 +41,13 @@ export const Footer = () => (
       <div className="flex flex-col items-center gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 md:gap-3">
           <img 
-            src={boostLogo} 
+            src={FOOTER_LOGO_DEFAULT} 
+            srcSet={FOOTER_LOGO_SRCSET}
+            sizes="(max-width: 768px) 120px, 180px"
             alt="Boost Studio - Agencia de Growth Marketing Digital en Colombia" 
             className="h-10 w-auto object-contain md:h-12"
-            width="120"
-            height="48"
+            width="180"
+            height="72"
             loading="lazy"
             decoding="async"
           />

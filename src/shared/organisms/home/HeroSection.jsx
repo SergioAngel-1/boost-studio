@@ -25,6 +25,11 @@ export const HeroSection = () => (
         <HeroVisual 
           src="/Images/Boost_home.webp"
           alt="Visualización del impacto de Boost Studio: Dashboard mostrando métricas de crecimiento y análisis de datos"
+          responsiveSources={{
+            default: '/Images/Boost_home-960.webp',
+            srcSet: '/Images/Boost_home-576.webp 576w, /Images/Boost_home-640.webp 640w, /Images/Boost_home-960.webp 960w, /Images/Boost_home.webp 1440w',
+            sizes: '(max-width: 768px) 85vw, (max-width: 1280px) 45vw, 640px'
+          }}
         />
       </div>
     </motion.div>

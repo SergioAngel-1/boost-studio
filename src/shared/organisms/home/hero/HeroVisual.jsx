@@ -17,7 +17,12 @@ const ProgressBar = ({ value, id }) => (
   </div>
 )
 
-export const HeroVisual = ({ src, alt }) => (
+export const HeroVisual = ({ src, alt, responsiveSources = null }) => {
+  const imageSrc = responsiveSources?.default ?? src
+  const imageSrcSet = responsiveSources?.srcSet
+  const imageSizes = responsiveSources?.sizes
+
+  return (
   <motion.div
     initial={{ opacity: 0, y: 72, scale: 0.95 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -31,13 +36,15 @@ export const HeroVisual = ({ src, alt }) => (
       
       {/* Image */}
       <img 
-        src={src} 
+        src={imageSrc} 
         alt={alt} 
         className="h-full w-full object-contain opacity-60" 
         loading="eager"
         fetchPriority="high"
         width="1200"
         height="800"
+        srcSet={imageSrcSet}
+        sizes={imageSizes}
         decoding="async"
       />
       
@@ -69,3 +76,4 @@ export const HeroVisual = ({ src, alt }) => (
     </div>
   </motion.div>
 )
+}

@@ -83,7 +83,9 @@ export const MethodCore = ({ className = '' }) => (
     
     {/* Method logo image - Main visual element */}
     <img
-      src="/Images/Boost_Method.webp"
+      src="/Images/Boost_Method-400.webp"
+      srcSet="/Images/Boost_Method-400.webp 400w, /Images/Boost_Method-600.webp 600w, /Images/Boost_Method.webp 800w"
+      sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 360px"
       alt="Logo del Método Boost con anillo dorado"
       loading="lazy"
       width="400"

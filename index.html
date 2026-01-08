@@ -30,8 +30,15 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
     </noscript>
     
-    <!-- Preload Critical Image (LCP) -->
-    <link rel="preload" as="image" href="/Images/Boost_home.webp" fetchPriority="high" />
+    <!-- Preload Critical Image (LCP) con variantes responsivas -->
+    <link
+      rel="preload"
+      as="image"
+      href="/Images/Boost_home-960.webp"
+      imagesrcset="/Images/Boost_home-576.webp 576w, /Images/Boost_home-640.webp 640w, /Images/Boost_home-960.webp 960w, /Images/Boost_home.webp 1440w"
+      imagesizes="(max-width: 768px) 85vw, (max-width: 1280px) 45vw, 640px"
+      fetchpriority="high"
+    />
     
     <title>Boost Studio | Agencia de Growth Digital para Escalar tu Negocio</title>
   </head>
