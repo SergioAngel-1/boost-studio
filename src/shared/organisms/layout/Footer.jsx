@@ -37,7 +37,15 @@ export const Footer = () => (
     >
       <div className="flex flex-col items-center gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 md:gap-3">
-          <img src={boostLogo} alt="Boost Studio - Agencia de Growth Marketing Digital en Colombia" className="h-10 w-auto object-contain md:h-12" />
+          <img 
+            src={boostLogo} 
+            alt="Boost Studio - Agencia de Growth Marketing Digital en Colombia" 
+            className="h-10 w-auto object-contain md:h-12"
+            width="120"
+            height="48"
+            loading="lazy"
+            decoding="async"
+          />
           <span className="text-xs font-extrabold uppercase tracking-[0.25em] md:text-sm md:tracking-[0.32em]">Encendemos el crecimiento</span>
         </div>
 

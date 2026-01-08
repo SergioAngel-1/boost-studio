@@ -30,7 +30,15 @@ export const HeroVisual = ({ src, alt }) => (
       <div className="pointer-events-none absolute -top-32 right-1/3 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(255,215,0,0.35),_transparent_70%)] blur-[100px]" aria-hidden="true" />
       
       {/* Image */}
-      <img src={src} alt={alt} className="h-full w-full object-contain opacity-60" loading="eager" />
+      <img 
+        src={src} 
+        alt={alt} 
+        className="h-full w-full object-contain opacity-60" 
+        loading="eager"
+        width="1200"
+        height="800"
+        decoding="async"
+      />
       
       {/* Gradient overlay */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />

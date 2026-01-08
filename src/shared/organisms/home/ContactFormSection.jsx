@@ -8,7 +8,7 @@ const WHATSAPP_NUMBER = '521234567890'
 
 export const ContactFormSection = () => (
   <section aria-labelledby="contact-heading" className="relative flex flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12">
-    <motion.p
+    <motion.h2
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
@@ -17,8 +17,8 @@ export const ContactFormSection = () => (
       style={{ color: '#cbd5e1' }}
     >
       Consultoría Gratuita
-    </motion.p>
-    <motion.h2
+    </motion.h2>
+    <motion.h3
       id="contact-heading"
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export const ContactFormSection = () => (
       className="max-w-4xl text-2xl font-semibold leading-tight !text-white md:text-4xl lg:text-5xl"
     >
       Agenda tu consultoría de growth marketing <span className="text-[#FFD700]">sin costo</span>
-    </motion.h2>
+    </motion.h3>
 
     <motion.div
       initial={{ opacity: 0, y: 40 }}

@@ -86,6 +86,8 @@ export const MethodCore = ({ className = '' }) => (
       src="/Images/Boost_Method.png"
       alt="Logo del Método Boost con anillo dorado"
       loading="lazy"
+      width="400"
+      height="400"
       decoding="async"
       className="relative h-full w-full rounded-full object-cover p-4"
     />

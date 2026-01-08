@@ -72,7 +72,7 @@ const DesktopMethodDetail = ({ stepNumber, title, description, index }) => (
     <span className="text-xs font-semibold uppercase tracking-[0.38em] text-[#FFD700]">
       {String(stepNumber).padStart(2, '0')}
     </span>
-    <h3 className="text-2xl font-semibold leading-tight text-white">{title}</h3>
+    <h4 className="text-2xl font-semibold leading-tight text-white">{title}</h4>
     <p className="text-sm leading-relaxed text-slate-200/90">{description}</p>
     <span className="pointer-events-none block h-[1px] w-full bg-gradient-to-r from-transparent via-[#FFD700]/45 to-transparent" />
     <p className="text-xs uppercase tracking-[0.28em] text-slate-300/70">
@@ -96,7 +96,7 @@ const MobileMethodDetail = ({ stepNumber, title, description, index }) => (
     <span className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-[#FFD700] md:text-[0.7rem] md:tracking-[0.32em]">
       {String(stepNumber).padStart(2, '0')}
     </span>
-    <h3 className="mt-3 text-base font-semibold text-white md:text-lg">{title}</h3>
+    <h4 className="mt-3 text-base font-semibold text-white md:text-lg">{title}</h4>
     <p className="mt-3 text-xs leading-relaxed text-slate-200/85 md:mt-4 md:text-sm">{description}</p>
   </motion.div>
 )
@@ -133,7 +133,7 @@ export const MethodSection = () => {
 
   return (
     <section aria-labelledby="method-heading" className="relative flex flex-col gap-8 px-4 py-12 md:gap-12 md:px-8 md:py-16 lg:px-12">
-      <motion.p
+      <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -142,8 +142,8 @@ export const MethodSection = () => {
         style={{ color: '#cbd5e1' }}
       >
         Metodología Boost
-      </motion.p>
-      <motion.h2
+      </motion.h2>
+      <motion.h3
         id="method-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ export const MethodSection = () => {
         className="max-w-4xl text-2xl font-semibold leading-tight !text-white md:text-4xl lg:text-5xl"
       >
         Nuestra metodología de consultoría growth para <span className="text-[#FFD700]">escalar</span> tu negocio digital
-      </motion.h2>
+      </motion.h3>
 
       <div className="relative flex flex-col gap-8 md:gap-12">
         <motion.div

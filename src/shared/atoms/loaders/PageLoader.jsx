@@ -27,6 +27,10 @@ export const PageLoader = () => (
             src="/Images/cropped-favicon-1.jpg" 
             alt="Boost Studio Logo" 
             className="h-full w-full object-cover"
+            width="80"
+            height="80"
+            loading="eager"
+            decoding="sync"
           />
         </div>
       </motion.div>

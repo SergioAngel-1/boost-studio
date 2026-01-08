@@ -48,7 +48,7 @@ export const ServiceCard = ({ service, alignment = 'left', onActivate }) => {
           <Icon aria-hidden="true" />
         </span>
       </div>
-      <h2 className="text-lg font-semibold text-white md:text-xl">{title}</h2>
+      <h3 className="text-lg font-semibold text-white md:text-xl">{title}</h3>
       <p className="text-xs leading-relaxed text-slate-300/90 md:text-sm">{description}</p>
       <span className={`pointer-events-none absolute top-1/2 hidden h-[3px] w-20 -translate-y-1/2 rounded-full shadow-[0_0_25px_rgba(255,215,0,0.45)] lg:block ${connectorClasses}`} aria-hidden="true" />
     </motion.article>

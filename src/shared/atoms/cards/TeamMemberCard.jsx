@@ -11,7 +11,15 @@ export const TeamMemberCard = ({ name, role, image, delay = 0, className = '' })
   >
     <div className="relative aspect-[4/3] w-full overflow-hidden">
       {image ? (
-        <img src={image} alt={name} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+        <img 
+          src={image} 
+          alt={name} 
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+          width="400"
+          height="300"
+          loading="lazy"
+          decoding="async"
+        />
       ) : (
         <div className="absolute inset-0 bg-[linear-gradient(135deg,_#1a1a1f,_#050507)] transition duration-300 group-hover:scale-105" />
       )}

@@ -36,7 +36,7 @@ const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C
 export const GrowthPathSection = () => (
   <section aria-labelledby="growth-path-heading" className="relative w-full overflow-hidden">
     <div className="px-4 pb-16 md:px-8 md:pb-20 lg:px-12">
-      <motion.p
+      <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -45,8 +45,8 @@ export const GrowthPathSection = () => (
         style={{ color: '#cbd5e1' }}
       >
         Capacidades de Crecimiento
-      </motion.p>
-      <motion.h2
+      </motion.h2>
+      <motion.h3
         id="growth-path-heading"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export const GrowthPathSection = () => (
         className="mt-4 max-w-4xl text-2xl font-semibold leading-tight !text-white md:mt-6 md:text-4xl lg:text-5xl"
       >
         Cómo nuestra agencia de growth marketing <span className="text-[#FFD700]">impulsa</span> tu negocio digital
-      </motion.h2>
+      </motion.h3>
       <motion.p
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
