@@ -8,9 +8,9 @@ export const SEO_CONFIG = {
   
   pages: {
     home: {
-      title: 'Boost Studio | Agencia de Growth Digital Data-Driven en México',
+      title: 'Boost Studio | Agencia de Growth Digital Data-Driven en Colombia',
       description: 'Agencia de Growth Digital especializada en estrategias data-driven para escalar negocios. Transformamos empresas mediante Growth Marketing, UX/UI, Performance Marketing y análisis de datos con enfoque en ROI y resultados medibles.',
-      keywords: 'agencia growth digital, growth marketing méxico, performance marketing, ux ui diseño, estrategias data driven, aumentar conversiones, escalar negocio, marketing digital, agencia digital méxico',
+      keywords: 'agencia growth digital, growth marketing colombia, performance marketing, ux ui diseño, estrategias data driven, aumentar conversiones, escalar negocio, marketing digital, agencia digital colombia',
       ogTitle: 'Boost Studio | Enciende tu Crecimiento Exponencial',
       ogDescription: 'Transformamos negocios con estrategias de growth data-driven. Especialistas en Growth Marketing, UX/UI y Performance Marketing para empresas que buscan escalar exponencialmente.',
       ogImage: '/Images/Boost_home.jpg',
@@ -43,7 +43,7 @@ export const SEO_CONFIG = {
     about: {
       title: 'Nosotros | El Motor de Crecimiento Injusto | Boost Studio',
       description: 'Conoce a Boost Studio, tu motor de crecimiento injusto. Agencia de Growth Digital especializada en estrategias data-driven con filosofía de obsesión por el ROI, anti-fragilidad y velocidad de ejecución.',
-      keywords: 'agencia growth digital méxico, equipo growth marketing, filosofía data driven, obsesión roi, velocidad ejecución, agencia marketing digital, consultora growth',
+      keywords: 'agencia growth digital colombia, equipo growth marketing, filosofía data driven, obsesión roi, velocidad ejecución, agencia marketing digital, consultora growth',
       ogTitle: 'Boost Studio | No Somos una Agencia, Somos tu Motor de Crecimiento',
       ogDescription: 'Agencia de Growth Digital con filosofía única: obsesión por el ROI, anti-fragilidad y velocidad de ejecución. Especialistas en estrategias data-driven.',
       ogImage: '/Images/Boost_Logo.jpg',

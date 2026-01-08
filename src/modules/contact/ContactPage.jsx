@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
-import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2'
+import { HiLocationMarker, HiMail, HiChatAlt2 } from 'react-icons/hi'
 import { HiArrowRight } from 'react-icons/hi'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
 import { SEO } from '../../shared/components/SEO'
@@ -173,10 +173,10 @@ export const ContactPage = () => {
                   <span>Ref-092</span>
                 </div>
                 <h1 id="contact-heading" className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
-                  Iniciar Protocolo de Crecimiento
+                  Solicita tu consultoría de marketing digital
                 </h1>
                 <p className="max-w-xl text-sm text-white md:text-base !text-white">
-                  Activa nuestra maquinaria de crecimiento. Cada campo es un parámetro de misión para calibrar tu siguiente salto.
+                  Completa el formulario y nuestro equipo de especialistas en growth marketing te contactará en menos de 48 horas con una propuesta personalizada.
                 </p>
               </div>
 
@@ -205,24 +205,24 @@ export const ContactPage = () => {
                 </div>
 
                 <FormField
-                  label="Email Corporativo"
+                  label="Email"
                   fieldId="F-03"
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="growth@empresa.com"
+                  placeholder="tu@email.com"
                   required
                 />
 
                 <FormField
-                  label="Sitio Web Actual"
+                  label="Sitio Web (Opcional)"
                   fieldId="F-04"
                   type="url"
                   name="website"
                   value={formData.website}
                   onChange={handleInputChange}
-                  placeholder="ejemplo.com"
+                  placeholder="tuempresa.com"
                   prefix={urlProtocol}
                   onPrefixChange={handleProtocolChange}
                 />
@@ -246,13 +246,13 @@ export const ContactPage = () => {
                 />
 
                 <FormField
-                  label="Detonante Principal"
+                  label="Cuéntanos sobre tu proyecto"
                   fieldId="F-06"
                   type="textarea"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="¿Cuál es el obstáculo #1 que te impide escalar hoy?"
+                  placeholder="¿Qué objetivos de crecimiento tienes para tu negocio?"
                   rows={4}
                   required
                 />
@@ -260,7 +260,7 @@ export const ContactPage = () => {
                 <div aria-live="polite" className="space-y-2 text-sm">
                   {error ? <p className="text-[#ff6b6b]">{error}</p> : null}
                   {status === 'success' ? (
-                    <p className="text-[#7bf59b]">Briefing recibido. Nuestro equipo te contactará en menos de 48h.</p>
+                    <p className="text-[#7bf59b]">¡Mensaje enviado! Te contactaremos en menos de 48 horas.</p>
                   ) : null}
                 </div>
 
@@ -300,7 +300,7 @@ export const ContactPage = () => {
                       status === 'loading' ? 'opacity-70 pointer-events-none' : ''
                     }`}
                   >
-                    {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
+                    {status === 'loading' ? 'Enviando...' : 'Enviar Solicitud'}
                   </AccentButton>
                 </button>
               </div>
@@ -315,37 +315,37 @@ export const ContactPage = () => {
             <div className="relative flex h-full flex-col justify-between space-y-8 md:space-y-12">
               <div className="space-y-6 md:space-y-10">
                 <div className="space-y-3 md:space-y-4">
-                  <p className="text-[0.65rem] font-mono uppercase tracking-[0.35em] text-slate-500 md:text-xs md:tracking-[0.45em]">Direct Channel</p>
+                  <p className="text-[0.65rem] font-mono uppercase tracking-[0.35em] text-slate-500 md:text-xs md:tracking-[0.45em]">Contacto Directo</p>
                   <h2 id="direct-line-heading" className="text-2xl font-semibold text-black md:text-3xl lg:text-4xl">
-                    Línea Directa
+                    Información de Contacto
                   </h2>
                   <p className="text-sm leading-relaxed text-slate-600 md:text-base">
-                    Hablamos de negocios, data y resultados en tiempo real. Conexiones directas, sin burocracia.
+                    Contáctanos directamente por cualquiera de nuestros canales. Estamos listos para ayudarte a hacer crecer tu negocio.
                   </p>
                 </div>
 
                 <div className="space-y-4 rounded-xl border border-black/20 bg-black/10 p-4 backdrop-blur-md md:space-y-6 md:rounded-2xl md:p-6" role="list" aria-label="Información de contacto">
                   <ContactInfoItem
-                    icon={HiMapPin}
+                    icon={HiLocationMarker}
                     iconHidden={true}
-                    title="HQ Titanium Tower"
-                    description="Piso 18 · Distrito Financiero · Ciudad de México"
+                    title="Colombia"
+                    description="Atención a clientes en toda Latinoamérica"
                     role="listitem"
                   />
                   <div className="h-px bg-black/20" aria-hidden="true" />
                   <ContactInfoItem
-                    icon={HiEnvelope}
+                    icon={HiMail}
                     iconHidden={true}
-                    title="growth@booststudio.com"
-                    description="Respuesta t-48h | Equipo Core Growth"
+                    title="info@growthbooststudio.com"
+                    description="Respuesta en menos de 48 horas"
                     role="listitem"
                   />
                   <div className="h-px bg-black/20" aria-hidden="true" />
                   <ContactInfoItem
-                    icon={HiPhone}
+                    icon={HiChatAlt2}
                     iconHidden={true}
-                    title="+1 (800) BOOST-UP"
-                    description="Horario operativo: 08:00 - 20:00 (EST)"
+                    title="WhatsApp"
+                    description="Envíanos un mensaje para atención inmediata"
                     role="listitem"
                   />
                 </div>
@@ -357,7 +357,7 @@ export const ContactPage = () => {
                     <span className="text-xs text-black/70 md:text-sm">promedio</span>
                   </div>
                   <p className="text-xs text-black/80 md:text-sm">
-                    Nuestro equipo de Growth revisa cada briefing personalmente y responde con un plan de acción inicial.
+                    Nuestro equipo de especialistas revisa cada solicitud personalmente y responde con una propuesta de estrategia digital.
                   </p>
                 </div>
               </div>
