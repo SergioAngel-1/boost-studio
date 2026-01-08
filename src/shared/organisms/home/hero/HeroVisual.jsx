@@ -46,7 +46,7 @@ export const HeroVisual = ({ src, alt }) => (
       
       {/* Methodology overlay */}
       <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left md:gap-3 md:p-8" role="complementary" aria-label="Metodología de crecimiento">
-        <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[#FFD700] md:text-xs md:tracking-[0.45em]">
+        <span className="hidden text-[0.6rem] uppercase tracking-[0.3em] text-[#FFD700] md:block md:text-xs md:tracking-[0.45em]">
           Metodología Boost
         </span>
         <p className="font-semibold text-white" style={{ fontSize: fluidSizing.heading.h3 }}>
