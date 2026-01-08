@@ -42,7 +42,7 @@ export const ContactFormSection = () => (
       <div className="relative grid gap-6 p-5 md:gap-8 md:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12 lg:p-12">
         <div className="space-y-4 md:space-y-6">
           <div className="flex items-center gap-2.5 md:gap-3">
-            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFD700] text-base-950 md:h-12 md:w-12" aria-label="Icono de conversación">
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFD700] text-base-950 md:h-12 md:w-12" aria-hidden="true">
               <HiChatBubbleLeftRight className="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
             </span>
             <div className="flex flex-col">
