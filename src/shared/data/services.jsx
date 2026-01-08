@@ -13,33 +13,33 @@ export const IconContent = () => <HiChatBubbleLeftRight className="h-8 w-8 text-
 export const HOME_SERVICES = [
   {
     id: '01',
-    title: 'Estrategia de Growth y Data',
+    title: 'Estrategia de Growth Marketing',
     description:
-      'Diseñar, estructurar, ejecutar y optimizar estrategias de crecimiento que conectan data, revenue y producto en iteraciones medibles.',
+      'Análisis de datos y estrategias de crecimiento digital para optimizar la adquisición de clientes y maximizar el retorno de inversión en marketing.',
     alignment: 'left',
     Icon: IconGrowth,
   },
   {
     id: '02',
-    title: 'Desarrollo y Optimización de Activos Digitales',
+    title: 'Diseño Web y Desarrollo Digital',
     description:
-      'Prestar servicios de diseño, rediseño, optimización y desarrollo de activos digitales que conviertan tráfico en crecimiento tangible.',
+      'Creación y optimización de sitios web, aplicaciones y productos digitales con enfoque en experiencia de usuario y conversión.',
     alignment: 'right',
     Icon: IconDigitalAssets,
   },
   {
     id: '03',
-    title: 'Captación de Demanda y Performance',
+    title: 'Publicidad Digital y SEO',
     description:
-      'Ejecutar estrategias de captación de demanda mediante SEO, paid media, partnerships y funnels de revenue orientados a performance.',
+      'Campañas de Google Ads, Facebook Ads y posicionamiento SEO para generar tráfico cualificado y leads de alta calidad.',
     alignment: 'left',
     Icon: IconDemand,
   },
   {
     id: '04',
-    title: 'Estrategia de Contenido y Marca',
+    title: 'Marketing de Contenidos',
     description:
-      'Crear, gestionar y optimizar estrategias de contenido que posicionen la marca, construyan comunidad y potencien la conversión.',
+      'Estrategia y creación de contenido optimizado para SEO, redes sociales y email marketing que posiciona tu marca y genera conversiones.',
     alignment: 'right',
     Icon: IconContent,
   },
@@ -50,12 +50,12 @@ export const SERVICES_ROADMAP = [
     id: '01',
     title: 'Growth Marketing & Data',
     description:
-      'Construimos loops de adquisición y activación con un stack de analítica vivo que revela palancas de crecimiento semanalmente.',
+      'Estrategias de marketing digital basadas en análisis de datos para identificar oportunidades de crecimiento y optimizar la adquisición de clientes.',
     alignment: 'left',
     details: [
-      'Implementamos dashboards operativos que combinan data first-party y signals de marketing en un mismo canvas de decisiones.',
-      'Priorizamos experimentos de alto impacto apoyados en modelos de atribución híbrida y cohortes de comportamiento.',
-      'Trabajamos con equipos internos para institucionalizar rituales de revisión y aprendizaje continuo.',
+      'Implementamos sistemas de analítica web y dashboards personalizados que integran datos de múltiples canales de marketing para tomar decisiones informadas.',
+      'Diseñamos y ejecutamos experimentos de growth marketing con pruebas A/B, optimización de embudos de conversión y análisis de cohortes de usuarios.',
+      'Capacitamos a tu equipo en metodologías de growth hacking y establecemos procesos de mejora continua basados en métricas clave de negocio.',
     ],
     Icon: IconGrowth,
   },
@@ -63,12 +63,12 @@ export const SERVICES_ROADMAP = [
     id: '02',
     title: 'Activos Digitales & UX/UI',
     description:
-      'Diseñamos y optimizamos productos, websites y flujos para convertir intención en revenue con experiencias cero fricción.',
+      'Diseño y desarrollo de sitios web, aplicaciones y productos digitales optimizados para conversión con experiencias de usuario excepcionales.',
     alignment: 'right',
     details: [
-      'Auditamos journeys críticos para detectar puntos de fuga y redefinir arquitecturas de información.',
-      'Construimos sistemas de diseño modulares que mejoran la velocidad de despliegue y la consistencia visual.',
-      'Integramos mediciones UX cuantitativas (NPS, CES) y cualitativas para priorizar roadmaps de producto.',
+      'Realizamos auditorías de experiencia de usuario (UX) para identificar fricciones en el recorrido del cliente y optimizar la arquitectura de información de tu sitio web.',
+      'Creamos sistemas de diseño escalables y componentes reutilizables que aceleran el desarrollo de productos digitales y garantizan consistencia visual.',
+      'Implementamos métricas de usabilidad (NPS, CES, mapas de calor) y pruebas con usuarios reales para validar decisiones de diseño y priorizar mejoras.',
     ],
     Icon: IconDigitalAssets,
   },
@@ -76,12 +76,12 @@ export const SERVICES_ROADMAP = [
     id: '03',
     title: 'Captación de Demanda',
     description:
-      'Orquestamos paid media, partnerships, SEO y funnels híbridos para amplificar demanda cualificada y reducir CAC.',
+      'Campañas de publicidad digital, SEO y estrategias multicanal para generar leads calificados y reducir el costo de adquisición de clientes.',
     alignment: 'left',
     details: [
-      'Diseñamos playbooks de adquisición multicanal con optimización de presupuestos en tiempo real.',
-      'Gestionamos acuerdos con aliados estratégicos y plataformas para ampliar el alcance con eficiencias de costo.',
-      'Implementamos automatizaciones de nurturing que aceleran la velocidad de cierre comercial.',
+      'Gestionamos campañas de Google Ads, Facebook Ads, LinkedIn Ads y otros canales de paid media con optimización continua del presupuesto y segmentación de audiencias.',
+      'Implementamos estrategias de SEO técnico y creación de contenido optimizado para posicionar tu negocio en los primeros resultados de búsqueda orgánica.',
+      'Desarrollamos embudos de conversión automatizados con email marketing, retargeting y nurturing de leads para maximizar las ventas.',
     ],
     Icon: IconDemand,
   },
@@ -89,12 +89,12 @@ export const SERVICES_ROADMAP = [
     id: '04',
     title: 'Content & Branding',
     description:
-      'Activamos estrategias de contenido y storytelling eléctrico que posicionan la marca, construyen comunidad y aceleran conversión.',
+      'Estrategia de contenido y gestión de marca para posicionar tu empresa, construir audiencia y generar confianza que impulse las conversiones.',
     alignment: 'right',
     details: [
-      'Definimos narrativas que conectan propósito, producto y propuesta de valor con mensajes consistentes.',
-      'Orquestamos calendarios editoriales multiformato con activaciones en medios propios, pagados y ganados.',
-      'Medimos brand lift, engagement y contribución a revenue para evolucionar continuamente los relatos.',
+      'Desarrollamos estrategias de marketing de contenidos alineadas con tu propuesta de valor, creando narrativas que conectan emocionalmente con tu audiencia objetivo.',
+      'Planificamos y ejecutamos calendarios editoriales con contenido optimizado para SEO, redes sociales, blog corporativo y campañas de email marketing.',
+      'Medimos el impacto del contenido en awareness de marca, engagement en redes sociales y contribución directa a la generación de leads y ventas.',
     ],
     Icon: IconContent,
   },

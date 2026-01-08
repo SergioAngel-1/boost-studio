@@ -96,9 +96,9 @@ export const ServicesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 md:text-xs md:tracking-[0.45em]"
+            className="text-[0.65rem] uppercase tracking-[0.35em] md:text-xs md:tracking-[0.45em]"
           >
-            Strategic Service Roadmap
+            Nuestros Servicios
           </motion.p>
           <motion.h1
             id="services-heading"
@@ -106,19 +106,19 @@ export const ServicesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl text-2xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl"
+            className="max-w-4xl text-2xl font-semibold leading-tight !text-white md:text-4xl lg:text-5xl"
           >
-            La línea estratégica que articula nuestras cuatro células de servicio.
+            Servicios de growth marketing para escalar tu negocio digital
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="max-w-3xl text-sm leading-relaxed text-slate-300/85 md:text-base"
+            className="max-w-3xl text-sm leading-relaxed md:text-base"
+            style={{ color: '#cbd5e1' }}
           >
-            Cada módulo se integra mediante un flujo continuo de data, creatividad y revenue que asegura impacto compuesto en cada
-            etapa del proyecto.
+            Cuatro áreas especializadas que trabajan de forma integrada: estrategia de datos, diseño de experiencias, captación de clientes y contenido estratégico para maximizar tu crecimiento.
           </motion.p>
         </header>
 
