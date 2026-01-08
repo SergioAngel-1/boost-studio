@@ -1,8 +1,14 @@
+import { useMemo } from 'react'
+import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useModal } from '../context/ModalContext'
 
 export const Modal = () => {
   const { isOpen, content, title, disableOutsideClick, closeModal } = useModal()
+  const portalTarget = useMemo(() => {
+    if (typeof document === 'undefined') return null
+    return document.body
+  }, [])
 
   const handleOverlayClick = () => {
     if (!disableOutsideClick) {
@@ -10,7 +16,11 @@ export const Modal = () => {
     }
   }
 
-  return (
+  if (!portalTarget) {
+    return null
+  }
+
+  const modalContent = (
     <AnimatePresence>
       {isOpen ? (
         <motion.div
@@ -72,4 +82,6 @@ export const Modal = () => {
       ) : null}
     </AnimatePresence>
   )
+
+  return createPortal(modalContent, portalTarget)
 }

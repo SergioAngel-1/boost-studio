@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useEffect } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 const ModalContext = createContext(undefined)
@@ -82,14 +82,17 @@ export const ModalProvider = ({ children }) => {
     return undefined
   }, [isOpen, disableOutsideClick, closeModal])
 
-  const value = {
-    isOpen,
-    content,
-    title,
-    disableOutsideClick,
-    openModal,
-    closeModal,
-  }
+  const value = useMemo(
+    () => ({
+      isOpen,
+      content,
+      title,
+      disableOutsideClick,
+      openModal,
+      closeModal,
+    }),
+    [isOpen, content, title, disableOutsideClick, openModal, closeModal]
+  )
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
 }
