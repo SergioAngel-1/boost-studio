@@ -16,7 +16,7 @@ export const AppLayout = () => {
       <ScrollToTop />
       <ImmersiveBackdrop />
       <Header />
-      <main aria-label="Contenido principal" className="relative mx-auto w-full max-w-full overflow-x-hidden">
+      <main id="main-content" role="main" aria-label="Contenido principal" className="relative mx-auto w-full max-w-full overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />
