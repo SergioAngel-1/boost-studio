@@ -9,7 +9,7 @@ const buildNodeLabel = (title = '', stepNumber = 1) => {
   return `${stepPrefix}. ${title.toUpperCase()}`
 }
 
-const StepNode = ({ stepNumber, title, isActive = false, onClick, index, totalSteps }) => {
+const StepNode = ({ stepNumber, title, isActive = false, onClick, onKeyDown, index }) => {
   const label = buildNodeLabel(title, stepNumber)
 
   return (
@@ -24,10 +24,7 @@ const StepNode = ({ stepNumber, title, isActive = false, onClick, index, totalSt
       aria-label={`Paso ${stepNumber}: ${title}`}
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.98 }}
-      onKeyDown={(e) => {
-        const handler = e.currentTarget.getAttribute('data-keyhandler')
-        if (handler) eval(handler)(e)
-      }}
+      onKeyDown={onKeyDown}
       className={`relative flex items-center rounded-full border px-4 py-2 text-left backdrop-blur-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40 sm:px-5 sm:py-2.5 ${
         isActive
           ? 'border-[#FFD700]/70 bg-[#FFD700]/15'
@@ -199,7 +196,6 @@ export const MethodSection = () => {
               isActive={activeStep === index}
               onClick={() => setActiveStep(index)}
               index={index}
-              totalSteps={HOME_METHOD_STEPS.length}
               onKeyDown={(e) => handleKeyDown(e, index)}
             />
           ))}
