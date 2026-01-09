@@ -79,4 +79,30 @@
     background: rgba(255, 215, 0, 0.4);
     background-clip: padding-box;
   }
+
+  /* Hide reCAPTCHA badge (disclaimer already shown in form) */
+  .grecaptcha-badge {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  /* Additional selectors for reCAPTCHA badge */
+  div.grecaptcha-badge {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  body .grecaptcha-badge {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  #root .grecaptcha-badge {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
 }

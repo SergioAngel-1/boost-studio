@@ -20,6 +20,9 @@ export const emailConfig = {
   
   // Public Key de EmailJS
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  
+  // reCAPTCHA v2 Site Key (requerido por EmailJS)
+  recaptchaSiteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
 }
 
 /**
@@ -27,10 +30,15 @@ export const emailConfig = {
  * @returns {boolean} - true si todas las credenciales están presentes
  */
 export const validateEmailConfig = () => {
-  const { serviceId, templateIdConfirmation, templateIdNotification, publicKey } = emailConfig
+  const { serviceId, templateIdConfirmation, templateIdNotification, publicKey, recaptchaSiteKey } = emailConfig
   
   if (!serviceId || !templateIdConfirmation || !templateIdNotification || !publicKey) {
     console.error('❌ EmailJS: Faltan variables de entorno. Revisa el archivo .env')
+    return false
+  }
+  
+  if (!recaptchaSiteKey) {
+    console.error('❌ EmailJS: VITE_RECAPTCHA_SITE_KEY no configurada. reCAPTCHA v2 es requerido.')
     return false
   }
   
