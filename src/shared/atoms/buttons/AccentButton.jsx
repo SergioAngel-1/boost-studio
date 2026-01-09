@@ -6,17 +6,24 @@ import { fluidSizing } from '../../utils/fluidSizing'
 
 const MotionLink = motion.create(Link)
 
-export const AccentButton = ({ children, href = '#', className = '', icon: Icon }) => {
+export const AccentButton = ({ children, href = '#', className = '', icon: Icon, onClick, target, rel }) => {
   const isInternalLink = href.startsWith('/')
   const location = useLocation()
   const { trackEvent } = useGTM()
 
-  const handleClick = () => {
+  const handleTracking = () => {
     trackEvent('cta_click', {
       cta_text: typeof children === 'string' ? children : 'CTA Button',
       cta_url: href,
       cta_location: location.pathname,
     })
+  }
+
+  const handleClick = (event) => {
+    handleTracking()
+    if (onClick) {
+      onClick(event)
+    }
   }
   
   const sharedProps = {
@@ -37,7 +44,7 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon 
 
   if (isInternalLink) {
     return (
-      <MotionLink to={href} {...sharedProps}>
+      <MotionLink to={href} {...sharedProps} target={target} rel={rel}>
         {children}
         {Icon ? <Icon className="h-3 w-3" /> : null}
       </MotionLink>
@@ -45,7 +52,7 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon 
   }
 
   return (
-    <motion.a href={href} {...sharedProps}>
+    <motion.a href={href} {...sharedProps} target={target} rel={rel}>
       {children}
       {Icon ? <Icon className="h-3 w-3" /> : null}
     </motion.a>
@@ -57,4 +64,7 @@ AccentButton.propTypes = {
   href: PropTypes.string,
   className: PropTypes.string,
   icon: PropTypes.elementType,
+  onClick: PropTypes.func,
+  target: PropTypes.string,
+  rel: PropTypes.string,
 }

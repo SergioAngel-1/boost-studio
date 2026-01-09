@@ -159,6 +159,9 @@ export const MobileMenu = ({ isOpen, onClose }) => {
               >
                 <AccentButton
                   href={EXTERNAL_LINKS.talkToBoost}
+                  onClick={onClose}
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-full justify-center px-5 py-3 text-xs tracking-[0.2em] shadow-glow"
                   aria-label="Hablar con Boost - Abre en nueva pestaña"
                 >

@@ -11,7 +11,7 @@ export const ROUTES = {
 
 export const EXTERNAL_LINKS = {
   whatsapp: 'https://wa.me/573209604146',
-  talkToBoost: '/contacto',
+  talkToBoost: 'https://wa.me/573209604146',
   linkedin: 'https://www.linkedin.com/company/growth-boost-studio/',
   x: 'https://x.com/GBoostStudio',
   instagram: 'https://www.instagram.com/growthbooststudio/',
