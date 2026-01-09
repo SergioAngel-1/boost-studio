@@ -287,22 +287,18 @@ export const ContactPage = () => {
                 </p>
 
                 {/* Botón de envío para mobile - solo visible en mobile */}
-                <button
+                <AccentButton
+                  as="button"
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full lg:hidden"
+                  icon={HiArrowRight}
+                  className={`w-full justify-center px-5 py-3.5 text-[0.65rem] tracking-[0.2em] lg:hidden ${
+                    status === 'loading' ? 'opacity-70 pointer-events-none' : ''
+                  }`}
                   aria-label={status === 'loading' ? 'Procesando formulario' : 'Enviar briefing'}
                 >
-                  <AccentButton
-                    href="#"
-                    icon={HiArrowRight}
-                    className={`w-full justify-center px-5 py-3.5 text-[0.65rem] tracking-[0.2em] ${
-                      status === 'loading' ? 'opacity-70 pointer-events-none' : ''
-                    }`}
-                  >
-                    {status === 'loading' ? 'Enviando...' : 'Enviar Solicitud'}
-                  </AccentButton>
-                </button>
+                  {status === 'loading' ? 'Enviando...' : 'Enviar Solicitud'}
+                </AccentButton>
               </div>
             </div>
           </div>
@@ -376,22 +372,18 @@ export const ContactPage = () => {
 
           {/* Botón de envío para desktop - solo visible en desktop */}
           <div className="hidden lg:col-span-2 lg:block">
-            <button
+            <AccentButton
+              as="button"
               type="submit"
               disabled={status === 'loading'}
-              className="w-full"
+              icon={HiArrowRight}
+              className={`w-full justify-center gap-3 rounded-none border-t border-white/5 py-6 text-sm tracking-[0.3em] ${
+                status === 'loading' ? 'opacity-70 pointer-events-none' : ''
+              }`}
               aria-label={status === 'loading' ? 'Procesando formulario' : 'Enviar briefing'}
             >
-              <AccentButton
-                href="#"
-                icon={HiArrowRight}
-                className={`w-full justify-center gap-3 rounded-none border-t border-white/5 py-6 text-sm tracking-[0.3em] ${
-                  status === 'loading' ? 'opacity-70 pointer-events-none' : ''
-                }`}
-              >
-                {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
-              </AccentButton>
-            </button>
+              {status === 'loading' ? 'Procesando...' : 'Enviar Briefing'}
+            </AccentButton>
           </div>
         </form>
       </motion.div>

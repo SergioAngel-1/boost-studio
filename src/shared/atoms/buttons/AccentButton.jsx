@@ -5,16 +5,30 @@ import { useGTM } from '../../hooks/useGTM'
 import { fluidSizing } from '../../utils/fluidSizing'
 
 const MotionLink = motion.create(Link)
+const MotionButton = motion.button
 
-export const AccentButton = ({ children, href = '#', className = '', icon: Icon, onClick, target, rel }) => {
-  const isInternalLink = href.startsWith('/')
+export const AccentButton = ({
+  children,
+  href = '#',
+  className = '',
+  icon: Icon,
+  onClick,
+  target,
+  rel,
+  as = 'link',
+  type = 'button',
+  disabled = false,
+  ...rest
+}) => {
+  const isButton = as === 'button'
+  const isInternalLink = !isButton && href.startsWith('/')
   const location = useLocation()
   const { trackEvent } = useGTM()
 
   const handleTracking = () => {
     trackEvent('cta_click', {
       cta_text: typeof children === 'string' ? children : 'CTA Button',
-      cta_url: href,
+      cta_url: isButton ? 'button_action' : href,
       cta_location: location.pathname,
     })
   }
@@ -42,9 +56,23 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon,
     },
   }
 
+  if (isButton) {
+    return (
+      <MotionButton
+        type={type}
+        disabled={disabled}
+        {...sharedProps}
+        {...rest}
+      >
+        {children}
+        {Icon ? <Icon className="h-3 w-3" /> : null}
+      </MotionButton>
+    )
+  }
+
   if (isInternalLink) {
     return (
-      <MotionLink to={href} {...sharedProps} target={target} rel={rel}>
+      <MotionLink to={href} {...sharedProps} target={target} rel={rel} {...rest}>
         {children}
         {Icon ? <Icon className="h-3 w-3" /> : null}
       </MotionLink>
@@ -52,7 +80,7 @@ export const AccentButton = ({ children, href = '#', className = '', icon: Icon,
   }
 
   return (
-    <motion.a href={href} {...sharedProps} target={target} rel={rel}>
+    <motion.a href={href} {...sharedProps} target={target} rel={rel} {...rest}>
       {children}
       {Icon ? <Icon className="h-3 w-3" /> : null}
     </motion.a>
@@ -67,4 +95,7 @@ AccentButton.propTypes = {
   onClick: PropTypes.func,
   target: PropTypes.string,
   rel: PropTypes.string,
+  as: PropTypes.oneOf(['link', 'button']),
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
 }
