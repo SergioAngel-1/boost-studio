@@ -7,7 +7,7 @@ export const HamburgerButton = ({ isOpen, onClick }) => (
     onClick={onClick}
     aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
     aria-expanded={isOpen}
-    className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:border-[#FFD700]/60 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 md:hidden"
+    className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors duration-200 hover:border-[#FFD700]/60 hover:bg-[#FFD700]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]/70 lg:hidden"
   >
     <div className="flex h-5 w-5 flex-col items-center justify-center gap-1">
       <motion.span

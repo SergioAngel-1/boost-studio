@@ -49,7 +49,7 @@ export const Header = () => {
           <Logo />
         </div>
 
-        <div className="relative hidden flex-1 items-center justify-center overflow-visible md:flex" style={{ paddingBottom: '24px' }}>
+        <div className="relative hidden flex-1 items-center justify-center overflow-visible lg:flex" style={{ paddingBottom: '24px' }}>
           <nav role="navigation" aria-label="Navegación principal" className="relative z-20 flex items-center gap-7">
             <LayoutGroup id="nav-highlight">
               {NAV_ITEMS.map((item, index) => (
@@ -78,7 +78,7 @@ export const Header = () => {
             href={EXTERNAL_LINKS.talkToBoost}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden border border-[#FFD700]/40 px-7 py-3 shadow-glow md:inline-flex"
+            className="hidden border border-[#FFD700]/40 px-7 py-3 shadow-glow lg:inline-flex"
             aria-label="Hablar con Boost - Abre en nueva pestaña"
           >
             Hablar con Boost
@@ -88,7 +88,7 @@ export const Header = () => {
             href={EXTERNAL_LINKS.talkToBoost}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-[#FFD700]/40 px-5 py-2.5 text-sm shadow-glow md:hidden"
+            className="border border-[#FFD700]/40 px-5 py-2.5 text-sm shadow-glow lg:hidden"
             aria-label="Contacto - Hablar con Boost"
           >
             Contacto
