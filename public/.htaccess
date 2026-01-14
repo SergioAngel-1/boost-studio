@@ -40,8 +40,8 @@
 # 3. SECURITY HEADERS
 # ============================================
 <IfModule mod_headers.c>
-  # Prevenir clickjacking
-  Header always set X-Frame-Options "SAMEORIGIN"
+  # Prevenir clickjacking - Permitir iframe desde portfolio
+  Header always set Content-Security-Policy "frame-ancestors 'self' https://portfolio.sergioja.com"
   
   # XSS Protection
   Header always set X-XSS-Protection "1; mode=block"
