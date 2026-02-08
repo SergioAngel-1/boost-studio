@@ -14,6 +14,13 @@ export const CookieConsent = () => {
   const { openModal, closeModal } = useModal()
 
   useEffect(() => {
+    const isIframe = window !== window.parent
+
+    if (isIframe) {
+      if (!hasDecision()) saveConsent(false)
+      return
+    }
+
     if (!hasDecision()) {
       const timer = setTimeout(() => {
         openModal(
