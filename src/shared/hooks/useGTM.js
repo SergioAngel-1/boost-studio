@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { pushToDataLayer } from '../../config/gtm'
+import { pushToDataLayer } from '../../utils/analytics'
 
 export const useGTM = () => {
   const location = useLocation()

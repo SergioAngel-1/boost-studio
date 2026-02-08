@@ -24,9 +24,28 @@ export const CookieConsent = () => {
       }, 500)
       return () => clearTimeout(timer)
     }
-  }, [openModal, closeModal])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openModal])
 
   return null
+}
+
+/**
+ * Hook para abrir el modal de cookies desde cualquier componente
+ * Permite al usuario cambiar su decisión de consentimiento (GDPR)
+ */
+export const useCookieConsentModal = () => {
+  const { openModal, closeModal } = useModal()
+
+  const openCookieSettings = () => {
+    openModal(
+      <CookieConsentContent onClose={closeModal} />,
+      null,
+      { disableOutsideClick: false }
+    )
+  }
+
+  return { openCookieSettings }
 }
 
 const CookieConsentContent = ({ onClose }) => {
@@ -42,7 +61,7 @@ const CookieConsentContent = ({ onClose }) => {
 
   return (
     <div className="relative">
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {/* Header con icono */}
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#FFD700]/60 bg-[#FFD700]/10 md:h-20 md:w-20">
@@ -56,10 +75,12 @@ const CookieConsentContent = ({ onClose }) => {
         {/* Descripción */}
         <div className="space-y-4 text-center">
           <p className="text-sm leading-relaxed !text-slate-300/90 md:text-base">
-            Utilizamos <strong className="!text-white">Google Analytics</strong> para medir eventos específicos y mejorar tu experiencia en nuestro sitio. No recopilamos datos de ubicación ni información personal identificable más allá de lo necesario para el análisis de uso.
+            <span className="md:hidden">Usamos <strong className="!text-white">Google Analytics</strong> para mejorar tu experiencia. No recopilamos datos personales identificables.</span>
+            <span className="hidden md:inline">Utilizamos <strong className="!text-white">Google Analytics</strong> para medir eventos específicos y mejorar tu experiencia en nuestro sitio. No recopilamos datos de ubicación ni información personal identificable más allá de lo necesario para el análisis de uso.</span>
           </p>
           <p className="text-xs leading-relaxed !text-slate-400 md:text-sm">
-            Puedes rechazar las cookies analíticas y seguir navegando normalmente. Solo se almacenarán cookies esenciales para el funcionamiento del sitio.
+            <span className="md:hidden">Puedes rechazar las analíticas y navegar normalmente.</span>
+            <span className="hidden md:inline">Puedes rechazar las cookies analíticas y seguir navegando normalmente. Solo se almacenarán cookies esenciales para el funcionamiento del sitio.</span>
           </p>
         </div>
 
@@ -71,11 +92,11 @@ const CookieConsentContent = ({ onClose }) => {
           <ul className="space-y-2 text-xs !text-slate-300/85 md:text-sm">
             <li className="flex items-start gap-2">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD700]" aria-hidden="true" />
-              <span><strong className="!text-white">Esenciales:</strong> Necesarias para el funcionamiento básico (siempre activas)</span>
+              <span><strong className="!text-white">Esenciales:</strong> <span className="md:hidden">Siempre activas</span><span className="hidden md:inline">Necesarias para el funcionamiento básico (siempre activas)</span></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD700]" aria-hidden="true" />
-              <span><strong className="!text-white">Analíticas:</strong> Google Analytics para medir eventos y mejorar el sitio (requiere tu consentimiento)</span>
+              <span><strong className="!text-white">Analíticas:</strong> <span className="md:hidden">Google Analytics (requiere consentimiento)</span><span className="hidden md:inline">Google Analytics para medir eventos y mejorar el sitio (requiere tu consentimiento)</span></span>
             </li>
           </ul>
         </div>
@@ -89,7 +110,7 @@ const CookieConsentContent = ({ onClose }) => {
         >
           <button
             onClick={handleReject}
-            className="flex-1 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] !text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-base"
+            className="flex-1 rounded-full border-2 border-white/20 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] !text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:px-6 md:py-3 md:text-base"
             aria-label="Rechazar cookies analíticas - Solo cookies esenciales"
             style={{
               WebkitTapHighlightColor: 'transparent',
@@ -100,7 +121,7 @@ const CookieConsentContent = ({ onClose }) => {
           </button>
           <button
             onClick={handleAccept}
-            className="flex-1 rounded-full bg-[#FFD700] px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] !text-black transition-all duration-300 hover:bg-[#FFD700]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-base"
+            className="flex-1 rounded-full bg-[#FFD700] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] !text-black transition-all duration-300 hover:bg-[#FFD700]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black md:px-6 md:py-3 md:text-base"
             aria-label="Aceptar todas las cookies"
             style={{
               WebkitTapHighlightColor: 'transparent',

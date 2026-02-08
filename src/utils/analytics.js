@@ -31,8 +31,25 @@ const startTracking = async () => {
   if (typeof window === 'undefined') return
 
   try {
+    // Limpiar flag de deshabilitación (si el usuario rechazó antes y ahora acepta)
+    if (GTM_ID) {
+      delete window[`ga-disable-${GTM_ID}`]
+    }
+
     await loadGTM()
     await ensureWebVitals()
+
+    // Enviar pageview inicial para la página actual (el useGTM ya disparó antes del consent)
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'pageview',
+        page: {
+          path: window.location.pathname,
+          title: document.title,
+          url: window.location.href,
+        },
+      })
+    }
   } catch (error) {
     console.error('[Analytics] ❌ Error iniciando el tracking', error)
   }
@@ -111,13 +128,15 @@ export const loadGTM = () => {
 }
 
 /**
- * Elimina todas las cookies de Google Analytics
+ * Elimina todas las cookies de Google Analytics y limpia GTM del DOM
  * Se ejecuta cuando el usuario rechaza cookies
  */
 export const removeAnalytics = () => {
-  console.log('[Analytics] Eliminando cookies de Google Analytics...')
+  if (typeof window === 'undefined') return
 
-  // Lista de cookies de GA4 y GTM a eliminar
+  console.log('[Analytics] Eliminando cookies y scripts de tracking...')
+
+  // 1. Eliminar cookies de GA4 y GTM
   const cookiePatterns = [
     '_ga',
     '_gid',
@@ -127,17 +146,13 @@ export const removeAnalytics = () => {
     '_gac_',
   ]
 
-  // Obtener todas las cookies
   const cookies = document.cookie.split(';')
 
   cookies.forEach((cookie) => {
     const cookieName = cookie.split('=')[0].trim()
-
-    // Verificar si coincide con algún patrón de GA
     const shouldDelete = cookiePatterns.some((pattern) => cookieName.startsWith(pattern))
 
     if (shouldDelete) {
-      // Eliminar cookie en todos los dominios y paths posibles
       const domains = [window.location.hostname, `.${window.location.hostname}`]
       const paths = ['/', '']
 
@@ -147,24 +162,32 @@ export const removeAnalytics = () => {
           document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}`
         })
       })
-
-      console.log(`[Analytics] Cookie eliminada: ${cookieName}`)
     }
   })
 
-  // GTM maneja la deshabilitación de GA4 automáticamente
-
-  // Limpiar dataLayer
-  if (window.dataLayer) {
-    window.dataLayer = []
-    console.log('[Analytics] dataLayer limpiado')
+  // 2. Deshabilitar GA4 a nivel de window (previene tracking residual)
+  if (GTM_ID) {
+    window[`ga-disable-${GTM_ID}`] = true
   }
 
-  // Marcar que GTM no está cargado
+  // 3. Eliminar script de GTM del <head>
+  const gtmScripts = document.querySelectorAll(`script[src*="googletagmanager.com/gtm.js"]`)
+  gtmScripts.forEach((script) => script.remove())
+
+  // 4. Eliminar noscript iframe de GTM del <body>
+  const gtmNoscripts = document.querySelectorAll('noscript[data-gtm="true"]')
+  gtmNoscripts.forEach((noscript) => noscript.remove())
+
+  // 5. Limpiar dataLayer sin reasignar la referencia (GTM mantiene ref interna)
+  if (window.dataLayer) {
+    window.dataLayer.length = 0
+  }
+
+  // 6. Resetear estado interno
   window.gtmLoaded = false
   gtmLoadPromise = null
 
-  console.log('[Analytics] ✅ Cookies eliminadas y tracking deshabilitado')
+  console.log('[Analytics] ✅ Scripts eliminados, cookies limpiadas, tracking deshabilitado')
 }
 
 /**
@@ -197,4 +220,16 @@ export const resetConsent = () => {
   localStorage.removeItem('boost-cookie-consent')
   removeAnalytics()
   console.log('[Analytics] Consentimiento reseteado')
+}
+
+/**
+ * Push seguro al dataLayer — solo si hay consentimiento activo y GTM cargado
+ * Todos los hooks/utils deben usar esta función en lugar de pushear directamente
+ */
+export const pushToDataLayer = (event) => {
+  if (typeof window === 'undefined') return
+  if (!hasConsent()) return
+  if (!window.dataLayer) return
+
+  window.dataLayer.push(event)
 }

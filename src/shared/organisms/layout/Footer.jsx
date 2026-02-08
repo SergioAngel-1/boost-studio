@@ -2,9 +2,8 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaWhatsapp, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6'
 import { ROUTES, EXTERNAL_LINKS } from '../../../core/routes'
-const FOOTER_LOGO_DEFAULT = '/Images/Boost_Logo_Negro-200.webp'
-const FOOTER_LOGO_SRCSET =
-  '/Images/Boost_Logo_Negro-120.webp 120w, /Images/Boost_Logo_Negro-200.webp 200w, /Images/Boost_Logo_Negro-320.webp 320w'
+import { useCookieConsentModal } from '../../components/CookieConsent'
+const FOOTER_LOGO = '/Images/Boost_Logo_Invertido.webp'
 
 const socialLinks = [
   {
@@ -29,7 +28,10 @@ const socialLinks = [
   },
 ]
 
-export const Footer = () => (
+export const Footer = () => {
+  const { openCookieSettings } = useCookieConsentModal()
+
+  return (
   <footer className="relative mt-16 flex justify-center bg-transparent px-4 pb-12 text-black md:mt-24 md:px-8 md:pb-16 lg:mt-32">
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -41,9 +43,7 @@ export const Footer = () => (
       <div className="flex flex-col items-center gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 md:gap-3">
           <img 
-            src={FOOTER_LOGO_DEFAULT} 
-            srcSet={FOOTER_LOGO_SRCSET}
-            sizes="(max-width: 768px) 120px, 180px"
+            src={FOOTER_LOGO}
             alt="Boost Studio - Agencia de Growth Marketing Digital en Colombia" 
             className="h-10 w-auto object-contain md:h-12"
             width="180"
@@ -105,6 +105,15 @@ export const Footer = () => (
           >
             Términos
           </Link>
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-black/40" />
+          <button
+            type="button"
+            onClick={openCookieSettings}
+            className="uppercase transition-colors hover:text-black/80"
+            aria-label="Gestionar preferencias de cookies"
+          >
+            Cookies
+          </button>
         </div>
       </div>
 
@@ -113,4 +122,5 @@ export const Footer = () => (
       </div>
     </motion.div>
   </footer>
-)
+  )
+}

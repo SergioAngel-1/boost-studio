@@ -155,7 +155,7 @@ export const ContactPage = () => {
           <form 
             onSubmit={handleSubmit} 
             aria-label="Formulario de contacto para iniciar protocolo de crecimiento" 
-            className="overflow-hidden rounded-2xl bg-neutral-900 shadow-[0_0_60px_rgba(255,215,0,0.08)] md:rounded-3xl lg:grid lg:grid-cols-2 lg:rounded-[4rem]"
+            className="overflow-hidden rounded-2xl bg-neutral-900 md:rounded-3xl lg:grid lg:grid-cols-2 lg:rounded-[4rem]"
           >
             <ContactFormSection
               formData={formData}

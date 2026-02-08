@@ -34,7 +34,7 @@ const mobileLineVariants = {
 const pathD = 'M0 240 C 200 120, 360 120, 533 240 C 706 360, 893 360, 1066 240 C 1240 120, 1400 120, 1600 240'
 
 export const GrowthPathSection = () => (
-  <section aria-labelledby="growth-path-heading" className="relative w-full overflow-hidden">
+  <section aria-labelledby="growth-path-heading" className="relative w-full">
     <div className="px-4 pb-16 md:px-8 md:pb-20 lg:px-12">
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
@@ -69,12 +69,21 @@ export const GrowthPathSection = () => (
     </div>
 
     {/* Desktop Version - Full bleed SVG */}
-    <div className="relative hidden w-full lg:block" style={{ height: '360px' }}>
-      <svg viewBox="0 0 1600 360" preserveAspectRatio="none" className="h-full w-full" aria-hidden="true" role="presentation">
+    <div className="relative hidden w-full overflow-visible lg:block" style={{ height: '360px' }}>
+      <svg viewBox="-20 80 1640 280" preserveAspectRatio="xMidYMid meet" className="h-full w-full overflow-visible" aria-hidden="true" role="presentation">
+        <defs>
+          <filter id="glow-line" x="-10%" y="-30%" width="120%" height="160%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
         <motion.path
           d={pathD}
           stroke="#FFD700"
-          strokeWidth="6"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="transparent"
@@ -82,9 +91,7 @@ export const GrowthPathSection = () => (
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          style={{
-            filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.3))'
-          }}
+          filter="url(#glow-line)"
         />
       </svg>
 

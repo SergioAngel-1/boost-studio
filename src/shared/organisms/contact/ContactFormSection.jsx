@@ -20,8 +20,8 @@ export const ContactFormSection = ({
   return (
     <div className="relative overflow-hidden bg-zinc-950 p-5 md:p-8 lg:p-16">
       {/* Background decorations */}
-      <div className="pointer-events-none absolute -top-36 -left-28 h-72 w-72 rounded-full bg-[#FFD700]/5 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-60px] h-80 w-80 rounded-full bg-[#FFD700]/5 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-36 -left-28 h-40 w-40 rounded-full bg-[#FFD700]/[0.02] blur-3xl md:h-72 md:w-72 md:bg-[#FFD700]/5" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-60px] h-44 w-44 rounded-full bg-[#FFD700]/[0.02] blur-3xl md:h-80 md:w-80 md:bg-[#FFD700]/5" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-10 top-10 hidden h-12 w-12 border-l border-t border-[#FFD700]/35 md:block" />
         <div className="absolute right-10 top-10 hidden h-12 w-12 border-r border-t border-[#FFD700]/35 md:block" />

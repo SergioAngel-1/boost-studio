@@ -1,5 +1,5 @@
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals'
-import { pushToDataLayer } from '../../config/gtm'
+import { pushToDataLayer } from '../../utils/analytics'
 
 const sendToGTM = ({ name, delta, value, id, rating }) => {
   pushToDataLayer({
